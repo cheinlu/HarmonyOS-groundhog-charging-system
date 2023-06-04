@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/my/my",
+    "pages/home/home"
+  ],
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+        "charge/charge",
+        "register/register",
+        "chargeOrder/chargeOrder"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "土拨鼠充电",
+    "navigationBarBackgroundColor": "#0aa671",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "selectedColor": "#0aa671",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "充电",
+        "iconPath": "static/tab_icons/home.png",
+        "selectedIconPath": "static/tab_icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/tab_icons/my.png",
+        "selectedIconPath": "static/tab_icons/my-active.png"
+      }
+    ]
+  },
+  "permissions": {
+    "scope.userLocation": {
+      "desc": "使用定位功能"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {}
+}
