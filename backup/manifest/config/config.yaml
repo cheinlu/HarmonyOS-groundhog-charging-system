@@ -1,0 +1,27 @@
+server:
+  address:     ":8000"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+
+logger:
+  level : "all"
+  stdout: true
+
+# 巡检结果存储数据库
+database:
+  default:
+    link:   "sqlite::@file(manifest/db/user.db)"
+    debug:  true
+
+wechat:
+  appId: wx974ca7be50e0f1cd
+  appSecret: 0bc5f75f20de94a624f823b08d9fdc9b
+  
+# 管理员初始化管理员账号和密码，只有第一次有效
+admin:
+  username: admin
+  password: admin
+
+# 登录 token 存活时间，单位分钟
+tokenAliveTime: 120
+

@@ -1,0 +1,10 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  gen:
+    dao:
+    - link:     "sqlite::@file(manifest/db/user.db)"
+      tables:   "user,station,pile,charge_order,charge_price,pay_record,user_wallet,wx_user"
+      jsonCase: "CamelLower"
+    
