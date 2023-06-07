@@ -25,7 +25,7 @@
 
 <img src="md_img/wechat-mp.png" alt="My Image" width="300" height="300">
 
-## 目录说明
+## 源码目录
 
 ```
 front-manager: 前端管理台
