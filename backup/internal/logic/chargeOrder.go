@@ -215,7 +215,16 @@ func DeductUserBalance(ctx context.Context, userId int, amount float64) error {
 	userWalletFind := &entity.UserWallet{}
 	err := dao.UserWallet.Ctx(ctx).Where("user_id=?", userId).Scan(userWalletFind)
 	if err != nil {
-		return gerror.NewCode(gcode.New(1, "未找到用户金额信息", err.Error()))
+		userWallet := do.UserWallet{
+			UserId:   userId,
+			Balance:  0,
+			CreateAt: gtime.Now(),
+			UpdateAt: gtime.Now(),
+		}
+		_, err = dao.UserWallet.Ctx(ctx).Insert(userWallet)
+		if err != nil {
+			return gerror.NewCode(gcode.New(1, "未找到用户金额信息", err.Error()))
+		}
 	}
 	userWalletFind.Balance = userWalletFind.Balance - amount
 	_, err = dao.UserWallet.Ctx(ctx).Update(userWalletFind, "user_id=?", userWalletFind.UserId)
