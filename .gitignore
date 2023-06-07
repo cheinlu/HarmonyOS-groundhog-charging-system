@@ -18,3 +18,5 @@ main
 output/
 manifest/output/
 temp/
+node_modules/
+dist/
