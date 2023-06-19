@@ -38,7 +38,7 @@
         {
           "name": "",
           "pathName": "pages/charge/charge",
-          "query": "id=4",
+          "query": "",
           "launchMode": "default",
           "scene": null
         },
@@ -48,9 +48,23 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpkg/chargeOrder/chargeOrder",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpkg/register/register",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
   },
-  "libVersion": "2.27.3"
+  "libVersion": "2.25.4"
 }

@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="order-content">
     <!-- 无充电记录 -->
     <view class="record-rect" v-if="chargeOrderList.length === 0">
     			<view class="record">
@@ -10,7 +10,7 @@
     		</view>
     <!-- 有充电记录 -->
     <view v-else >
-    <scroll-view scroll-y="true" :enable-back-to-top="true" :refresher-enabled="true" @refresh="onRefresh" @scrolltolower="loadMore">
+    <scroll-view scroll-y="true" @scrolltolower="loadMore" style="height: 100vh;">
       <view class="list-rect-item" v-for="item in chargeOrderList" :key="item.id">
         <view class="list-item">
           <view class="list-item-title">{{ item.orderCode }}</view>
@@ -46,10 +46,8 @@ export default {
       chargeOrderList: [],
       // 列表总数
       total: 0,
-      chargeQury: {
-        pageNo: 1,
-        pageSize: 10
-      }
+      pageNo: 1,
+      pageSize: 10
     }
   },
   onLoad() {
@@ -69,43 +67,27 @@ export default {
     },
     //获取充电订单列表
     async getChargeOrderList() {
-      let { data: res } = await requestChargeOrders()
+      let {pageNo,pageSize} = this
+      let { data: res } = await requestChargeOrders(pageNo,pageSize)
       if (res.code == 0) {
-        this.chargeOrderList = res.data.List
-        this.chargeQury.pageNo = res.data.PageNo
-        this.chargeQury.pageSize = res.data.PageSize
+        this.chargeOrderList = this.chargeOrderList.concat(res.data.List)
+        this.pageNo = res.data.PageNo
+        this.pageSize = res.data.PageSize
         this.total = res.data.TotalCount
       }
     },
-    //下拉刷新
-    async onRefresh() {
-      const pageNo = this.chargeQury.pageNo + 1
-      const pageSize = this.chargeQury.pageSize
-      const { data: res } = await requestChargeOrders({ pageNo, pageSize })
-      if (res.code === 0 && res.data.List.length > 0) {
-        // 将新获取的数据插入到原有数据的最前面
-        this.chargeOrderList = res.data.List.concat(this.chargeOrderList)
-      } else {
-        console.log('已经全部加载完成')
-      }
-    },
+   
     //上拉加载更多
-    async loadMore() {
-      console.log('上拉加载更多')
-      if (this.chargeOrderList.length >= this.total) {
-        console.log('已经全部加载完成')
-        return
-      }
-      const pageNo = this.chargeQury.pageNo + 1
-      const pageSize = this.chargeQury.pageSize
-      const { data: res } = await requestChargeOrders({ pageNo, pageSize })
-      if (res.code === 0 && res.data.List.length > 0) {
-        // 将新获取的数据合并到原有数据列表中
-        this.chargeOrderList = [...this.chargeOrderList, ...res.data.List]
-        this.chargeQury.pageNo = res.data.PageNo
-      } else {
-        console.log('已经全部加载完成')
-      }
+    loadMore(){
+      // 利用Math.ceil算出新的分页
+     let totalPage = Math.ceil((this.total)/(this.pageSize))
+     if(this.pageNo>=totalPage){
+       uni.$showMsg('已经到最底部了')
+       return false
+     }else{
+       this.pageNo++
+       this.getChargeOrderList()
+     }
     },
     //停止充电
     async stopCharge(item) {
@@ -114,10 +96,9 @@ export default {
       console.log('res', res)
       if (res.code == 0) {
         item.state = 1
-        uni.showToast({
-          icon: 'none',
-          title: '已停止充电'
-        })
+        uni.$showMsg('已停止充电')
+      }else{
+        uni.$showMsg(res.message)
       }
     }
   }
@@ -125,6 +106,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .order-content{
+    height: 100vh;
+    background: #f4f6f4;
 .record-rect{
   height: 100vh;
   background: #f4f6f4;
@@ -146,13 +130,14 @@ export default {
 				margin: 33rpx;
 			}
       .anonymous-order{
-        font-size: 20rpx;
+        font-size: 25rpx;
       }
 		}
 	}
 .list-rect-item {
   padding: 30rpx;
   background: #f4f6f4;
+  
   .list-item {
     padding: 30rpx;
     background: #fbfbfb;
@@ -187,5 +172,6 @@ export default {
       }
     }
   }
+}
 }
 </style>

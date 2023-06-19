@@ -6,16 +6,18 @@
     </view>
     <view class="form-group">
       <text class="label">验证码</text>
-      <input type="number" class="input" maxlength="6" v-model="verificationCode" placeholder="请输入验证码"/>
+      <input type="number" class="input" maxlength="6" v-model="verificationCode" placeholder="请输入验证码" :disabled="codeInputDisabled" />
       <button class="btn-verification-code" @click="sendVerificationCode" :disabled="disableBtn">{{btnText}}</button>
     </view>
-    <button class="btn-submit" @click="handleSubmit">注册</button>
+      <button v-if="submitDisabled" class="btn-submit disabled">注册</button>
+      <button v-else class="btn-submit" @click="handleSubmit">注册</button>
     <p style="color: red;">备注：手机号可以随意填写，并不会真的发验证码，验证码只能输 666666</p>
   </view>
 </template>
 
 <script>
-  import {requestVerificationCode,requestRegister} from '@/utils/api/user.js'
+import { mapMutations } from 'vuex'
+import {requestVerificationCode,requestRegister} from '@/utils/api/user.js'
 export default {
   name: 'register',
   data() {
@@ -26,15 +28,17 @@ export default {
       disableBtn: false,
       submitDisabled: true,
       countdown: 5,
+      codeInputDisabled:true,
       //获取用户信息
       userInfo:{
-        nickname:'',
+        nickName:'',
         avatarUrl:'',
         gender:''
       },
     }
   },
   methods: {
+    ...mapMutations('m_user', ['updateUserInfo', 'updateToken']),
     //效验手机号格式
     handleInput() {
       // 校验手机号格式，如果正确则启用发送验证码按钮
@@ -49,21 +53,22 @@ export default {
     sendVerificationCode() {
       //如果手机号为空时，获取验证码按钮点击无效，并提示输入手机号
       if(this.phoneNumber == ''){
-        uni.showToast({
-          icon:'none',
-          title:'请输入手机号'
-        })
+        uni.$showMsg('请输入手机号')
         this.disableBtn = false
       }else{
         // 输入手机号后，发送验证码
         this.btnText = `${this.countdown}s 后重新获取`
         this.disableBtn = true
+        this.codeInputDisabled = false //使验证码输入框变为可输入状态
+        this.submitDisabled = false
         const timer = setInterval(() => {
           if (this.countdown <= 1) {
             clearInterval(timer)
             this.btnText = '重新获取'
             this.countdown = 5
             this.disableBtn = false
+            this.codeInputDisabled = false //使验证码输入框变为可输入状态
+            
           } else {
             this.countdown--
             this.btnText = `${this.countdown}s 后重新获取`
@@ -76,10 +81,7 @@ export default {
           }
         }).then(res=>{
           if(res.data.code==0){
-            uni.showToast({
-              icon:'success',
-              title:'验证码'
-            })
+            uni.$showMsg('验证码获取成功')
           }
         })
       }
@@ -88,13 +90,16 @@ export default {
     handleSubmit() {
       let that = this
       //如果手机号与验证码为空时，则返回false
-      if(that.phoneNumber==''&&that.verificationCode==''){
+      if(that.phoneNumber==''&&that.verificationCode!== '666666'){
+        uni.$showMsg('请输入手机号和验证码')
         return false
       }else{
         //获取用户信息
       uni.getUserProfile({
         desc:'用户信息',
         success(res) {
+          //存储用户信息
+          that.updateUserInfo(res.userInfo)
           that.userInfo = res.userInfo,
           uni.login({
             provider:'weixin',
@@ -105,7 +110,7 @@ export default {
                 code:regisCode,
                 phone:that.phoneNumber,
                 verifyCode:that.verificationCode,
-                nickname:that.userInfo.nickname,
+                nickname:that.userInfo.nickName,
                 avatarUrl:that.userInfo.avatarUrl,
                 gender:that.userInfo.gender
               }
@@ -113,18 +118,20 @@ export default {
               requestRegister(params).then(res=>{
                 console.log('res',res);
                 if(res.data.code==0){
-                  uni.showToast({
-                     icon:'none',
-                     title:'注册成功'
-                   });
-                   //存储用户信息
-                   uni.setStorageSync('userInfo',that.userInfo)
+                  //存储token
+                  that.updateToken(res.data.data.token)
+                   uni.$showMsg('注册成功')
                   //跳转至首页
                   uni.switchTab({
                     url:'/pages/my/my'
                   })
+                }else{
+                   uni.$showMsg(res.data.message)
                 }
-              })
+              }).catch(err => {
+                console.error(err)
+                uni.$showMsg('服务器出错，请稍后再试')
+                })
             }
           })
         }
@@ -176,7 +183,7 @@ export default {
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-  font-size: 25rpx;
+  font-size: 30rpx;
   color: #fff;
   background-color: #0aa671;
   border: none;

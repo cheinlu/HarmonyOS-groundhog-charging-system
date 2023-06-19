@@ -25,43 +25,47 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.record-rect.data-v-d3613c20 {
+.order-content.data-v-d3613c20 {
   height: 100vh;
   background: #f4f6f4;
 }
-.record-rect .record.data-v-d3613c20 {
+.order-content .record-rect.data-v-d3613c20 {
+  height: 100vh;
+  background: #f4f6f4;
+}
+.order-content .record-rect .record.data-v-d3613c20 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #3D3D3D;
 }
-.record-rect .record .empty-img.data-v-d3613c20 {
+.order-content .record-rect .record .empty-img.data-v-d3613c20 {
   margin-top: 300rpx;
   width: 300rpx;
   height: 300rpx;
 }
-.record-rect .record .anonymous.data-v-d3613c20 {
+.order-content .record-rect .record .anonymous.data-v-d3613c20 {
   font-size: 30rpx;
   font-family: Source Han Sans CN-Regular, Source Han Sans CN;
   font-weight: 700;
   margin: 33rpx;
 }
-.record-rect .record .anonymous-order.data-v-d3613c20 {
-  font-size: 20rpx;
+.order-content .record-rect .record .anonymous-order.data-v-d3613c20 {
+  font-size: 25rpx;
 }
-.list-rect-item.data-v-d3613c20 {
+.order-content .list-rect-item.data-v-d3613c20 {
   padding: 30rpx;
   background: #f4f6f4;
 }
-.list-rect-item .list-item.data-v-d3613c20 {
+.order-content .list-rect-item .list-item.data-v-d3613c20 {
   padding: 30rpx;
   background: #fbfbfb;
   box-shadow: 0px 0px 10rpx -4rpx rgba(0, 0, 0, 0.3);
   border-radius: 25rpx;
   position: relative;
 }
-.list-rect-item .list-item .list-item-title.data-v-d3613c20 {
+.order-content .list-rect-item .list-item .list-item-title.data-v-d3613c20 {
   width: 260rpx;
   height: 69rpx;
   font-size: 23rpx;
@@ -74,18 +78,18 @@
   top: 0;
   right: 0;
 }
-.list-rect-item .list-item .list-item-info.data-v-d3613c20 {
+.order-content .list-rect-item .list-item .list-item-info.data-v-d3613c20 {
   font-weight: 400;
   width: 100%;
   font-size: 29rpx;
   font-family: Source Han Sans CN-Regular, Source Han Sans CN;
 }
-.list-rect-item .list-item .list-item-info .item-top.data-v-d3613c20 {
+.order-content .list-rect-item .list-item .list-item-info .item-top.data-v-d3613c20 {
   color: #0aa671;
   font-weight: bold;
   margin-bottom: 15rpx;
 }
-.list-rect-item .list-item .list-item-info .item-bottom.data-v-d3613c20 {
+.order-content .list-rect-item .list-item .list-item-info .item-bottom.data-v-d3613c20 {
   margin-bottom: 15rpx;
 }
 

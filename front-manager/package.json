@@ -11,6 +11,7 @@
     "@amap/amap-jsapi-loader": "^1.0.1",
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
+    "echarts": "^4.9.0",
     "element-ui": "^2.15.13",
     "jwt-decode": "^3.1.2",
     "less": "^4.1.3",
@@ -20,6 +21,7 @@
     "vue": "^2.6.14",
     "vue-baidu-map": "^0.21.22",
     "vue-router": "^3.6.5",
+    "vue-the-mask": "^0.11.1",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

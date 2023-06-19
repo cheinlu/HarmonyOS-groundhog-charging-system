@@ -21,12 +21,6 @@
                 <span>监控大盘</span>
               </template>
             </el-menu-item>
-            <el-menu-item :index="'/home/test'">
-              <template slot="title">
-                <i class="el-icon-s-operation"></i>
-                <span>测试</span>
-              </template>
-            </el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">

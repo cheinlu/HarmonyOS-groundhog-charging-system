@@ -60,7 +60,7 @@
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-  font-size: 25rpx;
+  font-size: 30rpx;
   color: #fff;
   background-color: #0aa671;
   border: none;

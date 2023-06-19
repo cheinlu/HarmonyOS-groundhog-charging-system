@@ -102,7 +102,7 @@ export default {
         //当前页
         pageNo: 1,
         //当前页展示的条数
-        pageSize: 5
+        pageSize: 10
       },
       //总条数
       total: 0,

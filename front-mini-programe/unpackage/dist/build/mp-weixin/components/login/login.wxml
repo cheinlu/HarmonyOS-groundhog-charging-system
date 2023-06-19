@@ -1,1 +1,1 @@
-<view class="login-container"><image class="logo" src="{{$root.m0}}"></image><button class="btn-login" type="primary" data-event-opts="{{[['tap',[['getUserInfo',['$event']]]]]}}" bindtap="__e">微信用户快捷登录</button><view class="tips-text">登录后尽享更多权益</view></view>
+<view class="login-container"><image class="logo" src="{{$root.m0}}"></image><button class="btn-login" type="primary" data-event-opts="{{[['tap',[['getAccessToken',['$event']]]]]}}" bindtap="__e">微信用户快捷登录</button><view class="tips-text">登录后尽享更多权益</view></view>

@@ -1,12 +1,12 @@
 <template>
   <view class="my-user-info">
     <view class="top-box">
-      <image :src="userInfo.avatarUrl" class="avatar-img"></image>
-      <view class="nickname">{{ userInfo.nickName }}</view>
+      <image :src="avatarUrl" class="avatar-img"></image>
+      <view class="nickname">{{ nickname }}</view>
     </view>
     <!-- 面板区域 -->
     <view class=".panel-list">
-      <!-- 第一个面板 -->
+      <!-- 第一个面板 --> 
       <view class="panel">
         <!-- panel 的主体区域 -->
         <view class="panel-top">
@@ -26,43 +26,42 @@
             <image :src="require('./static/order.png')" class="icon"></image>
             <text>充电订单</text>
           </navigator>
-          <view class="panel-item">
+          <view class="panel-item" @click="developing">
             <image :src="require('./static/service.png')" class="icon"></image>
             <text>客服中心</text>
           </view>
         </view>
       </view>
       <!-- 第三个面板 -->
-      <view class="panel">
+      <view class="panel" >
         <view class="panel-body2">
           <!-- 面板item项 -->
-          <view class="panel-item2">
+          <view class="panel-item2" @click="developing">
             <image :src="require('./static/person.png')" class="icon2"></image>
             <text>个人信息</text>
           </view>
           <!-- 面板item项 -->
-          <view class="panel-item2">
+          <view class="panel-item2" @click="developing">
             <image :src="require('./static/feat.png')" class="icon2"></image>
             <text>我要合作</text>
           </view>
           <!-- 面板item项 -->
-          <view class="panel-item2">
+          <view class="panel-item2" @click="developing">
             <image :src="require('./static/rule.png')" class="icon2"></image>
             <text>规则中心</text>
           </view>
           <!-- 面板item项 -->
-          <view class="panel-item2">
+          <view class="panel-item2" @click="developing">
             <image :src="require('./static/certification.png')" class="icon2"></image>
             <text>平台资质</text>
           </view>
           <!-- 面板item项 -->
-          <view class="panel-item2">
+          <view class="panel-item2" @click="developing">
             <image :src="require('./static/agreement.png')" class="icon2"></image>
             <text>用户协议</text>
           </view>
           <!-- 面板item项 -->
-          <view class="panel-item2">
-            <!-- :src="require('./statics/more.png')" -->
+          <view class="panel-item2" @click="developing">
             <image :src="require('./static/message.png')" class="icon2"></image>
             <text>消息通知</text>
           </view>
@@ -86,7 +85,10 @@ export default {
   name: 'userInfo',
   data() {
     return {
-      balance: null||0
+      //余额
+      balance: null||0,
+      nickname:'',
+      avatarUrl:''
     }
   },
   computed: {
@@ -118,12 +120,24 @@ export default {
       try {
         let that = this
         let { data: res } = await requestUserInfo()
+        console.log('res',res);
         if (res.code == 0) {
           that.balance = res.data.balance
+          that.nickname = res.data.nickname
+          that.avatarUrl = res.data.avatarUrl
+        }else{
+         uni.$showMsg(res.message)
+         uni.navigateTo({
+           url: '/subpkg/register/register'
+         })
         }
       } catch (error) {
         console.log(error)
       }
+    },
+    developing(){
+      //未开发的功能提示正在开发中
+      uni.$showMsg('正在开发中......')
     }
   }
 }

@@ -3,7 +3,7 @@
     <!-- 图标 -->
      <image :src="require('./static/Groundhog.jpg')" class="logo"></image>
     <!-- 登录按钮 -->
-    <button type="primary" class="btn-login" @click="getUserInfo">微信用户快捷登录</button>
+    <button type="primary" class="btn-login" @click="getAccessToken">微信用户快捷登录</button>
     <!-- 登录提示 -->
     <view class="tips-text">登录后尽享更多权益</view>
   </view>
@@ -19,19 +19,8 @@ export default {
   },
   methods: {
     ...mapMutations('m_user', ['updateUserInfo', 'updateToken']),
-    //获取用户信息并登录
-    getUserInfo() {
-      let that = this
-      uni.getUserProfile({
-        desc: '获取用户信息',
-        success(res) {
-          that.updateUserInfo(res.userInfo)
-          that.getAccessToken(res)
-        }
-      })
-    },
     //获取token
-    getAccessToken(userInfo) {
+    getAccessToken() {
       let that = this
       uni.login({
         provider: 'weixin',
@@ -52,7 +41,7 @@ export default {
     gotoRegister() {
       uni.showModal({
         title: '提示',
-        content: '需要进行手机验证获得验证码',
+        content: '请注册用户',
         success: function (res) {
           if (res.confirm) {
             uni.navigateTo({

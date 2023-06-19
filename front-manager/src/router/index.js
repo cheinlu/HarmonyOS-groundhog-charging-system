@@ -11,16 +11,15 @@ const router = new VueRouter({
     {
       path: '/home',
       component: () => import('@/views/Home'),
-      redirect: '/home/welcome',
+      redirect: '/home/dashboard',
       children: [
-        { path: 'welcome', component: () => import('@/views/welcome') },
         { path: 'charge', component: () => import('@/views/charges/Charge') },
         { path: 'pile', component: () => import('@/views/charges/Pile') },
         { path: 'chargeOrder', component: () => import('@/views/orders/ChargeOrder') },
         { path: 'userList', component: () => import('@/views/users/UserList') },
         { path: 'record', component: () => import('@/views/users/Record') },
         { path: 'priceList', component: () => import('@/views/price/priceList') },
-        { path: 'test', component: () => import('@/views/test') }
+        { path: 'dashboard', component: () => import('@/views/dashboard') }
       ]
     }
   ]

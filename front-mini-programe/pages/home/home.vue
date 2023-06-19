@@ -4,7 +4,9 @@
     <view class="search-box">
       <uni-search-bar @input="handleInput" :radius="100" cancelButton="none"></uni-search-bar>
     </view>
-    <scroll-view scroll-y="true" :style="{ height: windowHeight + 'px' }">
+    <scroll-view scroll-y="true" :style="{ height: windowHeight + 'px' }" @scrolltolower="loadNextPage" :scroll-top="scrollTop"
+@scrolltoupper="refreshData"
+ref="scrollView">
       <view class="scroll-item" v-for="station in stationList" :key="station.id">
         <view class="pile-rect" @click="handleClickPile(station)">
           <view class="pile-title">{{ station.name }}</view>
@@ -52,7 +54,8 @@
               </uni-td>
               <uni-td align="center">
                 <navigator :url="'../../subpkg/charge/charge?id=' + pile.id + '&code=' + pile.code + '&pricePerHour=' + pricePerHour">
-                  <button class="uni-button" size="mini" type="primary">充电</button>
+                  <button v-if="pile.state == 0" class="uni-button" size="mini" type="primary">充电</button>
+                  <button v-else class="uni-button" size="mini" type="primary" disabled>充电</button>
                 </navigator>
               </uni-td>
             </uni-tr>
@@ -69,6 +72,7 @@ export default {
   name: 'home',
   data() {
     return {
+      scrollTop:0,
       //延时器的timerId
       timer: null,
       //输入的关键字
@@ -85,25 +89,20 @@ export default {
       stationInfo: {
         name: '',
         address: '',
-        pageNo: 1,
-        pageSize: 10,
         coordinate: ''
       },
       //站点列表
       stationList: [],
-      // 充电桩信息
-      pileInfo: {
-        // 每页数据量
-        pageSize: 10,
-        // 当前页
-        pageCurrent: 1
-      },
+      // 每页数据量
+      pageSize: 10,
+      // 当前页
+      pageNo: 1,
       // 数据总量
       total: 0,
       //充电桩列表数据
       pileList: [],
       // 是否正在加载充电桩信息
-      isLoadingPile: false
+      isLoadingPile: false,
     }
   },
   onLoad() {
@@ -116,25 +115,62 @@ export default {
   },
   methods: {
     //搜索站点
-    handleInput(e) {
-      //清除timer对应的定时器
-      clearTimeout(this.timer)
-      //重启一个延时器，并把timerid赋值给this.timer
-      this.timer = setTimeout(() => {
-        //如果600毫秒内，没有触发新的事件，则为关键词赋值
-        this.kw = e
-        //根据关键词，查询搜索建议列表
-        this.getStationList({ params: { name: this.kw } })
-      }, 600)
-    },
-    //获取充电站列表数据
-    async getStationList(params) {
-      let that = this
-      let { data: res } = await requestStations(params)
-      if (res.code == 0) {
-        that.stationList = res.data.List
+    handleInput(keyword) {
+      if (this.kw !== keyword) {
+        this.kw = keyword
+        //清除timer对应的定时器
+        clearTimeout(this.timer)
+        //重启一个延时器，并把timerid赋值给this.timer
+        this.timer = setTimeout(() => {
+          //根据关键词，查询搜索建议列表
+          this.getStationList({ params: { name: this.kw } })
+        }, 600)
       }
     },
+    // 封装获取充电站列表数据的方法
+    getStationList() {
+      let that = this;
+      // 获取当前位置
+      uni.getLocation({
+        type: 'wgs84',
+        timeout: 10000, // 设置10秒超时
+        success: function (res) {
+          that.stationInfo.coordinate = res.longitude + ',' + res.latitude;
+          that.requestStations().then();
+        },
+        fail: function (err) {
+          that.requestStations().then();
+          uni.$showMsg('获取当前位置失败');
+        }
+      });
+    },
+    
+    // 封装请求获取充电站数据的方法
+    requestStations() {
+      let that = this;
+      return new Promise((resolve, reject) => {
+        let params = {
+          name: that.kw,
+          address: that.stationInfo.address,
+          pageNo: that.pageNo,
+          pageSize: that.pageSize,
+          coordinate: that.stationInfo.coordinate
+        };
+    
+        requestStations(params).then((res) => {
+          if (res.data.code == 0) {
+            that.stationList = that.stationList.concat(res.data.data.List);
+            that.pageNo = res.data.data.PageNo;
+            that.pageSize = res.data.data.PageSize;
+            that.total = res.data.data.TotalCount;
+            resolve(res.data);
+          } else {
+            reject(res.data);
+          }
+        });
+      });
+    },
+
     //点击每个充电站的回调
     handleClickPile(station) {
       let that = this
@@ -161,17 +197,37 @@ export default {
     //弹窗关闭定义
     closePopup() {
       this.isShowPopup = false
-      // console.log('close');
     },
     //充电桩列表数据
     async getPileList() {
-      let { data: res } = await requestPiles(this.currentStationId)
-      if (res.code == 0) {
-        this.pileList = res.data.List
-        this.pileInfo.pageSize = res.data.PageSize
-        this.pileInfo.pageCurrent = res.data.PageNo
-        this.total = res.data.TotalCount
+      try {
+        let { data: res } = await requestPiles(this.currentStationId)
+        if (res.code == 0) {
+          this.pileList = res.data.List
+          this.pageSize = res.data.PageSize
+          this.pageNo = res.data.PageNo
+          this.total = res.data.TotalCount
+        }
+      } catch (err) {
+        console.log(err)
       }
+    },
+    //滚动到底部，加载下一页充电站数据
+    loadNextPage(){
+      // 利用Math.ceil算出新的分页
+      let totalPage = Math.ceil((this.total) / this.pageSize)
+      if(this.pageNo>=totalPage){
+        uni.$showMsg('已经到最底部了')
+        return false
+      }else{
+        this.pageNo++
+        this.getStationList()
+      }
+    },
+    refreshData(){
+      this.scrollTop = 0
+      this.stationList = []
+      this.getStationList()
     }
   }
 }

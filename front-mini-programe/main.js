@@ -8,6 +8,15 @@ import store from './store/index.js'
 // 引入请求封装，将app参数传递到配置中
 require('@/utils/request.js')(app)
 
+// 封装弹框的方法
+uni.$showMsg = function(title = '数据请求失败！', duration = 1500) {
+  uni.showToast({
+    title,
+    duration,
+    icon: 'none'
+  })
+}
+
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false

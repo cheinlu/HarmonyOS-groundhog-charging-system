@@ -54,9 +54,9 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "permissions" : {
+        "permission" : {
             "scope.userLocation" : {
-                "desc" : "使用定位功能"
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
             }
         },
         "requiredPrivateInfos" : [ "getLocation" ],

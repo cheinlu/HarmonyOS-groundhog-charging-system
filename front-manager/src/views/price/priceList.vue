@@ -49,7 +49,7 @@
           <el-input v-model.number="priceForm.endHour" placeholder="请输入充值金额"></el-input>
         </el-form-item>
         <el-form-item label="价格" prop="price">
-          <el-input v-model.number="priceForm.price" placeholder="请输入充值金额"></el-input>
+          <el-input type="number" v-model.number="priceForm.price" placeholder="请输入充值金额" step="0.01"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -66,20 +66,16 @@ export default {
   data() {
     //自定义验证规则
     var validateStart = (rule, value, callback) => {
-      if (!value) {
+      if (typeof value === 'undefined' || value === null || value === '') {
         return callback(new Error('开始时间不能为空'))
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error('请输入数字值,且不能与列表重复'))
-        } else {
-          if (value > 24 || value < 0) {
-            callback(new Error('必须在0-24之间'))
-          } else {
-            callback()
-          }
-        }
-      }, 1000)
+      if (!Number.isInteger(value)) {
+        callback(new Error('请输入整数数字'))
+      } else if (value < 0 || value > 24) {
+        callback(new Error('请输入0-24之间的数字'))
+      } else {
+        callback()
+      }
     }
     var validateEndHour = (rule, value, callback) => {
       if (!value) {
@@ -102,8 +98,8 @@ export default {
         return callback(new Error('价格不能为空'))
       }
       setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error('请输入价格'))
+        if (isNaN(value)) {
+          callback(new Error('请输入数值'))
         } else {
           if (value < 0) {
             callback(new Error('价格必须大于0'))
@@ -128,7 +124,7 @@ export default {
       dialogFormVisible: false,
       //展示的表单数据
       priceForm: {
-        startHour: null,
+        startHour: '',
         endHour: null,
         price: null
       },

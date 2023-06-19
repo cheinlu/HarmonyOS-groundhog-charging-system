@@ -96,11 +96,36 @@ class Calendar {
 	getPreMonthDays(amount, dateObj) {
 		const result = []
 		for (let i = amount - 1; i >= 0; i--) {
-      const month = dateObj.month - 1
+      const month = dateObj.month > 1 ? dateObj.month -1 : 12
+			const year = month === 12 ? dateObj.year - 1 : dateObj.year
+			const date = new Date(year,month,-i).getDate()
+			const fullDate = `${year}-${addZero(month)}-${addZero(date)}`
+			let multiples = this.multipleStatus.data
+			let multiplesStatus = -1
+			if (this.range && multiples) {
+			  multiplesStatus = multiples.findIndex((item) => {
+			    return this.dateEqual(item, fullDate)
+			  })
+			}
+			const checked = multiplesStatus !== -1
+			// 获取打点信息
+			const extraInfo = this.selected && this.selected.find((item) => {
+				if (this.dateEqual(fullDate, item.date)) {
+					return item
+				}
+			})
 			result.push({
-				date: new Date(dateObj.year, month, -i).getDate(),
+				fullDate,
+				year,
 				month,
-				disable: true
+				date,
+				multiple: this.range ? checked : false,
+				beforeMultiple: this.isLogicBefore(fullDate, this.multipleStatus.before, this.multipleStatus.after),
+				afterMultiple: this.isLogicAfter(fullDate, this.multipleStatus.before, this.multipleStatus.after),
+				disable: (this.startDate && !dateCompare(this.startDate, fullDate)) || (this.endDate && !dateCompare(fullDate,this.endDate)),
+				isToday: fullDate === this.date.fullDate,
+				userChecked: false,
+				extraInfo
 			})
 		}
 		return result
@@ -115,7 +140,7 @@ class Calendar {
 			const currentDate = `${dateObj.year}-${dateObj.month}-${addZero(i)}`
 			const isToday = fullDate === currentDate
 			// 获取打点信息
-			const info = this.selected && this.selected.find((item) => {
+			const extraInfo = this.selected && this.selected.find((item) => {
 				if (this.dateEqual(currentDate, item.date)) {
 					return item
 				}
@@ -144,15 +169,15 @@ class Calendar {
 			result.push({
 				fullDate: currentDate,
 				year: dateObj.year,
+				month: dateObj.month,
 				date: i,
 				multiple: this.range ? checked : false,
 				beforeMultiple: this.isLogicBefore(currentDate, this.multipleStatus.before, this.multipleStatus.after),
 				afterMultiple: this.isLogicAfter(currentDate, this.multipleStatus.before, this.multipleStatus.after),
-				month: dateObj.month,
 				disable: (this.startDate && !dateCompare(this.startDate, currentDate)) || (this.endDate && !dateCompare(currentDate,this.endDate)),
 				isToday,
 				userChecked: false,
-        extraInfo: info
+        extraInfo
 			})
 		}
 		return result
@@ -164,10 +189,35 @@ class Calendar {
 		const result = []
     const month = dateObj.month + 1
 		for (let i = 1; i <= amount; i++) {
+			const month = dateObj.month === 12 ? 1 : dateObj.month*1 + 1
+			const year = month === 1 ? dateObj.year + 1 : dateObj.year
+			const fullDate = `${year}-${addZero(month)}-${addZero(i)}`
+			let multiples = this.multipleStatus.data
+			let multiplesStatus = -1
+			if (this.range && multiples) {
+			  multiplesStatus = multiples.findIndex((item) => {
+			    return this.dateEqual(item, fullDate)
+			  })
+			}
+			const checked = multiplesStatus !== -1
+			// 获取打点信息
+			const extraInfo = this.selected && this.selected.find((item) => {
+				if (this.dateEqual(fullDate, item.date)) {
+					return item
+				}
+			})
 			result.push({
+				fullDate,
+				year,
 				date: i,
 				month,
-				disable: true
+				multiple: this.range ? checked : false,
+				beforeMultiple: this.isLogicBefore(fullDate, this.multipleStatus.before, this.multipleStatus.after),
+				afterMultiple: this.isLogicAfter(fullDate, this.multipleStatus.before, this.multipleStatus.after),
+				disable: (this.startDate && !dateCompare(this.startDate, fullDate)) || (this.endDate && !dateCompare(fullDate,this.endDate)),
+				isToday: fullDate === this.date.fullDate,
+				userChecked: false,
+				extraInfo
 			})
 		}
 		return result
