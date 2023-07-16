@@ -2,7 +2,8 @@ import store from '@/store/index.js'
 module.exports = () => {
   // 初始化请求配置
   uni.$u.http.setConfig(config => {
-    config.baseURL = 'https://7483f88q46.goho.co' /* 根域名 */
+    // config.baseURL = 'https://7483f88q46.goho.co' /* 根域名 */
+    config.baseURL = 'http://127.0.0.1:8000/' /* 根域名 */
     return config
   })
 
