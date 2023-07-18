@@ -46,9 +46,7 @@ let $router = useRouter()
 //获取路由对象
 let $route = useRoute()
 //刷新按钮点击回调
-let updateRefsh = () => {
-  console.log(111);
-  
+let updateRefsh = () => { 
   LayOutSettingStore.refsh = !LayOutSettingStore.refsh
 }
 //全屏按钮点击的回调

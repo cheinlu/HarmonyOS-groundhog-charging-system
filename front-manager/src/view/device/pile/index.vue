@@ -13,7 +13,7 @@
     </el-form>
   </el-card>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addPile">添加充电桩</el-button>
+    <el-button type="primary" size="default" @click="addPile" v-has="'ChargePileAdd'">添加充电桩</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="pileArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
@@ -39,10 +39,10 @@
       </el-table-column>
       <el-table-column label="操作"  align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updatePile(row)">编辑</el-button>
-          <el-popconfirm :title="`你确定要删除编号为${row.code}的${row.stationName}?`" width="300px" @confirm="deleteUser(row.id)">
+          <el-button type="primary" size="small" icon="Edit" @click="updatePile(row)" v-has="'ChargePileUpdate'">编辑</el-button>
+          <el-popconfirm :title="`你确定要删除编号为${row.code}的${row.stationName}?`" width="300px" @confirm="deleteUser(row.id)" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'ChargePileDel'">删除</el-button>
             </template>
           </el-popconfirm>
         </template>

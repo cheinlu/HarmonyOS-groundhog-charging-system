@@ -11,7 +11,7 @@
     </el-form>
   </el-card>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addUser">添加用户</el-button>
+    <el-button type="primary" size="default" @click="addUser" v-has="'UserAdd'">添加用户</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="userArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
@@ -33,10 +33,10 @@
       </el-table-column>
       <el-table-column label="操作" width="200px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateUser(row)">编辑</el-button>
-          <el-popconfirm :title="`你确定要删除${row.username}?`" width="260px" @confirm="deleteUser(row.id)">
+          <el-button type="primary" size="small" icon="Edit" @click="updateUser(row)" v-has="'UserUpdate'">编辑</el-button>
+          <el-popconfirm :title="`你确定要删除${row.username}?`" width="260px" @confirm="deleteUser(row.id)" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'UserDel'">删除</el-button>
             </template>
           </el-popconfirm>
         </template>

@@ -17,8 +17,6 @@ import gloablComponent from '@/components/index'
 import '@/styles/index.scss'
 //引入仓库
 import pinia from './store'
-//引入路由鉴权文件
-import './permisstion'
 //引入七牛
 import * as qiniu from 'qiniu-js';
 //引入百度地图
@@ -38,7 +36,8 @@ app.use(ElementPlus, {
 app.config.globalProperties.$qiniu = qiniu;
 //注册模板路由
 app.use(router)
-
+//引入路由鉴权文件
+import './permisstion'
 app.mount('#app')
 //安装自定义插件
 app.use(gloablComponent)

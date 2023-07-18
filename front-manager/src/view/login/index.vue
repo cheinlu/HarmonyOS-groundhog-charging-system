@@ -14,7 +14,7 @@
         </h1>
         <h2>欢迎来到土拨鼠充电平台</h2>
         <el-form-item label="选择租户">
-          <el-select v-model="selectedTenantId" @click="teSelect" placeholder="请选择租户">
+          <el-select v-model="selectedTenantId" @click="teSelect" @change="getSelectedTenantName" placeholder="请选择租户">
             <el-option v-for="item in useStore.teArr" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
@@ -52,14 +52,27 @@ let $route = useRoute()
 let loginForms = ref()
 //保存下拉框选择的租户id
 let selectedTenantId = ref('')
+//存储选中租户的名字
+let selectedTenantName = ref('')
 //点击下拉框，通知仓库获取租户信息
 let teSelect = () => {
   useStore.tenantSelect()
+}
+//根据选中的id获取租户的名字
+let getSelectedTenantName = ()=>{
+ let selectedTenant = useStore.teArr.find((item:any)=>item.id==selectedTenantId.value)
+ console.log('selectedTenant',selectedTenant);
+ if(selectedTenant){
+  selectedTenantName.value = selectedTenant.name
+ }
+ 
 }
 //登录按钮的回调函数
 let login = async () => {
    // 保存选中的租户id到仓库
    useStore.setTenantId(selectedTenantId.value)
+   //保存选中的租户名字到仓库
+   useStore.setTenantName(selectedTenantName.value)
   await loginForms.value.validate()
     try {
       //保证登录成功 useStore.userLogin(loginForm)打印的是promise

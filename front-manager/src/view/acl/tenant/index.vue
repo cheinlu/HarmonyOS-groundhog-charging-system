@@ -1,6 +1,6 @@
 <template>
   <el-card>
-    <el-button type="primary" size="default" @click="addTenant">添加租户</el-button>
+    <el-button type="primary" size="default" @click="addTenant" v-has="'TenantAdd'">添加租户</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="teList">
       <el-table-column label="#" align="center" type="index"></el-table-column>
@@ -28,10 +28,10 @@
       </el-table-column>
       <el-table-column label="操作" width="170px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateTenant(row)">编辑</el-button>
-          <el-popconfirm :title="`你确定要删除${row.contactName}?`" width="260px" @confirm="deleteTenant(row.id)">
+          <el-button type="primary" size="small" icon="Edit" @click="updateTenant(row)" v-has="'TenantUpdate'">编辑</el-button>
+          <el-popconfirm :title="`你确定要删除${row.contactName}?`" width="260px" @confirm="deleteTenant(row.id)" v-has="TenantDel">
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'RoleDel'">删除</el-button>
             </template>
           </el-popconfirm>
         </template>

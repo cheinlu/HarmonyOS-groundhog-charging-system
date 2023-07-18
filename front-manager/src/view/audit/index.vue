@@ -51,9 +51,8 @@ onMounted(() => {
 })
 //获取审计列表数据
 let getHasAudit = async () => {
-  let res = await reqAuditList(pageNo.value,pageSize.value,auditParams.operationTypeL,auditParams.ChangedUser)
+  let res:any = await reqAuditList(pageNo.value,pageSize.value,auditParams.operationTypeL,auditParams.ChangedUser)
   // let res:any = await reqAuditList(auditParams)
-  console.log('res',res);
   
   if (res.code == 0) {
     auditArr.value = res.data.List

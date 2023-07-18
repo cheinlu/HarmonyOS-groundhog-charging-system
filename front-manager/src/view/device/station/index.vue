@@ -11,7 +11,7 @@
     </el-form>
   </el-card>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addStation">添加充电站</el-button>
+    <el-button type="primary" size="default" @click="addStation" v-has="'ChargeStationAdd'">添加充电站</el-button>
     <!-- table展示充电站信息 -->
     <el-table style="margin: 10px 0px" border :data="stationArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
@@ -35,10 +35,10 @@
       </el-table-column>
       <el-table-column label="操作" width="170px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateStation(row)" >编辑</el-button>
-          <el-popconfirm :title="`你确定要删除${row.name}?`" @confirm="deleteStation(row.id)" width="260px">
+          <el-button type="primary" size="small" icon="Edit" @click="updateStation(row)" v-has="'ChargeStationUpdate'">编辑</el-button>
+          <el-popconfirm :title="`你确定要删除${row.name}?`" @confirm="deleteStation(row.id)" width="260px" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete" >删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'ChargeStationDel'">删除</el-button>
             </template>
           </el-popconfirm>
         </template>

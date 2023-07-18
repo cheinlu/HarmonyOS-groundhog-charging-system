@@ -5,6 +5,7 @@ export interface UserState {
   menuRoutes:RouteRecordRaw[]
   username:string|null
   id:any
+  tenantName:any
   teArr:[]|any
   permissionList:[]|any
 }

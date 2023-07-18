@@ -12,7 +12,7 @@ import pinia from './store'
 const userStore = useUserStore(pinia)
 nprogress.configure({ showSpinner: false })
 //全局前置守卫
-router.beforeEach((to:any,_from:any,next:any)=>{
+router.beforeEach(async (to:any,_from:any,next:any)=>{
   //进度条打开
   nprogress.start()
   //获取token
@@ -29,11 +29,14 @@ router.beforeEach((to:any,_from:any,next:any)=>{
         next()
       }else{
         try {
+           // 确保异步路由加载完成后再继续导航
+           await router.isReady()
            //获取用户信息
-          userStore.setUsername
-          next()
+           userStore.setUsername(name as string)
+         next()
+         
         } catch (error) {
-          userStore.userLogout()
+         userStore.userLogout()
           next({ path: '/login', query: { redirect: to.path } })
         }
       }

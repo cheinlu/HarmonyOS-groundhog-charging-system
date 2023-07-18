@@ -17,7 +17,7 @@
       </el-table-column>
     </el-table>
     <div style="display: flex; justify-content: flex-end; margin-top: 15px">
-      <el-button type="primary" icon="Check" @click="bindPermi"  :disabled="!isButtonEnabled">绑定权限</el-button>
+      <el-button type="primary" icon="Check" @click="bindPermi"  :disabled="!isButtonEnabled" v-has="'PermissionViewBind'">绑定权限</el-button>
     </div>
   </el-card>
 </template>

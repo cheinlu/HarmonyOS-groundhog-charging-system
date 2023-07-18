@@ -76,7 +76,7 @@
       </el-table-column>
       <el-table-column label="操作" align="center" width="100" fixed="right">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateOrder(row)">编辑</el-button>
+          <el-button type="primary" size="small" icon="Edit" @click="updateOrder(row)" v-has="'UpdateOrder'">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>

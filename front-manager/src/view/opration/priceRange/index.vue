@@ -1,6 +1,6 @@
 <template>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addPrice">添加充电价格</el-button>
+    <el-button type="primary" size="default" @click="addPrice" v-has="'PriceAdd'">添加充电价格</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="priceArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
@@ -20,10 +20,10 @@
       </el-table-column>
       <el-table-column label="操作" width="200px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updatePrice(row)">编辑</el-button>
-          <el-popconfirm :title="`你确定删除id为${row.id}的区间价格吗？`" width="250px" @confirm="deletePrice(row.id)">
+          <el-button type="primary" size="small" icon="Edit" @click="updatePrice(row)" v-has="'PriceUpdate'">编辑</el-button>
+          <el-popconfirm :title="`你确定删除id为${row.id}的区间价格吗？`" width="250px" @confirm="deletePrice(row.id)" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'PriceDel'">删除</el-button>
             </template>
           </el-popconfirm>
         </template>

@@ -32,3 +32,16 @@ export const SET_TEID = (id:string)=>{
 export const GET_TEID = () => {
   return localStorage.getItem('TENANT_ID')
 }
+//存储权限列表permission
+export const SET_PERMISSION = (permission:string[])=>{
+  localStorage.setItem('PERMISSION',JSON.stringify(permission))
+}
+
+//存储租户名字
+export const SET_TENAME = (tenantName:string)=>{
+  localStorage.setItem('TENANT_NAME',tenantName)
+}
+//获取租户名字
+export const GET_TENAME = () => {
+  return localStorage.getItem('TENANT_NAME')
+}
