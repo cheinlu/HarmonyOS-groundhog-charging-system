@@ -1,63 +1,73 @@
 {
-  // 如果您是通过uni_modules形式引入uView，可以忽略此配置
-  	"easycom": {
-  		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
-  	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+       
         {
             "path" : "pages/my/my",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "个人中心",
+                "navigationBarTitleText": "我的",
                 "enablePullDownRefresh": false
             }
             
         },
         {
-            "path" : "pages/home/home",
+            "path" : "pages/charge/charge",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "站点",
+                "navigationBarTitleText": "充电",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/scan/scan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
         }
     ],
-    "subPackages":[
-      {
+  "subPackages":[
+    {
       "root": "subpkg",
       "pages": [
-        
       {
-          "path" : "charge/charge",
-          "style" :                                                                                    
-      {
-          "navigationBarTitleText": "",
-          "enablePullDownRefresh": false
-      }
-      
-      }
-      ,{
-          "path" : "register/register",
-          "style" :                                                                                    
-      {
-          "navigationBarTitleText": "",
-          "enablePullDownRefresh": false
-      }
-      
-      }
-      ,{
-          "path" : "chargeOrder/chargeOrder",
-          "style" :                                                                                    
-      {
-          "navigationBarTitleText": "",
-          "enablePullDownRefresh": false
-      }
-      
-      }
-      ]
+                    "path" : "register/register",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "charging/charging",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "chargeOrder/chargeOrder",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
     }
-    ],
+  ],
+// 如果您是通过uni_modules形式引入uview-plus，可以忽略此配置
+	"easycom": {
+		"^u-(.*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue"
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "土拨鼠充电",
@@ -65,21 +75,20 @@
 		"backgroundColor": "#FFFFFF"
 	},
 	"uniIdRouter": {},
-  "tabBar": {
-    "selectedColor": "#0aa671",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "充电",
-        "iconPath": "static/tab_icons/home.png",
-        "selectedIconPath": "static/tab_icons/home-active.png"
-      },
-      {
-        "pagePath": "pages/my/my",
-        "text": "我的",
-        "iconPath": "static/tab_icons/my.png",
-        "selectedIconPath": "static/tab_icons/my-active.png"
-      }
-    ]
-  }
+    "tabBar": {
+        "color": "#999",
+        "selectedColor": "#0aa671",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/charge/charge"
+            },
+            {
+                "pagePath": "pages/scan/scan"
+            },
+            {
+                "pagePath": "pages/my/my"
+            }
+        ]
+  	}
 }

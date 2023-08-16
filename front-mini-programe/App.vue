@@ -12,6 +12,7 @@
 	}
 </script>
 
-<style>
-	/*每个页面公共css */
+<style lang="scss">
+	/* 需要给style标签加入lang="scss"属性 */
+	@import "@/uni_modules/uview-plus/index.scss";
 </style>

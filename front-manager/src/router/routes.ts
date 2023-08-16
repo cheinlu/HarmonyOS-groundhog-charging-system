@@ -56,6 +56,24 @@ export const constantRoute = [
       icon: 'DocumentDelete'
     }
   }, 
+  {
+    //数据大屏
+    path: '/screen',
+    component: () => import('@/layout/index.vue'),
+    redirect: '/screen',
+    children: [
+      {
+        path: '/screen',
+        component: () => import('@/view/screen/index.vue'),
+        name: 'ScreenView',
+        meta: {
+          hidden: false,
+          title: '数据大屏',
+          icon: 'Platform',
+        }
+      },
+    ]
+  },
 ]
 
 //异步路由

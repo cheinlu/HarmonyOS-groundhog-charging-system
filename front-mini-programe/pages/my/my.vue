@@ -1,24 +1,20 @@
 <template>
-   <view>
-     <login v-if="!token"></login>
-     <userInfo v-else></userInfo>
-   </view>
+  <view>
+    <login v-if="!useStore.token"></login>
+    <info v-else></info>
+    <tabbar></tabbar>
+  </view>
 </template>
 
-<script>
-  import {mapState} from 'vuex'
-  export default {
-    name:"my",
-    data() {
-      return {
-        
-      };
-    },
-    computed:{
-      ...mapState('m_user',['token'])
-    }
-  }
+<script setup>
+import { onShow } from '@dcloudio/uni-app'
+import useUserStore from '@/store/user.js'
+let useStore = useUserStore()
+onShow(() => {
+  uni.hideTabBar({
+    animation: false
+  })
+})
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

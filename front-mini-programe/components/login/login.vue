@@ -1,7 +1,7 @@
 <template>
   <view class="login-container">
     <!-- 图标 -->
-     <image :src="require('./static/Groundhog.jpg')" class="logo"></image>
+     <image src="./images/Groundhog.jpg" class="logo"></image>
     <!-- 登录按钮 -->
     <button type="primary" class="btn-login" @click="getAccessToken">微信用户快捷登录</button>
     <!-- 登录提示 -->
@@ -9,51 +9,20 @@
   </view>
 </template>
 
-<script>
-import { requestLogin } from '@/utils/api/user.js'
-import { mapMutations } from 'vuex'
-export default {
-  name: 'login',
-  data() {
-    return {}
-  },
-  methods: {
-    ...mapMutations('m_user', ['updateUserInfo', 'updateToken']),
-    //获取token
-    getAccessToken() {
-      let that = this
-      uni.login({
-        provider: 'weixin',
-        success(res) {
-          let code = res.code
-          requestLogin({ code }).then((res) => {
-            if (res.data.code == 0) {
-              that.updateToken(res.data.data.token)
-            } else if (res.data.code === 404) {
-              //如果未注册，则跳转到注册页面
-              that.gotoRegister()
-            }
-          })
-        }
-      })
-    },
-    //跳转到注册页面
-    gotoRegister() {
-      uni.showModal({
-        title: '提示',
-        content: '请注册用户',
-        success: function (res) {
-          if (res.confirm) {
-            uni.navigateTo({
-              url: '/subpkg/register/register'
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-    }
-  }
+<script setup>
+import {ref} from 'vue'
+import useUserStore from '@/store/user.js'
+let useStore = useUserStore()
+//保存code
+let code = ref('')
+let getAccessToken = ()=>{
+  uni.login({
+     provider: 'weixin',
+     success(res) {
+      let lcode = res.code
+       useStore.userLogin(lcode)
+     }
+  })
 }
 </script>
 
@@ -72,7 +41,7 @@ export default {
     content: ' ';
     display: block;
     width: 100%;
-    height: 40px;
+    height: 80rpx;
     background-color: white;
     position: absolute;
     bottom: 0;
@@ -87,11 +56,11 @@ export default {
   .btn-login {
     background-color: #0aa671;
     width: 90%;
-    border-radius: 100px;
-    margin: 25px 0;
+    border-radius: 200rpx;
+    margin: 50rpx 0;
   }
   .tips-text {
-    font-size: 12px;
+    font-size: 24rpx;
     color: gray;
   }
 }

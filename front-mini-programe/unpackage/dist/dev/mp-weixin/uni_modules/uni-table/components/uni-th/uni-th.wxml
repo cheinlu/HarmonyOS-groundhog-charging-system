@@ -1,1 +1,1 @@
-<view class="{{['uni-table-th',(border)?'table--border':'']}}" style="{{'width:'+(customWidth+'px')+';'+('text-align:'+(align)+';')}}"><slot></slot></view>
+<view class="{{['uni-table-th', a && 'table--border']}}" style="{{'width:' + b + ';' + ('text-align:' + c)}}"><slot></slot></view>

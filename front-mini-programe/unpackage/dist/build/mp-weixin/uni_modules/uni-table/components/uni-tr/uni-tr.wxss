@@ -1,1 +1,0 @@
-.uni-table-tr{display:table-row;transition:all .3s;box-sizing:border-box}.checkbox{padding:0 8px;width:26px;padding-left:12px;display:table-cell;vertical-align:middle;color:#333;font-weight:500;border-bottom:1px #ebeef5 solid;font-size:14px}.tr-table--border{border-right:1px #ebeef5 solid}

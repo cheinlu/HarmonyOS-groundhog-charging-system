@@ -1,1 +1,0 @@
-<view class="{{['uni-table-td',(border)?'table--border':'']}}" style="{{'width:'+(width+'px')+';'+('text-align:'+(align)+';')}}"><slot></slot></view>

@@ -1,14 +1,15 @@
 {
   "pages": [
     "pages/my/my",
-    "pages/home/home"
+    "pages/charge/charge",
+    "pages/scan/scan"
   ],
   "subPackages": [
     {
       "root": "subpkg",
       "pages": [
-        "charge/charge",
         "register/register",
+        "charging/charging",
         "chargeOrder/chargeOrder"
       ]
     }
@@ -20,25 +21,24 @@
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
+    "color": "#999",
     "selectedColor": "#0aa671",
+    "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/home/home",
-        "text": "充电",
-        "iconPath": "static/tab_icons/home.png",
-        "selectedIconPath": "static/tab_icons/home-active.png"
+        "pagePath": "pages/charge/charge"
       },
       {
-        "pagePath": "pages/my/my",
-        "text": "我的",
-        "iconPath": "static/tab_icons/my.png",
-        "selectedIconPath": "static/tab_icons/my-active.png"
+        "pagePath": "pages/scan/scan"
+      },
+      {
+        "pagePath": "pages/my/my"
       }
     ]
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "获取您的地理位置信息以提供相关服务"
     }
   },
   "requiredPrivateInfos": [

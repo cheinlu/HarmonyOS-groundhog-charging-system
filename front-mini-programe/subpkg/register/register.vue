@@ -15,129 +15,113 @@
   </view>
 </template>
 
-<script>
-import { mapMutations } from 'vuex'
+<script setup>
 import {requestVerificationCode,requestRegister} from '@/utils/api/user.js'
-export default {
-  name: 'register',
-  data() {
-    return {
-      phoneNumber: '',
-      verificationCode: '',
-      btnText: '获取验证码',
-      disableBtn: false,
-      submitDisabled: true,
-      countdown: 5,
-      codeInputDisabled:true,
-      //获取用户信息
-      userInfo:{
-        nickName:'',
-        avatarUrl:'',
-        gender:''
-      },
-    }
-  },
-  methods: {
-    ...mapMutations('m_user', ['updateUserInfo', 'updateToken']),
-    //效验手机号格式
-    handleInput() {
-      // 校验手机号格式，如果正确则启用发送验证码按钮
-      const reg = /^1[0-9]{10}$/
-      if (reg.test(this.phoneNumber)) {
-        this.disableBtn = false
-      } else {
-        this.disableBtn = true
-      }
-    },
-    //获取验证码按钮
-    sendVerificationCode() {
-      //如果手机号为空时，获取验证码按钮点击无效，并提示输入手机号
-      if(this.phoneNumber == ''){
-        uni.$showMsg('请输入手机号')
-        this.disableBtn = false
-      }else{
-        // 输入手机号后，发送验证码
-        this.btnText = `${this.countdown}s 后重新获取`
-        this.disableBtn = true
-        this.codeInputDisabled = false //使验证码输入框变为可输入状态
-        this.submitDisabled = false
-        const timer = setInterval(() => {
-          if (this.countdown <= 1) {
-            clearInterval(timer)
-            this.btnText = '重新获取'
-            this.countdown = 5
-            this.disableBtn = false
-            this.codeInputDisabled = false //使验证码输入框变为可输入状态
-            
-          } else {
-            this.countdown--
-            this.btnText = `${this.countdown}s 后重新获取`
-          }
-        }, 1000)
-        //调用验证码的接口
-        requestVerificationCode({
-          params:{
-            phone:this.phoneNumber
-          }
-        }).then(res=>{
-          if(res.data.code==0){
-            uni.$showMsg('验证码获取成功')
+import {ref,reactive} from 'vue'
+import useUserStore from '@/store/user.js'
+let useStore = useUserStore()
+let phoneNumber = ref('')
+let verificationCode = ref('')
+let codeInputDisabled = ref(true)
+let submitDisabled = ref(true)
+let disableBtn = ref(false)
+let btnText = ref('获取验证码')
+let countdown = ref(5)
+let userInfo = reactive({
+  nickName:'',
+  avatarUrl:'',
+  gender:''
+})
+//效验手机号格式
+let handleInput = ()=>{
+  const reg = /^1[0-9]{10}$/
+  if (reg.test(phoneNumber.value)) {
+    disableBtn.value = false
+  } else {
+    disableBtn.value = true
+  }
+}
+//获取验证码按钮
+let sendVerificationCode = ()=>{
+   if(phoneNumber.value == ''){
+     uni.$showMsg('请输入手机号')
+     disableBtn.value = false
+   }else{
+     // 输入手机号后，发送验证码
+     btnText.value = `${countdown.value}s 后重新获取`
+     disableBtn.value = true
+     codeInputDisabled.value = false //使验证码输入框变为可输入状态
+     submitDisabled.value = false
+     const timer = setInterval(() => {
+       if (countdown.value <= 1) {
+         clearInterval(timer)
+         btnText.value = '重新获取'
+         countdown.value = 5
+         disableBtn.value = false
+         codeInputDisabled.value = false //使验证码输入框变为可输入状态
+       } else {
+         countdown.value--
+         btnText.value = `${countdown.value}s 后重新获取`
+       }
+     }, 1000)
+     //调用验证码的接口
+     requestVerificationCode({
+       params:{
+         phone:phoneNumber.value
+       }
+     }).then(res=>{
+       if(res.data.code==0){
+         uni.$showMsg('验证码获取成功')
+       }
+     })
+   }
+}
+let handleSubmit = ()=>{
+  //如果手机号与验证码为空时，则返回false
+  if(phoneNumber.value==''&&verificationCode.value!== '666666'){
+    uni.$showMsg('请输入手机号和验证码')
+    return false
+  }else{
+    //获取用户信息
+    uni.getUserProfile({
+      desc:'用户信息',
+      success(res){
+        useStore.updateUserInfo(res.userInfo)
+        userInfo = res.userInfo
+        uni.login({
+          provider:'weixin',
+          success(res) {
+            let regisCode = res.code
+            //整理参数
+            let params = {
+              code:regisCode,
+              phone:phoneNumber.value,
+              verifyCode:verificationCode.value,
+              nickname:userInfo.nickName,
+              avatarUrl:userInfo.avatarUrl,
+              gender:userInfo.gender
+            }
+            //发起注册请求
+            requestRegister(params).then(res=>{
+              if(res.data.code==0){
+                //存储token
+                useStore.updateToken(res.data.data.token)
+                 uni.$showMsg('注册成功')
+                //跳转至首页
+                uni.switchTab({
+                  url:'/pages/my/my'
+                })
+              }else{
+                 uni.$showMsg(res.data.message)
+              }
+            }).catch(err => {
+              console.error(err)
+              uni.$showMsg('服务器出错，请稍后再试')
+              })
           }
         })
       }
-    },
-    //点击注册按钮
-    handleSubmit() {
-      let that = this
-      //如果手机号与验证码为空时，则返回false
-      if(that.phoneNumber==''&&that.verificationCode!== '666666'){
-        uni.$showMsg('请输入手机号和验证码')
-        return false
-      }else{
-        //获取用户信息
-      uni.getUserProfile({
-        desc:'用户信息',
-        success(res) {
-          //存储用户信息
-          that.updateUserInfo(res.userInfo)
-          that.userInfo = res.userInfo,
-          uni.login({
-            provider:'weixin',
-            success(res) {
-              let regisCode = res.code
-              //整理参数
-              let params = {
-                code:regisCode,
-                phone:that.phoneNumber,
-                verifyCode:that.verificationCode,
-                nickname:that.userInfo.nickName,
-                avatarUrl:that.userInfo.avatarUrl,
-                gender:that.userInfo.gender
-              }
-              //发起注册请求
-              requestRegister(params).then(res=>{
-                console.log('res',res);
-                if(res.data.code==0){
-                  //存储token
-                  that.updateToken(res.data.data.token)
-                   uni.$showMsg('注册成功')
-                  //跳转至首页
-                  uni.switchTab({
-                    url:'/pages/my/my'
-                  })
-                }else{
-                   uni.$showMsg(res.data.message)
-                }
-              }).catch(err => {
-                console.error(err)
-                uni.$showMsg('服务器出错，请稍后再试')
-                })
-            }
-          })
-        }
-      })
-    }
-    }
+    })
   }
 }
 </script>

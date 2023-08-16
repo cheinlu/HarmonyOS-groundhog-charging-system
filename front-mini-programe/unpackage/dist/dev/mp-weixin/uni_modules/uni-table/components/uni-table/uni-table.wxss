@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * 这里是uni-app内置的常用样式变量
  *
@@ -11,8 +10,8 @@
  *
  * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
  */
-/* 颜色变量 */
 /* uni.scss */
+/* 颜色变量 */
 /* 行为相关颜色 */
 /* 文字基本颜色 */
 /* 背景颜色 */
@@ -38,10 +37,10 @@
   display: table;
   overflow-x: auto;
 }
-.uni-table  .uni-table-tr:nth-child(n + 2):hover {
+.uni-table .uni-table-tr:nth-child(n+2):hover {
   background-color: #f5f7fa;
 }
-.uni-table  .uni-table-thead .uni-table-tr:hover {
+.uni-table .uni-table-thead .uni-table-tr:hover {
   background-color: #fafafa;
 }
 .table--border {
@@ -51,9 +50,10 @@
 .border-none {
   border-bottom: none;
 }
-.table--stripe  .uni-table-tr:nth-child(2n + 3) {
+.table--stripe .uni-table-tr:nth-child(2n+3) {
   background-color: #fafafa;
 }
+
 /* 表格加载、无数据样式 */
 .uni-table-loading {
   position: relative;
@@ -93,52 +93,12 @@
   height: 30px;
   border: 2px solid #aaa;
   border-radius: 50%;
-  -webkit-animation: 2s uni-table--loader linear infinite;
-          animation: 2s uni-table--loader linear infinite;
+  animation: 2s uni-table--loader linear infinite;
   position: relative;
-}
-@-webkit-keyframes uni-table--loader {
-0% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-}
-10% {
-    border-left-color: transparent;
-}
-20% {
-    border-bottom-color: transparent;
-}
-30% {
-    border-right-color: transparent;
-}
-40% {
-    border-top-color: transparent;
-}
-50% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-}
-60% {
-    border-top-color: transparent;
-}
-70% {
-    border-left-color: transparent;
-}
-80% {
-    border-bottom-color: transparent;
-}
-90% {
-    border-right-color: transparent;
-}
-100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-}
 }
 @keyframes uni-table--loader {
 0% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 10% {
     border-left-color: transparent;
@@ -153,8 +113,7 @@
     border-top-color: transparent;
 }
 50% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 60% {
     border-top-color: transparent;
@@ -169,8 +128,6 @@
     border-right-color: transparent;
 }
 100% {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    transform: rotate(-360deg);
 }
 }
-

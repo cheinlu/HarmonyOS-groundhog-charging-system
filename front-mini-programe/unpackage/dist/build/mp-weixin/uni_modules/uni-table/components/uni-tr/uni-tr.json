@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "table-checkbox": "/uni_modules/uni-table/components/uni-tr/table-checkbox"
-  }
-}
