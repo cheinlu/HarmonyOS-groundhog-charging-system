@@ -7,7 +7,7 @@
     </div>
     <img class="left" src="@/assets/images/left.png" />
     <div class="login-rect">
-      <el-form class="login_form" ref="loginForms" :model="loginForm" :rules="rules">
+      <el-form class="login_form" ref="loginForms" :model="loginForm" :rules="rules" label-width="65px">
         <h1 class="title">
           Hello
           <span>{{$t('login.account')}}？<span class="register" @click="goRegister">{{$t('login.register')}}</span></span>
@@ -19,12 +19,16 @@
             <el-option v-for="item in useStore.teArr" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item prop="username">
+        <el-form-item prop="username" label="账户">
           <el-input :prefix-icon="User" v-model="loginForm.username" :placeholder="$t('login.usernamePlaceholder')"></el-input>
         </el-form-item>
-        <el-form-item prop="password">
+        <el-form-item prop="password" label="密码">
           <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" :placeholder="$t('login.passwordPlaceholder')"></el-input>
         </el-form-item>
+        <el-form-item label="验证码">
+          <el-input :prefix-icon="Lock" placeholder="请输入验证码"></el-input>
+        </el-form-item>
+        <div>111</div>
         <el-form-item>
           <el-button class="login_btn" type="primary" size="default" @click="login">{{ $t('login.text') }}</el-button>
         </el-form-item>
