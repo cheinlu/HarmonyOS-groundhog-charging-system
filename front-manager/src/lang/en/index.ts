@@ -3,14 +3,18 @@ export default {
     welcome:'Welcome to the groundhog charging platform',
     account:'No account',
     register:'To register',
-    tenement:'Select a tenant',
+    tenement:'Tenant',
     tenements: 'Please select a tenant',
     text:'login',
     language:'language',
     chinese:'Chinese',
     english:'English',
     usernamePlaceholder: 'Please enter your username',
-    passwordPlaceholder: 'Please enter your password'
+    passwordPlaceholder: 'Please enter your password',
+    verificationCode:'Please enter the verification code',
+    accounts:'Account',
+    password:'Password',
+    code:'Code'
   },
   register:{
     welcome:'Welcome to register the groundhog charging platform',

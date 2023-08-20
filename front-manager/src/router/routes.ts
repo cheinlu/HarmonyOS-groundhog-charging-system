@@ -79,24 +79,6 @@ export const asyncRoute = [
     ]
   },
   {
-    //审计
-    path: '/audit',
-    component: () => import('@/layout/index.vue'),
-    redirect: '/audit',
-    children: [
-      {
-        path: '/audit',
-        component: () => import('@/view/audit/index.vue'),
-        name: 'AtuditLogView',
-        meta: {
-          title: '审计日志',
-          hidden: false,
-          icon: 'Edit'
-        }
-      },
-    ]
-  },
-  {
     //设备管理----充电站/充电桩
     path: '/device',
     component: () => import('@/layout/index.vue'),
@@ -222,6 +204,24 @@ export const asyncRoute = [
           icon: 'PriceTag'
         }
       }
+    ]
+  },
+  {
+    //审计
+    path: '/audit',
+    component: () => import('@/layout/index.vue'),
+    redirect: '/audit',
+    children: [
+      {
+        path: '/audit',
+        component: () => import('@/view/audit/index.vue'),
+        name: 'AtuditLogView',
+        meta: {
+          title: '审计日志',
+          hidden: false,
+          icon: 'Edit'
+        }
+      },
     ]
   },
 ]

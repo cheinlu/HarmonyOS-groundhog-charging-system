@@ -3,14 +3,19 @@ export default {
     welcome:'欢迎来到 土拨鼠充电平台',
     account:'没有账号',
     register:'去注册',
-    tenement:'选择租户',
+    tenement:'租户',
     tenements: '请选择租户',
     text:'登录',
     language:'语言',
     chinese:'中文',
     english:'英文',
     usernamePlaceholder: '请输入用户名',
-    passwordPlaceholder: '请输入密码'
+    passwordPlaceholder: '请输入密码',
+    verificationCode:'请输入验证码',
+    accounts:'账户',
+    password:'密码',
+    code:'验证码'
+    
   },
   register:{
     welcome:'欢迎注册 土拨鼠充电平台',

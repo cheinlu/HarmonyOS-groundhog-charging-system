@@ -2,9 +2,14 @@
   <div>
     <!-- 路由组件出口的位置 -->
     <router-view v-slot="{ Component }">
-      <transition name="fade">
-        <!-- 渲染layout一级路由组件的子路由 -->
-        <component :is="Component" v-if="flag" />
+      <transition name="fade" mode="out-in">
+        <template v-if="flag">
+          <!-- 添加一个包裹元素，例如 <div> -->
+          <div>
+            <!-- 渲染layout一级路由组件的子路由 -->
+            <component :is="Component" />
+          </div>
+        </template>
       </transition>
     </router-view>
   </div>
