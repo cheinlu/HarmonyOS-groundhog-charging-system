@@ -5,9 +5,9 @@ import type {loginResponseData,loginFormData} from './type'
 //统一管理接口,
 enum API {
   //登录
-  LOGIN_URL = '/api/user/login',
+  LOGIN_URL = '/saas-api/user/login',
   //续期登录
-  REFRESH_URL = '/api/token/refresh',
+  REFRESH_URL = '/saas-api/token/refresh',
   
 }
 

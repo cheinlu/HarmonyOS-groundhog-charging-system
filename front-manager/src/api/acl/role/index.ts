@@ -4,13 +4,13 @@ import request from "@/utils/request";
 import type {roleList,roleAddOrUp} from './type'
 enum API {
   //获取全部的职位接口
-  ALLROLE_URL = '/api/role/list?',
+  ALLROLE_URL = '/saas-api/role/list?',
   //新增角色的接口地址
-  ADDROLE_URL = '/api/role/add',
+  ADDROLE_URL = '/saas-api/role/add',
   //更新已有的职位
-  UPDATEROLE_URL = '/api/role/update',
+  UPDATEROLE_URL = '/saas-api/role/update',
   //删除已有的职位
-  REMOVEROLE_URL = '/api/role/delete?'
+  REMOVEROLE_URL = '/saas-api/role/delete?'
 }
 
 //获取全部的角色

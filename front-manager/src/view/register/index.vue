@@ -8,35 +8,35 @@
     <img class="right" src="@/assets/images/right.png" />
     <div class="register-rect">
       <el-form label-width="80px" ref="formRef" :model="registerParams" :rules="rules">
-        <h4>欢迎注册 土拨鼠充电管理平台</h4>
-        <el-form-item label="用户名" prop="adminUsername">
-          <el-input :prefix-icon="User" placeholder="用户名" v-model="registerParams.adminUsername"></el-input>
+        <h4>{{$t('register.welcome')}}</h4>
+        <el-form-item :label="$t('register.username')" prop="adminUsername">
+          <el-input :prefix-icon="User" :placeholder="$t('register.username')" v-model="registerParams.adminUsername"></el-input>
         </el-form-item>
         <el-row>
           <el-col :span="13">
-            <el-form-item label="验证码" prop="validCode">
-              <el-input placeholder="验证码" v-model="registerParams.validCode"></el-input>
+            <el-form-item :label="$t('register.validCode')" prop="validCode">
+              <el-input :placeholder="$t('register.validCode')" v-model="registerParams.validCode"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="4">
             <el-form-item prop="empty" style="margin-bottom: 0">
-              <el-button type="primary" size="small">获取验证码</el-button>
+              <el-button type="primary" size="small">{{$t('register.getCode')}}</el-button>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-form-item label="密码" prop="adminPassword">
-          <el-input type="password" :prefix-icon="Lock" show-password v-model="registerParams.adminPassword"></el-input>
+        <el-form-item :label="$t('register.password')" prop="adminPassword">
+          <el-input type="password" :placeholder="$t('register.password')" :prefix-icon="Lock" show-password v-model="registerParams.adminPassword"></el-input>
         </el-form-item>
-        <h3>公司信息</h3>
-        <el-form-item label="公司名称" prop="name">
-          <el-input :prefix-icon="House" placeholder="公司名称" v-model="registerParams.name"></el-input>
+        <h3>{{$t('register.companyInformation')}}</h3>
+        <el-form-item :label="$t('register.companyName')" prop="name">
+          <el-input :prefix-icon="House" :placeholder="$t('register.companyName')" v-model="registerParams.name"></el-input>
         </el-form-item>
-        <el-form-item label="网站" prop="domain">
-          <el-input :prefix-icon="Link" placeholder="网站" v-model="registerParams.domain"></el-input>
+        <el-form-item :label="$t('register.website')" prop="domain">
+          <el-input :prefix-icon="Link" :placeholder="$t('register.website')" v-model="registerParams.domain"></el-input>
         </el-form-item>
       </el-form>
-      <el-button class="register_btn" type="primary" size="default" @click="register">立即注册</el-button>
-      <div class="login">已有账户? <span @click="goLogin">去登录</span></div>
+      <el-button class="register_btn" type="primary" size="default" @click="register">{{$t('register.registerButton')}}</el-button>
+      <div class="login">{{$t('register.existingAccount')}}? <span @click="goLogin">{{$t('register.login')}}</span></div>
     </div>
   </div>
 </template>

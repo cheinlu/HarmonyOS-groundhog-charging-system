@@ -19,13 +19,18 @@ import router from '@/router'
 //@ts-expect-error
 import cloneDeep from 'lodash/cloneDeep'
 //用于过滤当前用户需要展示的异步路由
-function filterRoutes(routes:any,names:any){
+function filterRoutes(routes:any,names:any, depth = 0){
+  const MAX_DEPTH = 1000; // 设置递归深度限制
+  if (depth > MAX_DEPTH) {
+    throw new Error('Exceeded maximum recursion depth');
+  }
+  
   let filteredRoutes:any = [];
   routes.forEach((route:any) => {
     let filteredRoute = { ...route };
     if (route.children) {
       // 过滤子路由
-      filteredRoute.children = filterRoutes(route.children, names);
+      filteredRoute.children = filterRoutes(route.children, names, depth + 1);
       // 如果子路由数量大于0，则将当前路由添加到过滤后的路由数组中
       if (filteredRoute.children.length > 0) {
         filteredRoutes.push(filteredRoute);
@@ -94,7 +99,7 @@ const useUserStore = defineStore('User',{
     async tenantSelect(){
      let res:tenantSelect = await reqTeLogin()
       if(res.code==0){
-        this.teArr = res.data
+        this.teArr = res.data.Data
       }
     },
     //获得当前用户登录的权限
@@ -102,7 +107,6 @@ const useUserStore = defineStore('User',{
      let res:any = await reqCurrentPermi()
      if(res.code==0){
       this.permissionList = res.data.permissionList
-      console.log('当前用户权限数据',this.permissionList);
 
       SET_PERMISSION(res.data.permissionList)
       //当前用户展示的异步路由

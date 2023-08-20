@@ -32,7 +32,7 @@ export default defineConfig(({command})=>{
     //代理跨域
     server:{
       proxy:{
-        '/api': {
+        '/saas-api': {
           target: 'http://127.0.0.1:8000/',
           changeOrigin: true
         },

@@ -56,24 +56,6 @@ export const constantRoute = [
       icon: 'DocumentDelete'
     }
   }, 
-  {
-    //数据大屏
-    path: '/screen',
-    component: () => import('@/layout/index.vue'),
-    redirect: '/screen',
-    children: [
-      {
-        path: '/screen',
-        component: () => import('@/view/screen/index.vue'),
-        name: 'ScreenView',
-        meta: {
-          hidden: false,
-          title: '数据大屏',
-          icon: 'Platform',
-        }
-      },
-    ]
-  },
 ]
 
 //异步路由
@@ -168,15 +150,16 @@ export const asyncRoute = [
           icon: 'User'
         }
       },
-      {
-        path: '/acl/tenant',
-        component: () => import('@/view/acl/tenant/index.vue'),
-        name: 'TenantView',
-        meta: {
-          title: '租户管理',
-          icon: 'Grid'
-        }
-      },
+      // 管理台不需要租户管理，路由不展示了
+      // {
+      //   path: '/acl/tenant',
+      //   component: () => import('@/view/acl/tenant/index.vue'),
+      //   name: 'TenantView',
+      //   meta: {
+      //     title: '租户管理',
+      //     icon: 'Grid'
+      //   }
+      // },
       {
         path: '/acl/role',
         component: () => import('@/view/acl/role/index.vue'),

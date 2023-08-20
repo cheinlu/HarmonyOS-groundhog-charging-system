@@ -1,44 +1,44 @@
 <template>
   <el-card style="height: 70px">
     <el-form :inline="true" class="form">
-      <el-form-item label="站点">
-        <el-input placeholder="请输入充电站名" v-model="name"></el-input>
+      <el-form-item :label="$t('equip.nameLabel')">
+        <el-input :placeholder="$t('equip.nameLabel')" v-model="name"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="search" :disabled="name ? false : true">搜索</el-button>
-        <el-button type="primary" @click="reset">重置</el-button>
+        <el-button type="primary" @click="search" :disabled="name ? false : true">{{$t('button.search')}}</el-button>
+        <el-button type="primary" @click="reset">{{$t('button.reset')}}</el-button>
       </el-form-item>
     </el-form>
   </el-card>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addStation" v-has="'ChargeStationAdd'">添加充电站</el-button>
+    <el-button type="primary" size="default" @click="addStation" v-has="'ChargeStationAdd'">{{$t('equip.addStation')}}</el-button>
     <!-- table展示充电站信息 -->
     <el-table style="margin: 10px 0px" border :data="stationArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
       <el-table-column label="ID" align="center" prop="id" width="80"></el-table-column>
-      <el-table-column label="站名" align="center" prop="name" show-overflow-tooltip></el-table-column>
-      <el-table-column label="地址" align="center" prop="address" show-overflow-tooltip></el-table-column>
-      <el-table-column label="查看地图" align="center" prop="prop" width="100">
+      <el-table-column :label="$t('equip.nameLabel')" align="center" prop="name" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('equip.addressLabel')" align="center" prop="address" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('equip.viewMap')" align="center" prop="prop" width="100">
         <template #="{ row }">
           <el-button type="primary" icon="Position" size="small" @click="showMap(row)"></el-button>
         </template>
       </el-table-column>
-      <el-table-column label="创建时间" align="center" show-overflow-tooltip>
+      <el-table-column :label="$t('tabel.createAt')" align="center" show-overflow-tooltip>
         <template #="{ row }">
           <div>{{ formatDate(row.createAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="修改时间" align="center" show-overflow-tooltip>
+      <el-table-column :label="$t('tabel.updateAt')" align="center" show-overflow-tooltip>
         <template #="{ row }">
           <div>{{ formatDate(row.updateAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="170px" align="center">
+      <el-table-column :label="$t('tabel.operate')" width="180px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateStation(row)" v-has="'ChargeStationUpdate'">编辑</el-button>
+          <el-button type="primary" size="small" icon="Edit" @click="updateStation(row)" v-has="'ChargeStationUpdate'">{{$t('button.edit')}}</el-button>
           <el-popconfirm :title="`你确定要删除${row.name}?`" @confirm="deleteStation(row.id)" width="260px" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete" v-has="'ChargeStationDel'">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'ChargeStationDel'">{{$t('button.delete')}}</el-button>
             </template>
           </el-popconfirm>
         </template>
@@ -48,21 +48,21 @@
     <el-pagination v-model:current-page="pageNo" v-model:page-size="pageSize" :page-sizes="[3, 5, 7, 10]" :background="true" layout="prev, pager, next, jumper,->,sizes,total" :total="total" @current-change="getHasStation" @size-change="handler" />
   </el-card>
   <!-- 抽屉结构:完成添加新的用户账号|更新已有的账号信息 -->
-  <el-drawer v-model="drawer" size="40%" >
+  <el-drawer v-model="drawer" size="50%">
     <!-- 头部标题:将来文字内容应该动态的 -->
     <template #header>
-      <h4>{{ chargeForm.id ? '修改充电站' : '添加充电站' }}</h4>
+      <h4>{{ $t(chargeForm.id ? 'equip.editStation' : 'equip.addStation') }}</h4>
     </template>
     <!-- 身体部分 -->
     <template #default>
-      <el-form :model="chargeForm" ref="chargeFormRef" :rules="chargeRules">
-        <el-form-item label="站名" prop="name">
-          <el-input placeholder="请输入站名" v-model="chargeForm.name"></el-input>
+      <el-form :model="chargeForm" ref="chargeFormRef" :rules="chargeRules"  label-width="105px">
+        <el-form-item :label="$t('equip.nameLabel')" prop="name">
+          <el-input :placeholder="$t('equip.nameLabel')" v-model="chargeForm.name"></el-input>
         </el-form-item>
-        <el-form-item label="地址" prop="address">
-          <el-input placeholder="请输入地址" v-model="chargeForm.address"></el-input>
+        <el-form-item :label="$t('equip.addressLabel')" prop="address">
+          <el-input :placeholder="$t('equip.addressLabel')" v-model="chargeForm.address"></el-input>
         </el-form-item>
-        <el-form-item label="坐标" prop="coordinate">
+        <el-form-item :label="$t('equip.coordinate')" prop="coordinate">
           <template #="{}">
             <baidu-map class="map" :center="center" :zoom="zoom" @ready="ready" @click="getClickInfo" :scroll-wheel-zoom="true">
               <bm-marker :position="selectedPoint"></bm-marker>
@@ -74,8 +74,8 @@
     </template>
     <template #footer>
       <div style="flex: auto">
-        <el-button @click="cancel">取消</el-button>
-        <el-button type="primary" @click="save">确定</el-button>
+        <el-button @click="cancel">{{$t('pop.cancel')}}</el-button>
+        <el-button type="primary" @click="save">{{$t('pop.confirm')}}</el-button>
       </div>
     </template>
   </el-drawer>

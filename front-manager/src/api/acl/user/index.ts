@@ -4,17 +4,17 @@ import type {UserResponseData,userAddOrUp,payRecord,userPay} from './type'
 //统一管理接口
 enum API {
   //获取全部已有用户账号信息
-  ALLUSER_URL = '/api/user/list?',
+  ALLUSER_URL = '/saas-api/user/list?',
   //添加新用户
-  ADDUSER_URL = '/api/user/add',
+  ADDUSER_URL = '/saas-api/user/add',
   //更新已有的用户
-  UPDATEUSER_URL = 'api/user/update',
+  UPDATEUSER_URL = '/saas-api/user/update',
   //删除用户
-  DELETEUSER_URL = ' /api/user/delete?',
+  DELETEUSER_URL = ' /saas-api/user/delete?',
   //用户充值
-  USERPAY = '/api/user/pay',
+  USERPAY = '/saas-api/user/pay',
   //充值列表数据
-  PAYRECORD_URL = '/api/user/pay/record?',
+  PAYRECORD_URL = '/saas-api/user/pay/record?',
   //
 }
 

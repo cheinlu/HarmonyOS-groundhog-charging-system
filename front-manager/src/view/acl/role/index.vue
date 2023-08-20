@@ -1,39 +1,39 @@
 <template>
   <el-card style="height: 70px">
     <el-form :inline="true" class="form">
-      <el-form-item label="角色名称">
-        <el-input placeholder="角色名称" v-model="keyword"></el-input>
+      <el-form-item :label="$t('system.roleName')">
+        <el-input :placeholder="$t('system.roleName')" v-model="keyword"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="search" :disabled="keyword ? false : true">搜索</el-button>
-        <el-button type="primary" @click="reset">重置</el-button>
+        <el-button type="primary" @click="search" :disabled="keyword ? false : true">{{$t('button.search')}}</el-button>
+        <el-button type="primary" @click="reset">{{$t('button.reset')}}</el-button>
       </el-form-item>
     </el-form>
   </el-card>
   <el-card style="margin: 10px 0">
-    <el-button type="primary" icon="Plus" @click="addRole" v-has="'RoleAdd'">添加角色</el-button>
+    <el-button type="primary" icon="Plus" @click="addRole" v-has="'RoleAdd'">{{$t('system.addRole')}}</el-button>
     <el-table border style="margin: 10px 0px" :data="allRole">
       <el-table-column label="#" type="index" align="center"></el-table-column>
       <el-table-column prop="id" label="id" align="center"></el-table-column>
-      <el-table-column prop="name" label="#角色名称" align="center" show-overflow-tooltip></el-table-column>
-      <el-table-column prop="bindUsers" label="#成员数" align="center" show-overflow-tooltip></el-table-column>
-      <el-table-column label="创建时间" align="center" show-overflow-tooltip>
+      <el-table-column prop="name" :label="$t('system.roleName')" align="center" show-overflow-tooltip></el-table-column>
+      <el-table-column prop="bindUsers" :label="$t('system.member')" align="center" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('tabel.createAt')" align="center" show-overflow-tooltip>
         <template #="{ row }">
           <div>{{ formatDate(row.createAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="更新时间" align="center" show-overflow-tooltip>
+      <el-table-column :label="$t('tabel.updateAt')" align="center" show-overflow-tooltip>
         <template #="{ row }">
           <div>{{ formatDate(row.updateAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" width="280px">
+      <el-table-column :label="$t('tabel.operate')" align="center" width="290px">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="User" @click="setPermisstion(row.id)">分配权限</el-button>
-          <el-button type="primary" size="small" icon="Edit" @click="updateRole(row)" v-has="'RoleUpdate'">编辑</el-button>
+          <el-button type="primary" size="small" icon="User" @click="setPermisstion(row.id)">{{$t('button.privileges')}}</el-button>
+          <el-button type="primary" size="small" icon="Edit" @click="updateRole(row)" v-has="'RoleUpdate'">{{$t('button.edit')}}</el-button>
           <el-popconfirm :title="`你确定要删除${row.name}?`" width="260px" @confirm="removeRole(row.id)" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete" v-has="'RoleDel'">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'RoleDel'">{{$t('button.delete')}}</el-button>
             </template>
           </el-popconfirm>
         </template>
@@ -42,15 +42,15 @@
     <el-pagination v-model:current-page="pageNo" v-model:page-size="pageSize" :page-sizes="[3,5,7,10]" :background="true" layout="prev, pager, next, jumper,->,sizes,total" :total="total" @current-change="getHasRole" @size-change="sizeChange" />
   </el-card>
   <!-- 添加职位与更新已有职位的结构:对话框 -->
-  <el-dialog v-model="dialogVisite" :title="RoleParams.id ? '编辑角色' : '添加角色'">
+  <el-dialog v-model="dialogVisite" :title="$t(RoleParams.id ? 'system.editRole' : 'system.addRole')">
     <el-form :model="RoleParams" ref="form" :rules="rules">
-      <el-form-item label="角色名称" prop="name">
-        <el-input placeholder="请你输入角色名称" v-model="RoleParams.name"></el-input>
+      <el-form-item :label="$t('system.roleName')" prop="name">
+        <el-input :placeholder="$t('system.roleName')" v-model="RoleParams.name"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
-      <el-button type="primary" size="default" @click="dialogVisite = false">取消</el-button>
-      <el-button type="primary" size="default" @click="save">确定</el-button>
+      <el-button type="primary" size="default" @click="dialogVisite = false">{{$t('pop.cancel')}}</el-button>
+      <el-button type="primary" size="default" @click="save">{{$t('pop.confirm')}}</el-button>
     </template>
   </el-dialog>
  

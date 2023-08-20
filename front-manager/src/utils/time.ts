@@ -1,17 +1,20 @@
+import i18n from '@/lang/index'
 //封装一个函数:获取一个结果:当前早上|上午|下午|晚上
 export const getTime = () => {
+  //定义翻译文本
+  const t = i18n.global.t
   let message = ''
   //通过内置构造函数Date
   const hours = new Date().getHours()
   //情况的判断
   if (hours <= 9) {
-    message = '早上'
+    message = t('time.morning')
   } else if (hours <= 12) {
-    message = '上午'
+    message = t('time.noon')
   } else if (hours <= 18) {
-    message = '下午'
+    message = t('time.afternoon')
   } else {
-    message = '晚上'
+    message = t('time.evening')
   }
   return message
 }

@@ -10,31 +10,47 @@
       <el-form class="login_form" ref="loginForms" :model="loginForm" :rules="rules">
         <h1 class="title">
           Hello
-          <span>没有账号？<span class="register" @click="goRegister">去注册</span></span>
+          <span>{{$t('login.account')}}？<span class="register" @click="goRegister">{{$t('login.register')}}</span></span>
         </h1>
-        <h2>欢迎来到土拨鼠充电平台</h2>
-        <el-form-item label="选择租户">
-          <el-select v-model="selectedTenantId" @click="teSelect" @change="getSelectedTenantName" placeholder="请选择租户">
+        <h2>{{$t('login.welcome')}}</h2>
+        <el-form-item>
+          <span style="margin-right: 5px;">{{$t('login.tenement')}}</span>
+          <el-select v-model="selectedTenantId" @click="teSelect" @change="getSelectedTenantName" :placeholder="$t('login.tenements')">
             <el-option v-for="item in useStore.teArr" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item prop="username">
-          <el-input :prefix-icon="User" v-model="loginForm.username" placeholder="请输入用户名"></el-input>
+          <el-input :prefix-icon="User" v-model="loginForm.username" :placeholder="$t('login.usernamePlaceholder')"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" placeholder="请输入密码"></el-input>
+          <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" :placeholder="$t('login.passwordPlaceholder')"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button class="login_btn" type="primary" size="default" @click="login">登录</el-button>
+          <el-button class="login_btn" type="primary" size="default" @click="login">{{ $t('login.text') }}</el-button>
         </el-form-item>
       </el-form>
     </div>
+    <el-dropdown class="language-rect">
+      <span class="el-dropdown-link">
+        <svg-icon name="language" width="30px" height="20px">1</svg-icon>
+        <span>{{$t('login.language')}}</span>
+        <el-icon class="el-icon--right">
+          <arrow-down />
+        </el-icon>
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="changeZh">{{$t('login.chinese')}}</el-dropdown-item>
+          <el-dropdown-item @click="changeEn">{{$t('login.english')}}</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
 
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue'
-import { reactive, ref } from 'vue'
+import { reactive, ref, getCurrentInstance } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
 //引入获取当前时间的函数
@@ -43,7 +59,7 @@ import { getTime } from '@/utils/time'
 import useUserStore from '@/store/module/use'
 let useStore = useUserStore()
 //收集账号与密码的数据
-let loginForm = reactive({ username: '', password: '' })
+let loginForm = reactive({ username: 'admin', password: 'admin' })
 //获取路由器
 let $router = useRouter()
 //路由对象
@@ -59,44 +75,42 @@ let teSelect = () => {
   useStore.tenantSelect()
 }
 //根据选中的id获取租户的名字
-let getSelectedTenantName = ()=>{
- let selectedTenant = useStore.teArr.find((item:any)=>item.id==selectedTenantId.value)
- console.log('selectedTenant',selectedTenant);
- if(selectedTenant){
-  selectedTenantName.value = selectedTenant.name
- }
- 
+let getSelectedTenantName = () => {
+  let selectedTenant = useStore.teArr.find((item: any) => item.id == selectedTenantId.value)
+  if (selectedTenant) {
+    selectedTenantName.value = selectedTenant.name
+  }
 }
 //登录按钮的回调函数
 let login = async () => {
-   // 保存选中的租户id到仓库
-   useStore.setTenantId(selectedTenantId.value)
-   //保存选中的租户名字到仓库
-   useStore.setTenantName(selectedTenantName.value)
+  // 保存选中的租户id到仓库
+  useStore.setTenantId(selectedTenantId.value)
+  //保存选中的租户名字到仓库
+  useStore.setTenantName(selectedTenantName.value)
   await loginForms.value.validate()
-    try {
-      //保证登录成功 useStore.userLogin(loginForm)打印的是promise
-      await useStore.userLogin(loginForm)
-      //用户登录获得当前权限
-      await useStore.setCurrentPermission()
-      //保存用户名到仓库
-      useStore.setUsername(loginForm.username)
-      //编程式导航跳转到展示数据首页
-      //判断登录的时候,路由路径当中是否有query参数，如果有就往query参数挑战，没有跳转到首页
-      let redirect: any = $route.query.redirect
-      $router.push({ path: redirect || '/' })
-      //登录成功提示信息
-      ElNotification({
-        type: 'success',
-        message: '欢迎回来',
-        title: `HI,${getTime()}好`
-      })
-    } catch (error) {
-      ElNotification({
-        type: 'error',
-        message: (error as Error).message
-      })
-    }
+  try {
+    //保证登录成功 useStore.userLogin(loginForm)打印的是promise
+    await useStore.userLogin(loginForm)
+    //用户登录获得当前权限
+    await useStore.setCurrentPermission()
+    //保存用户名到仓库
+    useStore.setUsername(loginForm.username)
+    //编程式导航跳转到展示数据首页
+    //判断登录的时候,路由路径当中是否有query参数，如果有就往query参数挑战，没有跳转到首页
+    let redirect: any = $route.query.redirect
+    $router.push({ path: redirect || '/' })
+    //登录成功提示信息
+    ElNotification({
+      type: 'success',
+      message: '欢迎回来',
+      title: `HI,${getTime()}`
+    })
+  } catch (error) {
+    ElNotification({
+      type: 'error',
+      message: (error as Error).message
+    })
+  }
 }
 
 //定义自定义校验规则
@@ -118,6 +132,20 @@ let rules = {
 //注册按钮
 let goRegister = () => {
   $router.push('/register')
+}
+//getCurrentInstance函数获取当前组件实例,并通过.appContext.config.globalProperties访问全局属性
+//?号表示前面如果返回null，后面不执行
+let $this = getCurrentInstance()?.appContext.config.globalProperties as any
+
+//切换中文
+const changeZh = () => {
+  $this.$i18n.locale = 'zh'
+  localStorage.setItem('lang','zh')
+}
+//切换英文
+const changeEn = () => {
+  $this.$i18n.locale = 'en'
+  localStorage.setItem('lang','en')
 }
 </script>
 
@@ -181,6 +209,21 @@ let goRegister = () => {
     }
     .login_btn {
       width: 100%;
+    }
+  }
+  .language-rect {
+    position: absolute;
+    width: 150px;
+    color: #202d40;
+    cursor: pointer;
+    outline: none;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: 50px;
+    text-align: center;
+    .el-dropdown-link {
+      display: flex;
+      align-items: center;
     }
   }
 }

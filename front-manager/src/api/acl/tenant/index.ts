@@ -5,17 +5,17 @@ import type {registerFormData,tenantSelect,tenantList,tenant} from './type'
 //统一管理接口,
 enum API {
   //租户注册
-  TE_REGISTER_URL = '/api/tenant/register',
+  TE_REGISTER_URL = '/saas-api/tenant/register',
   //租户登录，选择租户
-  TE_LOGIN_URL = '/api/tenant/selects',
+  TE_LOGIN_URL = '/saas-api/tenant/selects',
   //租户列表数据
-  TE_LIST_URL = '/api/tenant/list',
+  TE_LIST_URL = '/saas-api/tenant/list',
   //添加租户数据
-  TE_ADDTE_URL = '/api/tenant/add',
+  TE_ADDTE_URL = '/saas-api/tenant/add',
   //修改租户数据
-  TE_UPDATE_URL = '/api/tenant/update',
+  TE_UPDATE_URL = '/saas-api/tenant/update',
   //删除租户数据
-  TE_DELETE_URL = '/api/tenant/delete?'
+  TE_DELETE_URL = '/saas-api/tenant/delete?'
 }
 //暴露请求函数
 //租户注册接口

@@ -1,31 +1,31 @@
 <template>
   <el-card style="height: 170px">
     <el-form :inline="true" class="form" label-width="90px" :model="changeOrder">
-      <el-form-item label="订单编号:">
-        <el-input placeholder="请输入订单编号" v-model="changeOrder.orderCode"></el-input>
+      <el-form-item :label="$t('opration.orderNumber')">
+        <el-input :placeholder="$t('opration.orderNumber')" v-model="changeOrder.orderCode"></el-input>
       </el-form-item>
-      <el-form-item label="用户名:">
-        <el-select placeholder="请选择用户名" v-model="changeOrder.userId">
+      <el-form-item :label="$t('system.userName')">
+        <el-select :placeholder="$t('system.userName')" v-model="changeOrder.userId">
           <el-option :label="user.nickname" :value="user.id" v-for="user in userArr" :key="user.id"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="充电站名:">
-        <el-select placeholder="请选择充电站名" v-model="changeOrder.stationId" @change="chargeStation">
+      <el-form-item :label="$t('equip.nameLabel')">
+        <el-select :placeholder="$t('equip.nameLabel')" v-model="changeOrder.stationId" @change="chargeStation">
           <el-option v-for="item in stationArr" :key="item.id" :label="item.name" :value="item.id"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="充电桩编号:">
-        <el-select placeholder="请输入充电桩编号" v-model="changeOrder.pileId" :disabled="changeOrder.stationId ? false : true">
+      <el-form-item :label="$t('opration.pileNumber')">
+        <el-select :placeholder="$t('opration.pileNumber')" v-model="changeOrder.pileId" :disabled="changeOrder.stationId ? false : true">
           <el-option :label="pile.code" :value="pile.id" v-for="pile in filterPile" :key="pile.id"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="选择时间:">
-        <el-date-picker v-model="changeOrder.beforeAt" type="datetime" placeholder="选择开始时间" />
+      <el-form-item :label="$t('opration.selectTime')">
+        <el-date-picker v-model="changeOrder.beforeAt" type="datetime" :placeholder="$t('opration.startTime')" />
         <span style="margin: 0 7px"></span>
-        <el-date-picker v-model="changeOrder.afterAt" type="datetime" placeholder="选择结束时间" />
+        <el-date-picker v-model="changeOrder.afterAt" type="datetime" :placeholder="$t('opration.endTime')" />
       </el-form-item>
-      <el-form-item label="订单状态:">
-        <el-select placeholder="请选择订单状态" v-model="changeOrder.state">
+      <el-form-item :label="$t('opration.state')">
+        <el-select :placeholder="$t('opration.state')" v-model="changeOrder.state">
           <el-option label="充电中" value="0"></el-option>
           <el-option label="已完成" value="1"></el-option>
           <el-option label="未付帐" value="2"></el-option>
@@ -33,8 +33,8 @@
       </el-form-item>
       <span style="margin: 0 10px"></span>
       <el-form-item>
-        <el-button type="primary" @click="search" :disabled="isButtonDisabled">搜索</el-button>
-        <el-button type="primary" @click="reset">重置</el-button>
+        <el-button type="primary" @click="search" :disabled="isButtonDisabled">{{$t('button.search')}}</el-button>
+        <el-button type="primary" @click="reset">{{$t('button.reset')}}</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -42,41 +42,41 @@
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="orderArr">
       <el-table-column label="#" align="center" type="index" width="35"></el-table-column>
-      <el-table-column label="订单编号" align="center" prop="orderCode" width="120" show-overflow-tooltip></el-table-column>
-      <el-table-column label="名字" align="center" prop="nickname" show-overflow-tooltip></el-table-column>
-      <el-table-column label="站名" align="center" prop="stationName" show-overflow-tooltip></el-table-column>
-      <el-table-column label="桩编号" align="center" prop="pileCode" show-overflow-tooltip> </el-table-column>
-      <el-table-column label="充电开始时间" align="center" show-overflow-tooltip width="130">
+      <el-table-column :label="$t('opration.orderNumber')" align="center" prop="orderCode" width="120" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.userName')" align="center" prop="nickname" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('equip.nameLabel')" align="center" prop="stationName" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('opration.pileNumber')" align="center" prop="pileCode" show-overflow-tooltip> </el-table-column>
+      <el-table-column :label="$t('opration.startTime')" align="center" show-overflow-tooltip width="130">
         <template #="{ row }">
           <div>{{ formatDate(row.startAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="充电结束时间" align="center" show-overflow-tooltip width="110">
+      <el-table-column :label="$t('opration.endTime')" align="center" show-overflow-tooltip width="110">
         <template #="{ row }">
           <div>{{ formatDate(row.stopAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="订单状态" align="center" prop="state" show-overflow-tooltip width="90">
+      <el-table-column :label="$t('opration.state')" align="center" prop="state" show-overflow-tooltip width="90">
         <template #="{ row }">
           <el-tag v-if="row.state === 0">充电中</el-tag>
           <el-tag v-else-if="row.state === 1" type="success">已完成</el-tag>
           <el-tag v-else type="danger">未付账</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="价格" align="center" prop="price" show-overflow-tooltip> </el-table-column>
-      <el-table-column label="创建时间" align="center" show-overflow-tooltip width="130">
+      <el-table-column :label="$t('opration.price')" align="center" prop="price" show-overflow-tooltip> </el-table-column>
+      <el-table-column :label="$t('tabel.createAt')" align="center" show-overflow-tooltip width="130">
         <template #="{ row }">
           <div>{{ formatDate(row.createAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="修改时间" align="center" show-overflow-tooltip width="130">
+      <el-table-column :label="$t('tabel.updateAt')" align="center" show-overflow-tooltip width="130">
         <template #="{ row }">
           <div>{{ formatDate(row.updateAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" width="100" fixed="right">
+      <el-table-column :label="$t('tabel.operate')" align="center" width="100" fixed="right">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateOrder(row)" v-has="'UpdateOrder'">编辑</el-button>
+          <el-button type="primary" size="small" icon="Edit" @click="updateOrder(row)" >{{$t('button.edit')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -84,22 +84,22 @@
     <el-pagination v-model:current-page="pageNo" v-model:page-size="pageSize" :page-sizes="[3, 5, 7]" :background="true" layout="prev, pager, next, jumper,->,sizes,total" :total="total" @current-change="getHasOrder" @size-change="handler" />
   </el-card>
   <!-- 编辑订单的弹窗提示 -->
-  <el-dialog v-model="dialogVisible" title="修改充电订单" width="30%">
+  <el-dialog v-model="dialogVisible" :title="$t('opration.modifyOrder')" width="30%">
     <el-form ref="form" :rules="rules" :model="orderForm" label-width="90px">
-      <el-form-item label="订单状态:" prop="state">
+      <el-form-item :label="$t('opration.state')" prop="state">
         <el-select v-model="orderForm.state">
           <el-option label="充电中" value="0"></el-option>
           <el-option label="已完成" value="1"></el-option>
           <el-option label="未付账" value="2"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="价格:" prop="price" style="width: 295px">
-        <el-input placeholder="请输入价格" v-model="orderForm.price"></el-input>
+      <el-form-item :label="$t('opration.price')" prop="price" style="width: 295px">
+        <el-input :placeholder="$t('opration.price')" v-model="orderForm.price"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
-      <el-button type="primary" size="default" @click="dialogVisible = false">取消</el-button>
-      <el-button type="primary" size="default" @click="save">确定</el-button>
+      <el-button type="primary" size="default" @click="dialogVisible = false">{{$t('pop.cancel')}}</el-button>
+      <el-button type="primary" size="default" @click="save">{{$t('pop.confirm')}}</el-button>
     </template>
   </el-dialog>
 </template>

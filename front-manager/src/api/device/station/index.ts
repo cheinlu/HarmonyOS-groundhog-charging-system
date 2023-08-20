@@ -4,13 +4,13 @@ import request from "@/utils/request";
 import type {stationList,stationAddOrUpdate} from './type'
 enum API {
   //获取充电站的数据
-  STATION_URL = '/api/station/list?',
+  STATION_URL = '/saas-api/station/list?',
   //添加充电站
-  ADDSTATION_URL = '/api/station/add',
+  ADDSTATION_URL = '/saas-api/station/add',
   //修改充电站
-  UPDATESTATION_URL = '/api/station/update',
+  UPDATESTATION_URL = '/saas-api/station/update',
   //删除充电站
-  DELETESTATION_URL = '/api/station/delete?'
+  DELETESTATION_URL = '/saas-api/station/delete?'
 }
 
 //充电站的数据接口

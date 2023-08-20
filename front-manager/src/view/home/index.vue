@@ -3,8 +3,8 @@
     <div class="box">
       <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif" alt="" class="avatar">
       <div class="bottom">
-        <h3 class="title">{{ getTime() }}好呀~ {{ userStore.username }}</h3>
-        <p class="subtitle">欢迎来到--{{ userStore.tenantName }}</p>
+        <h3 class="title">{{ getTime() }}~ {{ userStore.username }}</h3>
+        <p class="subtitle">{{$t('homes.welcomeMessage')}}--{{ userStore.tenantName }}</p>
       </div>
     </div>
   </el-card>

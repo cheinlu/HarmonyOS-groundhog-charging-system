@@ -1,29 +1,29 @@
 <template>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addPrice" v-has="'PriceAdd'">添加充电价格</el-button>
+    <el-button type="primary" size="default" @click="addPrice" v-has="'PriceAdd'">{{$t('opration.addPrice')}}</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="priceArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
       <el-table-column label="ID" align="center" prop="id"></el-table-column>
-      <el-table-column label="开始时间" align="center" prop="startHour" show-overflow-tooltip></el-table-column>
-      <el-table-column label="结束时间" align="center" prop="endHour" show-overflow-tooltip></el-table-column>
-      <el-table-column label="价格" align="center" prop="price" show-overflow-tooltip></el-table-column>
-      <el-table-column label="创建时间" align="center" show-overflow-tooltip width="250">
+      <el-table-column :label="$t('opration.startTime')" align="center" prop="startHour" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('opration.endTime')" align="center" prop="endHour" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('opration.price')" align="center" prop="price" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('tabel.createAt')" align="center" show-overflow-tooltip width="250">
         <template #="{ row }">
           <div>{{ formatDate(row.createAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="修改时间" align="center" show-overflow-tooltip width="250">
+      <el-table-column :label="$t('tabel.updateAt')" align="center" show-overflow-tooltip width="250">
         <template #="{ row }">
           <div>{{ formatDate(row.updateAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="200px" align="center">
+      <el-table-column :label="$t('tabel.operate')" width="200px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updatePrice(row)" v-has="'PriceUpdate'">编辑</el-button>
+          <el-button type="primary" size="small" icon="Edit" @click="updatePrice(row)" v-has="'PriceUpdate'">{{$t('button.edit')}}</el-button>
           <el-popconfirm :title="`你确定删除id为${row.id}的区间价格吗？`" width="250px" @confirm="deletePrice(row.id)" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete" v-has="'PriceDel'">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'PriceDel'">{{$t('button.delete')}}</el-button>
             </template>
           </el-popconfirm>
         </template>
@@ -33,21 +33,21 @@
     <el-pagination v-model:current-page="pageNo" v-model:page-size="pageSize" :page-sizes="[3, 5, 7, 10]" :background="true" layout="prev, pager, next, jumper,->,sizes,total" :total="total" @current-change="getHasPrice" @size-change="handler" />
   </el-card>
   <!-- 添加|修改充电价格弹窗 -->
-  <el-dialog v-model="dialogVisible" title="添加价格">
-    <el-form :model="priceParams" ref="form" :rules="rules">
-      <el-form-item label="开始时间" prop="startHour" label-width="80px">
-        <el-input placeholder="请你输入开始时间" v-model="priceParams.startHour"></el-input>
+  <el-dialog v-model="dialogVisible" :title="$t(priceParams.id?'opration.editPrice':'opration.addPrice')">
+    <el-form :model="priceParams" ref="form" :rules="rules" label-width="95px">
+      <el-form-item :label="$t('opration.startTime')" prop="startHour" >
+        <el-input :placeholder="$t('opration.startTime')" v-model="priceParams.startHour"></el-input>
       </el-form-item>
-      <el-form-item label="结束时间" prop="endHour" label-width="80px">
-        <el-input placeholder="请你输入结束时间" v-model="priceParams.endHour"></el-input>
+      <el-form-item :label="$t('opration.endTime')" prop="endHour" >
+        <el-input :placeholder="$t('opration.endTime')" v-model="priceParams.endHour"></el-input>
       </el-form-item>
-      <el-form-item label="价格" prop="price" label-width="80px">
-        <el-input placeholder="请你输入价格" v-model="priceParams.price"></el-input>
+      <el-form-item :label="$t('opration.price')" prop="price" >
+        <el-input :placeholder="$t('opration.price')" v-model="priceParams.price"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
-      <el-button type="primary" size="default" @click="dialogVisible = false">取消</el-button>
-      <el-button type="primary" size="default" @click="save">确定</el-button>
+      <el-button type="primary" size="default" @click="dialogVisible = false">{{$t('pop.cancel')}}</el-button>
+      <el-button type="primary" size="default" @click="save">{{$t('pop.confirm')}}</el-button>
     </template>
   </el-dialog>
 </template>

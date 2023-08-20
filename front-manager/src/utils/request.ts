@@ -24,7 +24,7 @@ if (token) {
   const now = Math.floor(Date.now() / 1000)
   
   //只要token有效期小于1小时，就会请求refresh接口，重新获取token    3600是60秒*60=1小时
-  if(config.url !== '/api/token/refresh' && decodedHrader.exp > now && decodedHrader.exp - 3600 < now){
+  if(config.url !== '/saas-api/token/refresh' && decodedHrader.exp > now && decodedHrader.exp - 3600 < now){
     reqRefresh().then(res=>{
       SET_TOKEN(res.data.token)
     }).finally()

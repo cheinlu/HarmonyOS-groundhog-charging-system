@@ -1,37 +1,37 @@
 <template>
   <el-card>
-    <el-button type="primary" size="default" @click="addTenant" v-has="'TenantAdd'">添加租户</el-button>
+    <el-button type="primary" size="default" @click="addTenant" v-has="'TenantAdd'">{{$t('system.addTenant')}}</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="teList">
       <el-table-column label="#" align="center" type="index"></el-table-column>
-      <el-table-column label="租户" align="center" prop="contactName" show-overflow-tooltip></el-table-column>
-      <el-table-column label="邮箱" align="center" prop="contactEmail" show-overflow-tooltip></el-table-column>
-      <el-table-column label="电话" align="center" prop="contactPhone" show-overflow-tooltip></el-table-column>
-      <el-table-column label="状态" align="center" prop="status" show-overflow-tooltip>
+      <el-table-column :label="$t('system.tenant')" align="center" prop="contactName" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.mailbox')" align="center" prop="contactEmail" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.phone')" align="center" prop="contactPhone" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.state')" align="center" prop="status" show-overflow-tooltip>
         <template #="{ row }">
           <el-tag v-if="row.status === 'active'">激活</el-tag>
           <el-tag v-else-if="row.status === 'inactive'">未激活</el-tag>
           <el-tag v-else>激活</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="公司名称" align="center" prop="name" show-overflow-tooltip></el-table-column>
-      <el-table-column label="公司网站" align="center" prop="domain" show-overflow-tooltip> </el-table-column>
-      <el-table-column label="创建时间" align="center" show-overflow-tooltip width="160">
+      <el-table-column :label="$t('system.companyName')" align="center" prop="name" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.website')" align="center" prop="domain" show-overflow-tooltip> </el-table-column>
+      <el-table-column :label="$t('tabel.createAt')" align="center" show-overflow-tooltip width="160">
         <template #="{ row }">
           <div>{{ formatDate(row.createAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="修改时间" align="center" show-overflow-tooltip width="160">
+      <el-table-column :label="$t('tabel.updateAt')" align="center" show-overflow-tooltip width="160">
         <template #="{ row }">
           <div>{{ formatDate(row.updateAt) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="170px" align="center">
+      <el-table-column :label="$t('tabel.operate')" width="190px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateTenant(row)" v-has="'TenantUpdate'">编辑</el-button>
-          <el-popconfirm :title="`你确定要删除${row.contactName}?`" width="260px" @confirm="deleteTenant(row.id)" v-has="TenantDel">
+          <el-button type="primary" size="small" icon="Edit" @click="updateTenant(row)" v-has="'TenantUpdate'">{{$t('button.edit')}}</el-button>
+          <el-popconfirm :title="`你确定要删除${row.contactName}?`" width="260px" @confirm="deleteTenant(row.id)" v-has="'TenantDel'">
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete" v-has="'RoleDel'">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'RoleDel'">{{$t('button.delete')}}</el-button>
             </template>
           </el-popconfirm>
         </template>
@@ -44,39 +44,39 @@
   <el-drawer v-model="drawer">
     <!-- 头部标题:将来文字内容应该动态的 -->
     <template #header>
-      <h4>{{ tenantParams.id ? '更新租户' : '添加租户' }}</h4>
+      <h4>{{ $t(tenantParams.id ? 'system.editTenant' : 'system.addTenant') }}</h4>
     </template>
     <!-- 身体部分 -->
     <template #default>
       <el-form ref="formRef" :model="tenantParams" :rules="rules" label-width="90px">
-        <el-form-item label="租户" prop="contactName">
-          <el-input placeholder="请您输入租户" v-model="tenantParams.contactName"></el-input>
+        <el-form-item :label="$t('system.tenant')" prop="contactName">
+          <el-input :placeholder="$t('system.tenant')" v-model="tenantParams.contactName"></el-input>
         </el-form-item>
-        <el-form-item label="邮箱" prop="contactEmail">
-          <el-input placeholder="请您输入邮箱" v-model="tenantParams.contactEmail"></el-input>
+        <el-form-item :label="$t('system.mailbox')" prop="contactEmail">
+          <el-input :placeholder="$t('system.mailbox')" v-model="tenantParams.contactEmail"></el-input>
         </el-form-item>
-        <el-form-item label="电话" prop="contactPhone">
-          <el-input placeholder="请您输入电话" v-model="tenantParams.contactPhone"></el-input>
+        <el-form-item :label="$t('system.phone')" prop="contactPhone">
+          <el-input :placeholder="$t('system.phone')" v-model="tenantParams.contactPhone"></el-input>
         </el-form-item>
-        <el-form-item label="状态" prop="status">
-          <el-select v-model="tenantParams.status" placeholder="请选择状态">
+        <el-form-item :label="$t('system.state')" prop="status">
+          <el-select v-model="tenantParams.status" :placeholder="$t('system.state')">
             <el-option label="激活" value="active"></el-option>
             <el-option label="未激活" value="inactive"></el-option>
             <el-option label="暂停" value="suspended"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="公司名称" prop="name">
-          <el-input placeholder="请您输入公司名称" v-model="tenantParams.name"></el-input>
+        <el-form-item :label="$t('system.companyName')" prop="name">
+          <el-input :placeholder="$t('system.companyName')" v-model="tenantParams.name"></el-input>
         </el-form-item>
-        <el-form-item label="公司网站" prop="domain">
-          <el-input placeholder="请您输入公司网站" v-model="tenantParams.domain"></el-input>
+        <el-form-item :label="$t('system.website')" prop="domain">
+          <el-input :placeholder="$t('system.website')" v-model="tenantParams.domain"></el-input>
         </el-form-item>
       </el-form>
     </template>
     <template #footer>
       <div style="flex: auto">
-        <el-button @click="drawer = false">取消</el-button>
-        <el-button type="primary" @click="save">确定</el-button>
+        <el-button @click="drawer = false">{{$t('pop.cancel')}}</el-button>
+        <el-button type="primary" @click="save">{{$t('pop.confirm')}}</el-button>
       </div>
     </template>
   </el-drawer>

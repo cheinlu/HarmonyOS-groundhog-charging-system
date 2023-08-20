@@ -1,42 +1,42 @@
 <template>
   <el-card style="height: 70px">
     <el-form :inline="true" class="form">
-      <el-form-item label="用户名">
-        <el-input placeholder="请输入用户名" v-model="username"></el-input>
+      <el-form-item :label="$t('system.userName')">
+        <el-input :placeholder="$t('system.userName')" v-model="username"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="search" :disabled="username ? false : true">搜索</el-button>
-        <el-button type="primary" @click="reset">重置</el-button>
+        <el-button type="primary" @click="search" :disabled="username ? false : true">{{$t('button.search')}}</el-button>
+        <el-button type="primary" @click="reset">{{$t('button.reset')}}</el-button>
       </el-form-item>
     </el-form>
   </el-card>
   <el-card style="margin: 10px 0px">
-    <el-button type="primary" size="default" @click="addUser" v-has="'UserAdd'">添加用户</el-button>
+    <el-button type="primary" size="default" @click="addUser" v-has="'UserAdd'">{{$t('system.addUser')}}</el-button>
     <!-- table展示用户信息 -->
     <el-table style="margin: 10px 0px" border :data="userArr">
       <el-table-column label="#" align="center" type="index"></el-table-column>
       <el-table-column label="ID" align="center" prop="id"></el-table-column>
-      <el-table-column label="用户名字" align="center" prop="username" show-overflow-tooltip></el-table-column>
-      <el-table-column label="用户名称" align="center" prop="nickname" show-overflow-tooltip></el-table-column>
-      <el-table-column label="余额" align="center" prop="balance" show-overflow-tooltip>
+      <el-table-column :label="$t('system.userName')" align="center" prop="username" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.userTitle')" align="center" prop="nickname" show-overflow-tooltip></el-table-column>
+      <el-table-column :label="$t('system.balance')" align="center" prop="balance" show-overflow-tooltip>
         <template #="{ row }">
           <div class="balance">
             <span>{{ row.balance }}</span>
-            <el-button type="primary" @click="addPay(row)" size="small">充值</el-button>
+            <el-button type="primary" @click="addPay(row)" size="small">{{$t('system.recharge')}}</el-button>
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="创建时间" align="center" show-overflow-tooltip width="250">
+      <el-table-column :label="$t('tabel.createAt')" align="center" show-overflow-tooltip width="250">
         <template #="{ row }">
           <div>{{ formatDate(row.createTime) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="200px" align="center">
+      <el-table-column :label="$t('tabel.operate')" width="200px" align="center">
         <template #="{ row }">
-          <el-button type="primary" size="small" icon="Edit" @click="updateUser(row)" v-has="'UserUpdate'">编辑</el-button>
+          <el-button type="primary" size="small" icon="Edit" @click="updateUser(row)" v-has="'UserUpdate'">{{$t('button.edit')}}</el-button>
           <el-popconfirm :title="`你确定要删除${row.username}?`" width="260px" @confirm="deleteUser(row.id)" >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete" v-has="'UserDel'">删除</el-button>
+              <el-button type="primary" size="small" icon="Delete" v-has="'UserDel'">{{$t('button.delete')}}</el-button>
             </template>
           </el-popconfirm>
         </template>
@@ -49,42 +49,42 @@
   <el-drawer v-model="drawer">
     <!-- 头部标题:将来文字内容应该动态的 -->
     <template #header>
-      <h4>{{ userParams.id ? '更新用户' : '添加用户' }}</h4>
+      <h4>{{ $t(userParams.id ? 'system.editUser' : 'system.addUser') }}</h4>
     </template>
     <!-- 身体部分 -->
     <template #default>
-      <el-form ref="formRef" :model="userParams" :rules="rules">
-        <el-form-item label="用户姓名" prop="username">
-          <el-input placeholder="请您输入用户姓名" v-model="userParams.username"></el-input>
+      <el-form ref="formRef" :model="userParams" :rules="rules" label-width="100px">
+        <el-form-item :label="$t('system.userName')" prop="username">
+          <el-input :placeholder="$t('system.userName')" v-model="userParams.username"></el-input>
         </el-form-item>
-        <el-form-item label="用户昵称" prop="nickname">
-          <el-input placeholder="请您输入用户昵称" v-model="userParams.nickname"></el-input>
+        <el-form-item :label="$t('system.userTitle')" prop="nickname">
+          <el-input :placeholder="$t('system.userTitle')" v-model="userParams.nickname"></el-input>
         </el-form-item>
-        <el-form-item label="用户密码" prop="password" v-if="!userParams.id">
-          <el-input placeholder="请您输入用户密码" v-model="userParams.password"></el-input>
+        <el-form-item :label="$t('system.password')" prop="password" v-if="!userParams.id">
+          <el-input :placeholder="$t('system.password')" v-model="userParams.password"></el-input>
         </el-form-item>
       </el-form>
     </template>
     <template #footer>
       <div style="flex: auto">
-        <el-button @click="drawer = false">取消</el-button>
-        <el-button type="primary" @click="save">确定</el-button>
+        <el-button @click="drawer = false">{{$t('pop.cancel')}}</el-button>
+        <el-button type="primary" @click="save">{{$t('pop.confirm')}}</el-button>
       </div>
     </template>
   </el-drawer>
   <!-- 充值按钮的弹窗 -->
-  <el-dialog v-model="dialogVisible" title="充值" width="30%">
+  <el-dialog v-model="dialogVisible" :title="$t('system.recharge')" width="30%">
     <el-form ref="form" label-width="90px" :rules="payRules" :model="payForm">
-      <el-form-item label="用户名:" prop="userId">
+      <el-form-item :label="$t('system.userName')" prop="userId">
         <span>{{ userParams.username }}</span>
       </el-form-item>
-      <el-form-item label="充值金额:" prop="price">
-        <el-input placeholder="请输入价格" v-model="payForm.price"></el-input>
+      <el-form-item :label="$t('system.rechargeAmount')" prop="price">
+        <el-input :placeholder="$t('system.rechargeAmount')" v-model="payForm.price"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
-      <el-button type="primary" size="default" @click="dialogVisible = false">取消</el-button>
-      <el-button type="primary" size="default" @click="savePay">确定</el-button>
+      <el-button type="primary" size="default" @click="dialogVisible = false">{{$t('pop.cancel')}}</el-button>
+      <el-button type="primary" size="default" @click="savePay">{{$t('pop.confirm')}}</el-button>
     </template>
   </el-dialog>
 </template>

@@ -4,11 +4,11 @@ import request from "@/utils/request";
 import type {permissionList} from './type'
 enum API {
 //权限列表
-ALLPERMI_URL = '/api/permission/list',
+ALLPERMI_URL = '/saas-api/permission/list',
 //角色绑定权限
-BINDPERMI_URL = '/api/permission/bind?',
+BINDPERMI_URL = '/saas-api/permission/bind?',
 //当前用户权限
-CURRENTPERMI_URL = '/api/permission/current'
+CURRENTPERMI_URL = '/saas-api/permission/current'
 }
 
 //权限列表的接口

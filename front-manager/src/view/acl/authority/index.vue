@@ -2,22 +2,22 @@
   <el-card>
     <el-table border :data="authArr">
       <el-table-column label="#" type="index" align="center" width="80px"></el-table-column>
-      <el-table-column prop="model" label="分类" align="center" width="150px"></el-table-column>
-      <el-table-column prop="permissionList" label="功能权限" align="center" show-overflow-tooltip>
+      <el-table-column prop="model" :label="$t('system.Category')" align="center" width="150px"></el-table-column>
+      <el-table-column prop="permissionList" :label="$t('system.functionalPermissions')" align="center" show-overflow-tooltip>
         <template #="{ row }">
           <el-checkbox-group v-model="row.checkedCities" @change="handleCheckedCitiesChange(row)">
             <el-checkbox v-for="(item, index) in row.permissionList" :key="index" :label="item">{{ item.name }}</el-checkbox>
           </el-checkbox-group>
         </template>
       </el-table-column>
-      <el-table-column label="全选" align="center" width="200px">
+      <el-table-column :label="$t('system.selectAll')" align="center" width="200px">
         <template #="{ row }">
-          <el-checkbox v-model="row.checkAll" :indeterminate="row.isIndeterminate" @change="row.permissionList && handleCheckAllChange(row)">全选</el-checkbox>
+          <el-checkbox v-model="row.checkAll" :indeterminate="row.isIndeterminate" @change="row.permissionList && handleCheckAllChange(row)">{{$t('system.selectAll')}}</el-checkbox>
         </template>
       </el-table-column>
     </el-table>
     <div style="display: flex; justify-content: flex-end; margin-top: 15px">
-      <el-button type="primary" icon="Check" @click="bindPermi"  :disabled="!isButtonEnabled" v-has="'PermissionViewBind'">绑定权限</el-button>
+      <el-button type="primary" icon="Check" @click="bindPermi"  :disabled="!isButtonEnabled" v-has="'PermissionViewBind'">{{$t('button.bindPermissions')}}</el-button>
     </div>
   </el-card>
 </template>
@@ -39,8 +39,9 @@ onMounted(() => {
 //获取权限列表数据
 let getHasAuth = async () => {
   let res: any = await reqAllPermiList()
+  console.log('权限列表res',res)
   if (res.code == 0) {
-    authArr.value = res.data.map((item: any) => ({
+    authArr.value = res.data.data.map((item: any) => ({
       ...item,
       permissionList: item.permissionList || [] // 确保 permissionList 是一个数组，如为空则置为空数组
     }))

@@ -14,13 +14,16 @@ export interface registerFormData {
   validCode: string
 }
 
-//租户登录时返回的数据类型
-export interface tenantSelect extends ResponseData {
-  data:{
+export interface data{
+  Data:{
     domain: string
     id: number
     name:string
   }
+}
+//租户登录时返回的数据类型
+export interface tenantSelect extends ResponseData {
+  data:data
 }
 
 //已有的租户ts类型

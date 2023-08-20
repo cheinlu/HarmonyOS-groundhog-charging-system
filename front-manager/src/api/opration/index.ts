@@ -4,17 +4,17 @@ import request from "@/utils/request";
 import type {priceList,price,chargeList} from './type'
 enum API {
   //获取价格区间的数据
-  PRICE_URL = '/api/charge/price/list?',
+  PRICE_URL = '/saas-api/charge/price/list?',
    //添加充电价格
-   ADDPRICE_URL = '/api/charge/price/add',
+   ADDPRICE_URL = '/saas-api/charge/price/add',
    //更新已有充电价格
-   UPDATEPRICE_URL = 'api/charge/price/update',
+   UPDATEPRICE_URL = '/saas-api/charge/price/update',
  //删除已有充电价格
-  DELETEPRICE_URL = '/api/charge/price/delete?',
+  DELETEPRICE_URL = '/saas-api/charge/price/delete?',
   //充电订单的数据
-  ORDER_URL = '/api/charge/list?',
+  ORDER_URL = '/saas-api/charge/list?',
   //充电订单修改
-  UPDATEORDER_URL = '/api/charge/update?'
+  UPDATEORDER_URL = '/saas-api/charge/update?'
 }
 
 //价格区间的接口

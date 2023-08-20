@@ -4,13 +4,13 @@ import request from "@/utils/request";
 import type {pileList} from './type'
 enum API {
   //获取充电桩的数据
-  PILE_URL = '/api/pile/list?',
+  PILE_URL = '/saas-api/pile/list?',
   //添加充电桩的数据
-  ADDPILE_URL = '/api/pile/add',
+  ADDPILE_URL = '/saas-api/pile/add',
   //修改充电桩的数据
-  UPDATEPILE_URL = '/api/pile/update',
+  UPDATEPILE_URL = '/saas-api/pile/update',
   //删除充电桩的数据
-  DELETEPILE_URL = '/api/pile/delete?'
+  DELETEPILE_URL = '/saas-api/pile/delete?'
 }
 
 //充电桩的数据接口

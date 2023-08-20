@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+//引入i18n
+import i18n from '@/lang/index'
 //引入ElementPlus
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css'
@@ -25,6 +27,9 @@ const app = createApp(App)
 //引入自定义指令
 import {isHasPermission} from '@/directive/has'
 isHasPermission(app)
+
+//安装i18n
+app.use(i18n)
 //安装百度地图
 app.use(BaiduMap, {ak: "124wXbeEy3ngDIaCEzUMlu6DA7gPwGsF"})
 //安装仓库
@@ -41,3 +46,4 @@ import './permisstion'
 app.mount('#app')
 //安装自定义插件
 app.use(gloablComponent)
+
