@@ -1,15 +1,15 @@
 <template>
   <view>
-    <u-tabbar :active="active" :fixed="true" :placeholder="true" :safeAreaInsetBottom="true">
+    <u-tabbar :active="useStore.activeTab" :fixed="true" :placeholder="true" :safeAreaInsetBottom="true">
       <u-tabbar-item v-for="(item, index) in tabbarItems" :key="index" :icon="getTabbarIcon(item, index)" :text="item.text" @click="handleTabbarItemClick(item, index)"></u-tabbar-item>
     </u-tabbar>
   </view>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-//当前匹配项，默认设置为2，即我的页面
-let active = ref(2)
+//引入pinia仓库
+import useUserStore from '@/store/user.js'
+let useStore = useUserStore()
 
 const tabbarItems = [
   {
@@ -21,7 +21,8 @@ const tabbarItems = [
   {
     pagePath: '/pages/scan/scan',
     text: '扫码',
-    iconPath: '/static/tab_icons/scan-active.png'
+    iconPath: '/static/tab_icons/scan.png',
+    selectedIconPath: '/static/tab_icons/scan-active.png'
   },
   {
     pagePath: '/pages/my/my',
@@ -30,9 +31,10 @@ const tabbarItems = [
     selectedIconPath: '/static/tab_icons/my-active.png'
   }
 ]
-//点击tabbar
+//点击tabbar按钮
 const handleTabbarItemClick = (item, index) => {
-  if (active.value !== index) {
+  if (useStore.activeTab !== index) {
+    //如果点击的是扫描按钮
     if (index === 1) {
       uni.scanCode({
         success(res) {
@@ -51,7 +53,7 @@ const handleTabbarItemClick = (item, index) => {
         }
       })
     } else {
-      active.value = index // 更新选中项的索引
+      useStore.setActive(index)
       const path = item.pagePath
       uni.switchTab({
         url: path
@@ -61,6 +63,6 @@ const handleTabbarItemClick = (item, index) => {
 }
 //图标的切换
 const getTabbarIcon = (item, index) => {
-  return active.value === index ? item.selectedIconPath : item.iconPath
+  return useStore.activeTab === index ? item.selectedIconPath : item.iconPath
 }
 </script>

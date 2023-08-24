@@ -136,7 +136,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/黑马前端基础学习/小程序/test-v3/App.vue"]]);
+const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/黑马前端基础学习/6.vue/项目/土拨鼠充电/Groundhog-Charging-System/front-mini-programe/App.vue"]]);
 common_vendor.index.$showMsg = function(title = "数据请求失败！", duration = 1500) {
   common_vendor.index.showToast({
     title,

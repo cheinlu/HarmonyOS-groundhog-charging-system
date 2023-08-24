@@ -27,7 +27,7 @@
           <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" :placeholder="$t('login.passwordPlaceholder')"></el-input>
         </el-form-item>
         <el-form-item :label="$t('login.code')">
-          <el-input :prefix-icon="Aim" :placeholder="$t('login.verificationCode')" v-model="sidentifyMode"></el-input>
+          <el-input :placeholder="$t('login.verificationCode')" v-model="sidentifyMode"></el-input>
         </el-form-item>
         <div @click="refreshCode" style="text-align: center; margin-bottom: 10px;">
           <SIdentify :identifyCode="identifyCode"></SIdentify>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { User, Lock,Aim } from '@element-plus/icons-vue'
+import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref, getCurrentInstance, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'

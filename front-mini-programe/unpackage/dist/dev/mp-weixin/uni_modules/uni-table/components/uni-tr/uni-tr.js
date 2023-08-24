@@ -105,5 +105,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     d: $data.border ? 1 : ""
   } : {});
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/黑马前端基础学习/小程序/test-v3/uni_modules/uni-table/components/uni-tr/uni-tr.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/黑马前端基础学习/6.vue/项目/土拨鼠充电/Groundhog-Charging-System/front-mini-programe/uni_modules/uni-table/components/uni-tr/uni-tr.vue"]]);
 wx.createComponent(Component);

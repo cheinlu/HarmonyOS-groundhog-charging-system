@@ -8,9 +8,9 @@ require("../../utils/token.js");
 const _sfc_main = {
   __name: "login",
   setup(__props) {
-    let useStore = store_user.useUserStore();
+    const useStore = store_user.useUserStore();
     common_vendor.ref("");
-    let getAccessToken = () => {
+    const getAccessToken = () => {
       common_vendor.index.login({
         provider: "weixin",
         success(res) {
@@ -22,10 +22,10 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_assets._imports_0$2,
-        b: common_vendor.o((...args) => common_vendor.unref(getAccessToken) && common_vendor.unref(getAccessToken)(...args))
+        b: common_vendor.o(getAccessToken)
       };
     };
   }
 };
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/黑马前端基础学习/小程序/test-v3/components/login/login.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/黑马前端基础学习/6.vue/项目/土拨鼠充电/Groundhog-Charging-System/front-mini-programe/components/login/login.vue"]]);
 wx.createComponent(Component);

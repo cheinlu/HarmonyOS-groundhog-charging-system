@@ -8,7 +8,8 @@ const useUserStore = defineStore('User', {
   state: () => {
     return {
       token: GET_TOKEN() || '',
-      info: GET_INFO() || '{}'
+      info: GET_INFO() || '{}',
+      activeTab: 1 // 默认选中的索引
     }
   },
   actions: {
@@ -50,7 +51,11 @@ const useUserStore = defineStore('User', {
       this.info = {}
       REMOVE_TOKEN()
       REMOVE_INFO()
-    }
+    },
+    //设置active的值
+    setActive(active) {
+      this.activeTab = active;
+    },
   },
   getters: {}
 })

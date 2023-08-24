@@ -10,20 +10,20 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import useUserStore from '@/store/user.js'
-let useStore = useUserStore()
+const useStore = useUserStore()
 //保存code
-let code = ref('')
-let getAccessToken = ()=>{
-  uni.login({
-     provider: 'weixin',
-     success(res) {
-      let lcode = res.code
-       useStore.userLogin(lcode)
-     }
-  })
-}
+const code = ref('')
+const getAccessToken = () => {
+      uni.login({
+        provider: 'weixin',
+        success(res) {
+          let lcode = res.code
+          useStore.userLogin(lcode)
+        }
+      })
+    }
 </script>
 
 <style lang="scss">
