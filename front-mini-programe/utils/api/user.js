@@ -14,6 +14,5 @@ export const  requestVerificationCode = (params = {}) => http.get(`/wx-api/valid
 export const requestRegister = (data)=>http.post('/wx-api/register',data)
 //获取个人中心信息   /wx-api/me/info   get
 export const requestUserInfo = () => http.get('/wx-api/me/info')
-
-
-
+//修改个人昵称  /wx-api/update/nickname post  参数：newNickname
+export const requestNickname = (data)=>http.post('/wx-api/update/nickname',data)

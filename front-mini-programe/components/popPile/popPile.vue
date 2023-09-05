@@ -44,7 +44,7 @@ let confimPile = () => {
 //去充电页面
 let goCharging = (pile) => {
   // 构建跳转URL并拼接参数
-  let url = '/subpkg/charging/charging?id=' + pile.id + '&code=' + pile.code + '&pricePerHour=' + props.pricePerHour
+  let url = '/subpkg/charging/charging?id=' + pile.id + '&code=' + pile.code + '&pricePerHour=' + props.pricePerHour+'&stationName='+pile.stationName
   uni.navigateTo({
     url
   })

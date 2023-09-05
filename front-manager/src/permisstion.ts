@@ -29,12 +29,9 @@ router.beforeEach(async (to:any,_from:any,next:any)=>{
         next()
       }else{
         try {
-           // 确保异步路由加载完成后再继续导航
-           await router.isReady()
            //获取用户信息
-           userStore.setUsername(name as string)
-         next()
-         
+           await userStore.setUsername(name as string);
+           next();
         } catch (error) {
          userStore.userLogout()
           next({ path: '/login', query: { redirect: to.path } })

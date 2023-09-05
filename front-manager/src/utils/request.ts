@@ -9,7 +9,7 @@ import {reqRefresh} from '@/api/user/index.ts'
 import useUserStore from '@/store/module/use.ts'
 let request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
-  timeout: 5000
+  timeout: 10000
 })
 
 // 添加请求拦截器
@@ -45,7 +45,6 @@ request.interceptors.response.use((response)=>{
   return response.data
 },
 (error) => {
-  console.log(error)
   return Promise.reject(error)
 }
 )

@@ -39,16 +39,18 @@ const handleTabbarItemClick = (item, index) => {
       uni.scanCode({
         success(res) {
           const scanUrl = res.result
-          const regExp = /pileId=(\d+)&code=(\d+)/
+          const regExp = /pileId=(\d+)&code=(\d+)&stationName=([^&]+)/;
           const matchResult = scanUrl.match(regExp)
           let pileId = ''
           let code = ''
+          let stationName = ''
           if (matchResult) {
             pileId = matchResult[1]
             code = matchResult[2]
+            stationName = matchResult[3]
           }
           uni.reLaunch({
-            url: '/subpkg/charging/charging?pileId=' + pileId + '&code=' + code
+            url: '/subpkg/charging/charging?pileId=' + pileId + '&code=' + code+'&stationName='+stationName
           })
         }
       })

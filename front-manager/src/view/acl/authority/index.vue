@@ -39,7 +39,6 @@ onMounted(() => {
 //获取权限列表数据
 let getHasAuth = async () => {
   let res: any = await reqAllPermiList()
-  console.log('权限列表res',res)
   if (res.code == 0) {
     authArr.value = res.data.data.map((item: any) => ({
       ...item,
@@ -71,8 +70,6 @@ let handleCheckedCitiesChange = (row: any) => {
 // 绑定权限
 let bindPermi = async () => {
   let id =  $route.query.roleId
-  console.log('##',id);
-  
   const selected: any = []
   for (const row of authArr.value) {
     if (row.checkedCities && row.checkedCities.length > 0) {

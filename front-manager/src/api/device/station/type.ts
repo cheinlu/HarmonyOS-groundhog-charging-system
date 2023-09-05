@@ -30,5 +30,6 @@ export interface stationAddOrUpdate {
   name: string
   address: string
   coordinate: string
+  imageUrl:string
   id?:number
 }

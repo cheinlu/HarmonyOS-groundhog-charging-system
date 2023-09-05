@@ -127,8 +127,6 @@ let getHasTenant = async (pager = 1) => {
 }
 //分页器下拉菜单的自定义事件的回调
 let handler = () => {
-  console.log(pageSize.value)
-
   getHasTenant()
 }
 //添加租户

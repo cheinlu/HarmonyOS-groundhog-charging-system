@@ -1495,7 +1495,7 @@ function populateParameters(fromRes, toRes) {
   const hostLanguage = language.replace(/_/g, "-");
   const parameters = {
     appId: "__UNI__E827999",
-    appName: "test-v3",
+    appName: "土拨鼠充电开源演示项目",
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
@@ -1639,7 +1639,7 @@ const getAppBaseInfo = {
       hostSDKVersion: SDKVersion,
       hostTheme: theme,
       appId: "__UNI__E827999",
-      appName: "test-v3",
+      appName: "土拨鼠充电开源演示项目",
       appVersion: "1.0.0",
       appVersionCode: "100",
       appLanguage: getAppLanguage(hostLanguage)
@@ -7898,16 +7898,16 @@ const onShow = /* @__PURE__ */ createHook(ON_SHOW);
 const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
 const pages = [
   {
-    path: "pages/my/my",
+    path: "pages/charge/charge",
     style: {
-      navigationBarTitleText: "我的",
+      navigationBarTitleText: "充电",
       enablePullDownRefresh: false
     }
   },
   {
-    path: "pages/charge/charge",
+    path: "pages/my/my",
     style: {
-      navigationBarTitleText: "充电",
+      navigationBarTitleText: "我的",
       enablePullDownRefresh: false
     }
   },
@@ -7923,13 +7923,6 @@ const subPackages = [
   {
     root: "subpkg",
     pages: [
-      {
-        path: "register/register",
-        style: {
-          navigationBarTitleText: "",
-          enablePullDownRefresh: false
-        }
-      },
       {
         path: "charging/charging",
         style: {

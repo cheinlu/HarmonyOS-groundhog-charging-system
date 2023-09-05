@@ -118,10 +118,9 @@ require("./uni_modules/uview-plus/libs/config/props/upload.js");
 require("./uni_modules/uview-plus/libs/config/zIndex.js");
 require("./uni_modules/uview-plus/libs/function/platform.js");
 if (!Math) {
-  "./pages/my/my.js";
   "./pages/charge/charge.js";
+  "./pages/my/my.js";
   "./pages/scan/scan.js";
-  "./subpkg/register/register.js";
   "./subpkg/charging/charging.js";
   "./subpkg/chargeOrder/chargeOrder.js";
 }

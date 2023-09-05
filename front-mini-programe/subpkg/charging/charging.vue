@@ -1,6 +1,12 @@
 <template>
   <view class="charge-container">
     <!-- 设备编号 -->
+    <view class="serial-list station">
+      <!-- 编号名字 -->
+      <view class="serial-title">充电站</view>
+      <!-- 对应的编号 -->
+      <view class="serial">{{ stationName }}</view>
+    </view>
     <view class="serial-list">
       <!-- 编号名字 -->
       <view class="serial-title">设备编号</view>
@@ -20,15 +26,17 @@
           <uni-data-select style="font-size: 20rpx" v-model="chargingTime" :localdata="timeList" @change="onTimeAndPayMethodChange"> </uni-data-select>
         </view>
       </view>
-      <view class="charge-price">
+    <!--  <view class="charge-price">
         <view class="charge-title">支付方式</view>
         <view class="price">
           <uni-data-select style="font-size: 10rpx" v-model="payMethod" :localdata="payMethodList" @change="onTimeAndPayMethodChange"> </uni-data-select>
         </view>
-      </view>
+      </view> -->
+       <view style="color: red;">PS：此功能不涉及支付，只做演示使用</view>
     </view>
     <!-- 开始充电 -->
     <view class="recharge" @click="goChargeOrder">充电</view>
+   
     <!-- 收费标准弹窗 -->
     <pop v-if="showPopPrice" :list="chargePriceList" @confirm="confimCharge"></pop>
   </view>
@@ -39,7 +47,7 @@ import { onLoad } from '@dcloudio/uni-app'
 import { requestStartCharge, requestChargePrice } from '@/utils/api/charge.js'
 import { ref, reactive } from 'vue'
 import { defineProps, onMounted } from 'vue'
-const props = defineProps(['id', 'code', 'pricePerHour'])
+const props = defineProps(['id', 'code', 'pricePerHour','stationName'])
 let scannedId = ref(null) //扫码进入页面时的id值
 let showPopPrice = ref(false)
 let pageSize = ref(10)
@@ -47,7 +55,7 @@ let pageNo = ref(1)
 let chargePriceList = ref([])
 let chargingTime = ref(0)
 let payMethod = ref(0)
-let payMethodList = reactive([{ value: 0, text: '余额支付' }])
+let payMethodList = reactive([{ value: 0, text: '无' }])
 let timeList = reactive([{ value: 0, text: '充满即止' }])
 onLoad((options) => {
   //判断是否通过扫码进入页面并包含id
@@ -108,6 +116,7 @@ let goChargeOrder = async () => {
   height: 100vh;
   padding: 30rpx;
   background-color: #f4f4f4;
+  
   .serial-list {
     background-color: #ffffff;
     padding: 20rpx;
@@ -116,6 +125,9 @@ let goChargeOrder = async () => {
     align-items: center;
     border-radius: 15rpx;
     font-size: 30rpx;
+  }
+  .station{
+    margin-bottom: 15px;
   }
   .charge-list {
     background-color: #ffffff;

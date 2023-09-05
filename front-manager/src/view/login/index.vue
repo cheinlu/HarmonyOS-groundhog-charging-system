@@ -7,32 +7,73 @@
     </div>
     <img class="left" src="@/assets/images/left.png" />
     <div class="login-rect">
-      <el-form ref="loginForms" :model="loginForm" :rules="rules" label-width="65px">
+      <el-form
+        ref="loginForms"
+        :model="loginForm"
+        :rules="rules"
+        label-width="65px"
+      >
         <h1 class="title">
           Hello
-          <span
-            >{{ $t('login.account') }}？<span class="register" @click="goRegister">{{ $t('login.register') }}</span></span
-          >
+          <span>
+            {{ $t('login.account') }}？
+            <span class="register" @click="goRegister">
+              {{ $t('login.register') }}
+            </span>
+          </span>
         </h1>
         <h2>{{ $t('login.welcome') }}</h2>
         <el-form-item :label="$t('login.tenement')">
-          <el-select v-model="selectedTenantId" @click="teSelect" @change="getSelectedTenantName" :placeholder="$t('login.tenements')">
-            <el-option v-for="item in useStore.teArr" :key="item.id" :label="item.name" :value="item.id"></el-option>
+          <el-select
+            v-model="selectedTenantId"
+            @click="teSelect"
+            @change="getSelectedTenantName"
+            :placeholder="$t('login.tenements')"
+          >
+            <el-option
+              v-for="item in useStore.teArr"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id"
+            ></el-option>
           </el-select>
         </el-form-item>
         <el-form-item prop="username" :label="$t('login.accounts')">
-          <el-input :prefix-icon="User" v-model="loginForm.username" :placeholder="$t('login.usernamePlaceholder')"></el-input>
+          <el-input
+            :prefix-icon="User"
+            v-model="loginForm.username"
+            :placeholder="$t('login.usernamePlaceholder')"
+          ></el-input>
         </el-form-item>
         <el-form-item prop="password" :label="$t('login.password')">
-          <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" :placeholder="$t('login.passwordPlaceholder')"></el-input>
+          <el-input
+            type="password"
+            :prefix-icon="Lock"
+            show-password
+            v-model="loginForm.password"
+            :placeholder="$t('login.passwordPlaceholder')"
+          ></el-input>
         </el-form-item>
         <el-form-item :label="$t('login.code')">
-          <el-input :placeholder="$t('login.verificationCode')" v-model="sidentifyMode"></el-input>
+          <el-input
+            :placeholder="$t('login.verificationCode')"
+            v-model="sidentifyMode"
+          ></el-input>
         </el-form-item>
-        <div @click="refreshCode" style="text-align: center; margin-bottom: 10px;">
+        <div
+          @click="refreshCode"
+          style="text-align: center; margin-bottom: 10px"
+        >
           <SIdentify :identifyCode="identifyCode"></SIdentify>
         </div>
-          <el-button class="login_btn" type="primary" size="default" @click="login">{{ $t('login.text') }}</el-button>
+        <el-button
+          class="login_btn"
+          type="primary"
+          size="default"
+          @click="login"
+        >
+          {{ $t('login.text') }}
+        </el-button>
       </el-form>
     </div>
     <el-dropdown class="language-rect">
@@ -45,8 +86,12 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item @click="changeZh">{{ $t('login.chinese') }}</el-dropdown-item>
-          <el-dropdown-item @click="changeEn">{{ $t('login.english') }}</el-dropdown-item>
+          <el-dropdown-item @click="changeZh">
+            {{ $t('login.chinese') }}
+          </el-dropdown-item>
+          <el-dropdown-item @click="changeEn">
+            {{ $t('login.english') }}
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -67,7 +112,7 @@ let sidentifyMode = ref('') //输入框验证码
 let identifyCode = ref('')
 let identifyCodes = ref('1234567890abcdefjhijklinopqrsduvwxyz')
 //收集账号与密码的数据
-let loginForm = reactive({ username: '', password: '' })
+let loginForm = reactive({ username: 'admin', password: 'admin' })
 //获取路由器
 let $router = useRouter()
 //路由对象
@@ -84,7 +129,9 @@ let teSelect = () => {
 }
 //根据选中的id获取租户的名字
 let getSelectedTenantName = () => {
-  let selectedTenant = useStore.teArr.find((item: any) => item.id == selectedTenantId.value)
+  let selectedTenant = useStore.teArr.find(
+    (item: any) => item.id == selectedTenantId.value
+  )
   if (selectedTenant) {
     selectedTenantName.value = selectedTenant.name
   }
@@ -97,13 +144,13 @@ let login = async () => {
   useStore.setTenantName(selectedTenantName.value)
   await loginForms.value.validate()
   //验证验证码不为空
-  if(!sidentifyMode.value){
-    ElNotification({type: 'error', message: '验证码不能为空！'})
+  if (!sidentifyMode.value) {
+    ElNotification({ type: 'error', message: '验证码不能为空！' })
     return
   }
   //验证验证码是否正确
-  if(sidentifyMode.value != identifyCode.value){
-    ElNotification({type: 'error', message: '验证码错误'})
+  if (sidentifyMode.value != identifyCode.value) {
+    ElNotification({ type: 'error', message: '验证码错误' })
     return
   }
   try {
@@ -182,7 +229,7 @@ const refreshCode = () => {
 }
 // 随机生成验证码字符串
 
-const makeCode = (o:any, l:any) => {
+const makeCode = (o: any, l: any) => {
   for (let i = 0; i < l; i++) {
     identifyCode.value += o[randomNum(0, o.length)]
   }

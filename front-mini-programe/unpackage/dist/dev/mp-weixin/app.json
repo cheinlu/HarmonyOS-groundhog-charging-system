@@ -1,14 +1,13 @@
 {
   "pages": [
-    "pages/my/my",
     "pages/charge/charge",
+    "pages/my/my",
     "pages/scan/scan"
   ],
   "subPackages": [
     {
       "root": "subpkg",
       "pages": [
-        "register/register",
         "charging/charging",
         "chargeOrder/chargeOrder"
       ]

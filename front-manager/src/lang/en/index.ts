@@ -52,8 +52,9 @@ export default {
   equip:{
     addStation: 'Add Charging Station',
     editStation:'Edit Charging Station',
-    nameLabel: 'stationName',
+    nameLabel: 'Name',
     addressLabel: 'Address',
+    imageUrl:'imageUrl',
     viewMap: 'View Map',
     coordinate:'Coordinate',
     addPile:'Add charging pile',

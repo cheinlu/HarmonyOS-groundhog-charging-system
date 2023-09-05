@@ -1,8 +1,9 @@
-import  useUserStore from '@/store/user.js'
+import BASE_URL from '@/env.js'
+import useUserStore from '@/store/user.js'
 export const setRequestConfig = () => {
   uni.$u.http.setConfig((config) => {
     /* config 为默认全局配置*/
-    config.baseURL = 'http://127.0.0.1:8000/' /* 根域名 */
+    config.baseURL = BASE_URL /* 本地根域名 */
     return config
   })
   // 请求拦截
@@ -23,13 +24,14 @@ export const setRequestConfig = () => {
     (response) => {
       if (response.data.code == 401) {
         // 提示重新登录
-        uni.$showMsg(response.data.message)
+        uni.$showMsg('请登录')
         useUserStore().userLogout()
         setTimeout(() => {
           uni.switchTab({
             url: '/pages/my/my'
           })
-        }, 3000) // 延时3秒跳转
+        }, 1000);
+        
       }
       return response
     },

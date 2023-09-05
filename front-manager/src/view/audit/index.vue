@@ -5,8 +5,8 @@
         <el-input :placeholder="$t('audit.changedUser')" v-model="auditParams.ChangedUser"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="search" :disabled="auditParams.ChangedUser ? false : true">{{$t('button.search')}}</el-button>
-        <el-button type="primary" @click="reset">{{$t('button.reset')}}</el-button>
+        <el-button type="primary" @click="search" :disabled="auditParams.ChangedUser ? false : true">{{ $t('button.search') }}</el-button>
+        <el-button type="primary" @click="reset">{{ $t('button.reset') }}</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive,ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { reqAuditList } from '@/api/audit/index.ts'
 import useLayOutSettingStore from '@/store/module/setting'
 let settingStore = useLayOutSettingStore()
@@ -48,9 +48,7 @@ onMounted(() => {
 })
 //获取审计列表数据
 let getHasAudit = async () => {
-  let res:any = await reqAuditList(auditParams)
-  console.log('审计res',res);
-  
+  let res: any = await reqAuditList(auditParams)
   if (res.code == 0) {
     auditArr.value = res.data.List
     pageNo.value = res.data.PageNo

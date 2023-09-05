@@ -54,6 +54,7 @@ export default {
     editStation:'修改充电站',
     nameLabel: '站名',
     addressLabel: '地址',
+    imageUrl:'图片',
     viewMap: '查看地图',
     coordinate:'坐标',
     addPile:'添加充电桩',

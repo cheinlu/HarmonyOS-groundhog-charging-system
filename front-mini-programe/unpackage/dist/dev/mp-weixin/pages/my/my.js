@@ -1,8 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const store_user = require("../../store/user.js");
-require("../../utils/api/user.js");
-require("../../utils/request.js");
 require("../../utils/token.js");
 if (!Array) {
   const _easycom_login2 = common_vendor.resolveComponent("login");
@@ -24,6 +22,7 @@ const _sfc_main = {
       common_vendor.index.hideTabBar({
         animation: false
       });
+      useStore.activeTab = 2;
     });
     return (_ctx, _cache) => {
       return common_vendor.e({

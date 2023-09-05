@@ -1,20 +1,21 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
        
-        {
-            "path" : "pages/my/my",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "我的",
-                "enablePullDownRefresh": false
-            }
-            
-        },
+       
         {
             "path" : "pages/charge/charge",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "充电",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+        {
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
                 "enablePullDownRefresh": false
             }
             
@@ -34,16 +35,7 @@
     {
       "root": "subpkg",
       "pages": [
-      {
-                    "path" : "register/register",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
+              {
                     "path" : "charging/charging",
                     "style" :                                                                                    
                 {

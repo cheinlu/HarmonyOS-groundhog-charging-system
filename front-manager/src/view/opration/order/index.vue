@@ -214,7 +214,6 @@ let getHasPile = async () => {
 //当选择充电站时，获取选择值的id
 let chargeStation = () => {
   selectId.value = changeOrder.stationId
-  console.log('filterPile', filterPile)
 }
 //修改订单的按钮回调
 let updateOrder = (row: any) => {

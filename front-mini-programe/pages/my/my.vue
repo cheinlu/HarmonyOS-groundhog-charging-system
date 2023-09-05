@@ -14,7 +14,10 @@ onShow(() => {
   uni.hideTabBar({
     animation: false
   })
+  useStore.activeTab = 2
 })
+
+
 </script>
 
 <style lang="scss"></style>

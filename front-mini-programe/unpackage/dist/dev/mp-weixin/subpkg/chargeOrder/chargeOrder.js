@@ -4,8 +4,8 @@ const common_assets = require("../../common/assets.js");
 const utils_api_charge = require("../../utils/api/charge.js");
 const utils_time = require("../../utils/time.js");
 require("../../utils/request.js");
+require("../../env.js");
 require("../../store/user.js");
-require("../../utils/api/user.js");
 require("../../utils/token.js");
 const _sfc_main = {
   __name: "chargeOrder",

@@ -12,11 +12,10 @@
     <scroll-view scroll-y="true" :style="{ height: windowHeight + 'px' }" @scrolltolower="loadNextPage" :scroll-top="scrollTop" @scrolltoupper="refreshData" ref="scrollView">
       <view class="scroll-item" v-for="station in stationList" :key="station.id">
         <view class="pile-rect" @click="handleClickPile(station)">
-          
           <view class="pile-title">{{ station.name }}</view>
           <view class="pile-box">
             <view class="price">
-              <view class="pri"> ￥ {{ station.pricePerHour }} </view>
+              <view class="pri"> ￥ {{ useStore.token?station.pricePerHour:'***' }} </view>
               <view class="limit"> /度 </view>
             </view>
             <view class="pile-tanan">{{ station.tenantName }}</view>
@@ -32,6 +31,9 @@
           <view class="navi" @click="showLocation(station)">
             <image class="location" src="./images/location.png" mode=""></image>
           </view>
+          <view class="navi" @click="showImg(station)">
+            <image class="location" src="./images/imgUrl.png" mode=""></image>
+          </view>
         </view>
       </view>
     </scroll-view>
@@ -44,9 +46,11 @@
 </template>
 
 <script setup>
-import {onShow} from '@dcloudio/uni-app'
+import { onShow } from '@dcloudio/uni-app'
 import { ref, onMounted, reactive } from 'vue'
 import { requestStations, requestPiles } from '@/utils/api/charge.js'
+import useUserStore from '@/store/user.js'
+let useStore = useUserStore()
 let loading = ref(false)
 let show = ref(false)
 let pricePerHour = ref(null)
@@ -66,10 +70,11 @@ let pageNo = ref(1)
 let total = ref(0)
 let pileList = ref([])
 
-onShow(()=>{
+onShow(() => {
   uni.hideTabBar({
-    animation:false
+    animation: false
   })
+  useStore.activeTab = 0
 })
 //组件挂载
 onMounted(() => {
@@ -114,6 +119,8 @@ let getStationList = () => {
         fail: function () {
           getHasStations().then()
           uni.$showMsg('请授权地理位置权限')
+          // 再次调用getStationList进行再次授权
+          
         }
       })
     }
@@ -160,8 +167,8 @@ let handleClickPile = async (station) => {
     pageSize.value = res.data.PageSize
     pageNo.value = res.data.PageNo
     total.value = res.data.TotalCount
-  }else{
-    uni.$showMsg(res.message)
+  } else {
+    uni.$showMsg('res.message')
   }
 }
 //显示位置
@@ -176,7 +183,17 @@ let showLocation = (station) => {
     longitude: lng //经度 - 目的地/坐标点
   })
 }
-
+//显示充电站预览图
+let showImg = (station) => {
+  if (station.imageUrl == '') {
+    uni.$showMsg('图片未上传')
+  } else {
+    uni.previewImage({
+      urls: [station.imageUrl],
+      current: station.imageUrl
+    })
+  }
+}
 //滚动到底部，加载下一页充电站数据
 let loadNextPage = () => {
   // 利用Math.ceil算出新的分页
@@ -225,7 +242,7 @@ let confimCharge = () => {
     font-size: 20rpx;
     margin-bottom: 20rpx;
     border-radius: 15rpx;
-    .pile-tanan{
+    .pile-tanan {
       font-size: 30rpx;
       text-align: center;
       color: #0aa671;

@@ -62,33 +62,28 @@ const props = defineProps({
   }
 })
 // 生成一个随机数
-const randomNum = (min, max) => {
+const randomNum = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) + min)
 }
 // 生成一个随机的颜色
-const randomColor = (min, max) => {
+const randomColor = (min: number, max: number) => {
   let r = randomNum(min, max)
   let g = randomNum(min, max)
   let b = randomNum(min, max)
   return 'rgb(' + r + ',' + g + ',' + b + ')'
 }
-
-const drawPic = () => {
-  let canvas = document.getElementById('s-canvas')
-  let ctx = canvas.getContext('2d')
-  ctx.textBaseline = 'bottom'
-  // 绘制背景
-  ctx.fillStyle = randomColor(props.backgroundColorMin, props.backgroundColorMax)
-  ctx.fillRect(0, 0, props.contentWidth, props.contentHeight)
-  // 绘制文字
-  for (let i = 0; i < props.identifyCode.length; i++) {
-    drawText(ctx, props.identifyCode[i], i)
+//绘制干扰线
+const drawLine = (ctx: { strokeStyle: string; beginPath: () => void; moveTo: (arg0: number, arg1: number) => void; lineTo: (arg0: number, arg1: number) => void; stroke: () => void }) => {
+  // 绘制干扰线
+  for (let i = 0; i < 5; i++) {
+    ctx.strokeStyle = randomColor(props.lineColorMin, props.lineColorMax)
+    ctx.beginPath()
+    ctx.moveTo(randomNum(0, props.contentWidth), randomNum(0, props.contentHeight))
+    ctx.lineTo(randomNum(0, props.contentWidth), randomNum(0, props.contentHeight))
+    ctx.stroke()
   }
-  drawLine(ctx)
-  drawDot(ctx)
 }
-
-const drawText = (ctx, txt, i) => {
+const drawText = (ctx: { fillStyle: string; font: string; translate: (arg0: number, arg1: number) => void; rotate: (arg0: number) => void; fillText: (arg0: any, arg1: number, arg2: number) => void }, txt: string, i: number) => {
   ctx.fillStyle = randomColor(props.colorMin, props.colorMax)
   ctx.font = randomNum(props.fontSizeMin, props.fontSizeMax) + 'px SimHei'
   let x = (i + 1) * (props.contentWidth / (props.identifyCode.length + 1))
@@ -102,17 +97,8 @@ const drawText = (ctx, txt, i) => {
   ctx.rotate((-deg * Math.PI) / 180)
   ctx.translate(-x, -y)
 }
-const drawLine = (ctx) => {
-  // 绘制干扰线
-  for (let i = 0; i < 5; i++) {
-    ctx.strokeStyle = randomColor(props.lineColorMin, props.lineColorMax)
-    ctx.beginPath()
-    ctx.moveTo(randomNum(0, props.contentWidth), randomNum(0, props.contentHeight))
-    ctx.lineTo(randomNum(0, props.contentWidth), randomNum(0, props.contentHeight))
-    ctx.stroke()
-  }
-}
-const drawDot = (ctx) => {
+//绘制干扰点
+const drawDot = (ctx: { fillStyle: string; beginPath: () => void; arc: (arg0: number, arg1: number, arg2: number, arg3: number, arg4: number) => void; fill: () => void }) => {
   // 绘制干扰点
   for (let i = 0; i < 80; i++) {
     ctx.fillStyle = randomColor(0, 255)
@@ -121,11 +107,31 @@ const drawDot = (ctx) => {
     ctx.fill()
   }
 }
-
-watch(()=>props.identifyCode,()=>{
-  drawPic()
-})
-onMounted(()=>{
+//绘制背景
+const drawPic = () => {
+  let canvas = document.getElementById('s-canvas') as HTMLCanvasElement;
+  let ctx:any = canvas.getContext('2d')
+  ctx.textBaseline = 'bottom'
+  // 绘制背景
+  ctx.fillStyle = randomColor(props.backgroundColorMin, props.backgroundColorMax)
+  ctx.fillRect(0, 0, props.contentWidth, props.contentHeight)
+  // 绘制文字
+  for (let i = 0; i < props.identifyCode.length; i++) {
+    drawText(ctx, props.identifyCode[i], i)
+  }
+  drawLine(ctx)
+  drawDot(ctx)
+  
+}
+//监听
+watch(
+  () => props.identifyCode,
+  () => {
+    drawPic()
+  }
+)
+//组件挂载
+onMounted(() => {
   drawPic()
 })
 </script>

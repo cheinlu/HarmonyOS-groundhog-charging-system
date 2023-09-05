@@ -21,7 +21,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.25.4",
   "appid": "wx974ca7be50e0f1cd",
-  "projectname": "test-v3",
+  "projectname": "土拨鼠充电开源演示项目",
   "condition": {
     "search": {
       "current": -1,
