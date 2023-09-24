@@ -23,12 +23,14 @@ stages:
           - pwd
           - mkdir output
           - GOOS=linux GOARCH=amd64 go build -o main.amd64 main.go
-          - GOOS=linux GOARCH=386 go build -o main.linux32 backup/main.go
-          - GOOS=windows GOARCH=amd64 go build -o main.win64.exe backup/main.go
-          - GOOS=windows GOARCH=386 go build -o main.win32.exe backup/main.go
-          - 'GOOS=darwin GOARCH=amd64 go build -o main.darwin backup/main.go '
-          - chmod +X main.linux32
-          - ./main.linux32
+          # - GOOS=linux GOARCH=386 go build -o main.linux32 backup/main.go
+          # - GOOS=windows GOARCH=amd64 go build -o main.win64.exe backup/main.go
+          # - GOOS=windows GOARCH=386 go build -o main.win32.exe backup/main.go
+          # - 'GOOS=darwin GOARCH=amd64 go build -o main.darwin backup/main.go '
+          # - chmod +X main.linux32
+          # - ./main.linux32
+          - chmod +X main.amd64
+          - ./main.amd64
           - ''
         artifacts:
           - name: BUILD_ARTIFACT
