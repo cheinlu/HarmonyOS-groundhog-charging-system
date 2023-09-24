@@ -18,14 +18,17 @@ stages:
         displayName: Golang 构建
         golangVersion: 1.12
         commands:
+          - cd backup
+          - echo '打印当前目录'
+          - pwd
           - mkdir output
-          - GOOS=linux GOARCH=amd64 go build -o output/main.amd64 backup/main.go
-          - GOOS=linux GOARCH=386 go build -o output/main.linux32 backup/main.go
-          - GOOS=windows GOARCH=amd64 go build -o output/main.win64.exe backup/main.go
-          - GOOS=windows GOARCH=386 go build -o output/main.win32.exe backup/main.go
-          - 'GOOS=darwin GOARCH=amd64 go build -o output/main.darwin backup/main.go '
-          - chmod +X output/main.linux32
-          - ./output/main.linux32
+          - GOOS=linux GOARCH=amd64 go build -o main.amd64 main.go
+          - GOOS=linux GOARCH=386 go build -o main.linux32 backup/main.go
+          - GOOS=windows GOARCH=amd64 go build -o main.win64.exe backup/main.go
+          - GOOS=windows GOARCH=386 go build -o main.win32.exe backup/main.go
+          - 'GOOS=darwin GOARCH=amd64 go build -o main.darwin backup/main.go '
+          - chmod +X main.linux32
+          - ./main.linux32
           - ''
         artifacts:
           - name: BUILD_ARTIFACT
