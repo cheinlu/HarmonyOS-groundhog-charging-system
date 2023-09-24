@@ -21,6 +21,7 @@ type UserWalletDao struct {
 // UserWalletColumns defines and stores column names for table user_wallet.
 type UserWalletColumns struct {
 	UserId   string //
+	TenantId string //
 	Balance  string //
 	CreateAt string //
 	UpdateAt string //
@@ -29,6 +30,7 @@ type UserWalletColumns struct {
 // userWalletColumns holds the columns for table user_wallet.
 var userWalletColumns = UserWalletColumns{
 	UserId:   "user_id",
+	TenantId: "tenant_id",
 	Balance:  "balance",
 	CreateAt: "create_at",
 	UpdateAt: "update_at",
@@ -65,7 +67,7 @@ func (dao *UserWalletDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *UserWalletDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

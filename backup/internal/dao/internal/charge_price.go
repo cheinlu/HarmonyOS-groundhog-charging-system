@@ -21,6 +21,7 @@ type ChargePriceDao struct {
 // ChargePriceColumns defines and stores column names for table charge_price.
 type ChargePriceColumns struct {
 	Id        string //
+	TenantId  string //
 	StartHour string //
 	EndHour   string //
 	Price     string //
@@ -31,6 +32,7 @@ type ChargePriceColumns struct {
 // chargePriceColumns holds the columns for table charge_price.
 var chargePriceColumns = ChargePriceColumns{
 	Id:        "id",
+	TenantId:  "tenant_id",
 	StartHour: "start_hour",
 	EndHour:   "end_hour",
 	Price:     "price",
@@ -69,7 +71,7 @@ func (dao *ChargePriceDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *ChargePriceDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

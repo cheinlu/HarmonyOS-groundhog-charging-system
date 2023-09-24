@@ -21,8 +21,10 @@ type StationDao struct {
 // StationColumns defines and stores column names for table station.
 type StationColumns struct {
 	Id         string //
+	TenantId   string //
 	Name       string //
 	Address    string //
+	ImageUrl   string //
 	Coordinate string //
 	CreateAt   string //
 	UpdateAt   string //
@@ -31,8 +33,10 @@ type StationColumns struct {
 // stationColumns holds the columns for table station.
 var stationColumns = StationColumns{
 	Id:         "id",
+	TenantId:   "tenant_id",
 	Name:       "name",
 	Address:    "address",
+	ImageUrl:   "image_url",
 	Coordinate: "coordinate",
 	CreateAt:   "create_at",
 	UpdateAt:   "update_at",
@@ -69,7 +73,7 @@ func (dao *StationDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *StationDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

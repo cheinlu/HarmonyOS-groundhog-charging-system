@@ -8,6 +8,8 @@ import (
 	"login-demo/internal/model/do"
 	"login-demo/internal/model/entity"
 
+	"github.com/gogf/gf/v2/errors/gcode"
+	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/os/gtime"
 )
 
@@ -24,14 +26,7 @@ func (*PileLogic) PileList(ctx context.Context, query entity.Pile, page model.Pa
 	if query.Code != "" {
 		model = model.Where("pile.code like ?", fmt.Sprintf("%%%s%%", query.Code))
 	}
-	count, err = model.Count()
-	if count == 0 {
-		return
-	}
-	if err != nil {
-		return
-	}
-	err = model.Fields("pile.*, station.name").Page(page.PageNo, page.PageSize).Scan(&piles)
+	model.Fields("pile.*, station.name").OrderDesc("pile.update_at").Page(page.PageNo, page.PageSize).ScanAndCount(&piles, &count, false)
 	return
 }
 
@@ -58,17 +53,43 @@ func (*PileLogic) PileTotal(ctx context.Context, query do.Pile) (count int, err 
 
 func (*PileLogic) Add(ctx context.Context, pile do.Pile) (err error) {
 	pile.CreateAt, pile.UpdateAt = gtime.Now(), gtime.Now()
+	err = SetCurrentTenantId(ctx, &pile.TenantId)
+	if err != nil {
+		return
+	}
 	_, err = dao.Pile.Ctx(ctx).Insert(pile)
 	return
 }
 
 func (*PileLogic) Del(ctx context.Context, id int) (err error) {
-	_, err = dao.Pile.Ctx(ctx).Delete("id = ?", id)
+	rs, err := dao.Pile.Ctx(ctx).Delete("id = ?", id)
+	if err != nil {
+		return gerror.WrapCode(gcode.New(1, "系统异常，删除失败", ""), err)
+	}
+	rowsAffected, err := rs.RowsAffected()
+	if err != nil {
+		return gerror.WrapCode(gcode.New(1, "系统异常，删除失败", ""), err)
+	}
+	if rowsAffected == 0 {
+		err = gerror.NewCode(gcode.New(1, "删除失败，未找到原数据，可能已被其他人删除", ""))
+		return err
+	}
 	return
 }
 
 func (*PileLogic) Update(ctx context.Context, pile do.Pile) (err error) {
 	pile.UpdateAt = gtime.Now()
-	_, err = dao.Pile.Ctx(ctx).Update(pile, "id = ?", pile.Id)
+	rs, err := dao.Pile.Ctx(ctx).Update(pile, "id = ?", pile.Id)
+	if err != nil {
+		return gerror.WrapCode(gcode.New(1, "系统异常，修改失败", ""), err)
+	}
+	rowsAffected, err := rs.RowsAffected()
+	if err != nil {
+		return gerror.WrapCode(gcode.New(1, "系统异常，修改失败", ""), err)
+	}
+	if rowsAffected == 0 {
+		err = gerror.NewCode(gcode.New(1, "修改失败，未找到原数据，可能已被其他人删除", ""))
+		return err
+	}
 	return
 }

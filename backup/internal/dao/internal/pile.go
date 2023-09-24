@@ -24,6 +24,7 @@ type PileColumns struct {
 	Code      string //
 	StationId string //
 	State     string //
+	TenantId  string //
 	CreateAt  string //
 	UpdateAt  string //
 }
@@ -34,6 +35,7 @@ var pileColumns = PileColumns{
 	Code:      "code",
 	StationId: "station_id",
 	State:     "state",
+	TenantId:  "tenant_id",
 	CreateAt:  "create_at",
 	UpdateAt:  "update_at",
 }
@@ -69,7 +71,7 @@ func (dao *PileDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *PileDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

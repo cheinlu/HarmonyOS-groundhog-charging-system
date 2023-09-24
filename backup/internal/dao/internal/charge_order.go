@@ -21,6 +21,7 @@ type ChargeOrderDao struct {
 // ChargeOrderColumns defines and stores column names for table charge_order.
 type ChargeOrderColumns struct {
 	Id        string //
+	TenantId  string //
 	OrderCode string //
 	UserId    string //
 	StationId string //
@@ -36,6 +37,7 @@ type ChargeOrderColumns struct {
 // chargeOrderColumns holds the columns for table charge_order.
 var chargeOrderColumns = ChargeOrderColumns{
 	Id:        "id",
+	TenantId:  "tenant_id",
 	OrderCode: "order_code",
 	UserId:    "user_id",
 	StationId: "station_id",
@@ -79,7 +81,7 @@ func (dao *ChargeOrderDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *ChargeOrderDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

@@ -33,6 +33,28 @@ dao: cli.install
 service: cli.install
 	@gf gen service
 
+# 在构建之前执行所有的单元测试
+test:
+	go test -v ./...
+
+# 测试代码覆盖率
+coverage:
+	go test -v ./... -coverprofile=coverage.out
+	go tool cover -html=coverage.out -o coverage.html
+	go tool cover -func=coverage.out
+
+# 将测试代码覆盖率上传到 codecov
+codecov:
+	curl -s https://codecov.io/bash > codecov
+	chmod +x codecov
+	./codecov -f coverage.out -t e2459475-6317-4023-803e-a94d48e44ec6
+
+# 构建命令
+build: test
+	go build .
+
+.PHONY: test build
+
 # Build image, deploy image and yaml to current kubectl environment and make port forward to local machine.
 .PHONY: start
 start:

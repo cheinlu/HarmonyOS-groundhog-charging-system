@@ -21,6 +21,8 @@ type UserDao struct {
 // UserColumns defines and stores column names for table user.
 type UserColumns struct {
 	Id       string //
+	TenantId string //
+	RoleId   string //
 	Passport string //
 	Password string //
 	Nickname string //
@@ -31,6 +33,8 @@ type UserColumns struct {
 // userColumns holds the columns for table user.
 var userColumns = UserColumns{
 	Id:       "id",
+	TenantId: "tenant_id",
+	RoleId:   "role_id",
 	Passport: "passport",
 	Password: "password",
 	Nickname: "nickname",
@@ -69,7 +73,7 @@ func (dao *UserDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *UserDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

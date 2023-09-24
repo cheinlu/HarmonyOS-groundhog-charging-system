@@ -21,6 +21,7 @@ type PayRecordDao struct {
 // PayRecordColumns defines and stores column names for table pay_record.
 type PayRecordColumns struct {
 	Id       string //
+	TenantId string //
 	PayCode  string //
 	UserId   string //
 	State    string //
@@ -33,6 +34,7 @@ type PayRecordColumns struct {
 // payRecordColumns holds the columns for table pay_record.
 var payRecordColumns = PayRecordColumns{
 	Id:       "id",
+	TenantId: "tenant_id",
 	PayCode:  "pay_code",
 	UserId:   "user_id",
 	State:    "state",
@@ -73,7 +75,7 @@ func (dao *PayRecordDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *PayRecordDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

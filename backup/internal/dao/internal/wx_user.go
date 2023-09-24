@@ -21,6 +21,7 @@ type WxUserDao struct {
 // WxUserColumns defines and stores column names for table wx_user.
 type WxUserColumns struct {
 	UserId    string //
+	TenantId  string //
 	OpenId    string //
 	PhoneNo   string //
 	AvatarUrl string //
@@ -33,6 +34,7 @@ type WxUserColumns struct {
 // wxUserColumns holds the columns for table wx_user.
 var wxUserColumns = WxUserColumns{
 	UserId:    "user_id",
+	TenantId:  "tenant_id",
 	OpenId:    "open_id",
 	PhoneNo:   "phone_no",
 	AvatarUrl: "avatar_url",
@@ -73,7 +75,7 @@ func (dao *WxUserDao) Group() string {
 
 // Ctx creates and returns the Model for current DAO, It automatically sets the context for current operation.
 func (dao *WxUserDao) Ctx(ctx context.Context) *gdb.Model {
-	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
+	return dao.DB().Model(dao.table).Safe().Ctx(ctx).Hook(TenantHook)
 }
 
 // Transaction wraps the transaction logic using function f.

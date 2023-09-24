@@ -10,12 +10,12 @@ logger:
 # 巡检结果存储数据库
 database:
   default:
-    link:   "sqlite::@file(manifest/db/user.db)"
+    link:   "MyDriver::@file(manifest/db/user.db)"
     debug:  true
 
 wechat:
   appId: wx974ca7be50e0f1cd
-  appSecret: 0bc5f75f20de94a624f823b08d9fdc9b
+  appSecret: xxx
   
 # 管理员初始化管理员账号和密码，只有第一次有效
 admin:
@@ -25,3 +25,103 @@ admin:
 # 登录 token 存活时间，单位分钟
 tokenAliveTime: 120
 
+permissionList:
+  - model: '充电站管理'
+    permissionList:
+      - key: ChargeStationView
+        name: 查看充电站列表
+      - key: ChargeStationAdd
+        name: 添加充电站
+      - key: ChargeStationUpdate
+        name: 修改充电站
+      - key: ChargeStationDel
+        name: 删除充电站
+  - model: '充电桩管理'
+    permissionList:
+      - key: ChargePileView
+        name: 查看充电桩列表
+      - key: ChargePileAdd
+        name: 添加充电桩
+      - key: ChargePileUpdate
+        name: 修改充电桩
+      - key: ChargePileDel
+        name: 删除充电桩
+  - model: '租户管理'
+    permissionList:
+      - key: TenantView
+        name: 查看租户列表
+      - key: TenantAdd
+        name: 添加租户
+      - key: TenantUpdate
+        name: 修改租户
+      - key: TenantDel
+        name: 删除租户
+  - model: '充电价格'
+    permissionList:
+      - key: PriceView
+        name: '查看时段价格表'
+      - key: PriceAdd
+        name: '添加时段价格表'
+      - key: PriceDel
+        name: '删除时段价格表'
+      - key: PriceUpdate
+        name: '修改时段价格表'
+  - model: '充电订单'
+    permissionList:
+      - key: ChargeOrderView
+        name: '查看时段价格表'
+      - key: UpdateOrder
+        name: '修改充电订单'
+  - model: '审计日志'
+    permissionList:
+      - key: AtuditLogView
+        name: '查看审计日志'
+  - model: '权限管理'
+    permissionList:
+      - key: PermissionView
+        name: '查看时段价格表'
+      - key: PermissionViewBind
+        name: '绑定权限'
+  - model: '角色管理'
+    permissionList:
+      - key: RoleView
+        name: '查看角色列表'
+      - key: RoleAdd
+        name: '添加角色'
+      - key: RoleDel
+        name: '删除角色'
+      - key: RoleUpdate
+        name: '修改角色'
+  - model: '用户管理'
+    permissionList:
+      - key: UserView
+        name: '查看用户列表'
+      - key: UserAdd
+        name: '添加用户'
+      - key: UserDel
+        name: '删除用户'
+      - key: UserUpdate
+        name: '修改用户'
+  - model: '充值管理'
+    permissionList:
+      - key: RechargeView
+        name: '查看充值列表'
+  - model: '数据大屏'
+    permissionList:
+      - key: ScreenView
+        name: '数据大屏展示'
+  
+# 文件存储配置
+storage:
+  local:
+    path: ./tempFile
+    domain: http://127.0.0.1:8000
+  s3:
+    enabled: true
+    endpoint: s3.ap-southeast-1.qiniucs.com
+    accessKeyID: xx
+    secretAccessKey: xxx-WeCGHWX8D0b
+    useSSL: true
+    bucketName: tuboshu-static3
+    location: ap-southeast-1
+    accessUrl: https://static.xxx.top

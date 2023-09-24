@@ -1,24 +1,36 @@
-# GoFrame Template For SingleRepo
+# 一、 项目介绍
+go 的 web 脚手架项目。
 
-Project Makefile Commands: 
-- `make cli`: Install or Update to the latest GoFrame CLI tool.
-- `make dao`: Generate go files for `Entity/DAO/DO` according to the configuration file from `hack` folder.
-- `make service`: Parse `logic` folder to generate interface go files into `service` folder.
-- `make image TAG=xxx`: Run `docker build` to build image according `manifest/docker`.
-- `make image.push TAG=xxx`: Run `docker build` and `docker push` to build and push image according `manifest/docker`.
-- `make deploy TAG=xxx`: Run `kustomize build` to build and deploy deployment to kubernetes server group according `manifest/deploy`.
-
-# 一、 项目功能
-一个登录的轻项目，使用 goframe 2.x，sqlite 文件数据库，不依赖中间件直接运行。
+技术栈 goframe 2.x，使用 sqlite 文件数据库。
 
 包含功能有
-- 登录，token 刷新
-- 分页查询用户列表，用户（添加，修改，删除）
+- 登录，token 刷新，用户的增删改查
 
 ## 1.1 登录
 
 登录采用 JWT 方式，登录成功生成 jwt 格式 token，其他接口会效验 token 是否有效（从 jwt 的层面，不额外查表），jwt 是分布式有效的，所以 token 不用存储，服务是无状态的。可以通过 manifest/config/config.yaml 中的配置修改 token 的存活时长。
 
+# 二、 快速开始
+
+## 2.1 运行
+
+```
+go run main.go
+```
+
+## 2.2 验证
+
+本地执行 
+```
+curl --location 'http://127.0.0.1:8000/api/user/login' \
+--header 'Content-Type: application/json' \
+--data '{"username":"admin","password":"admin"}'
+```
+
+获得返回
+```
+{"code":0,"message":"","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjg2MjE0MTgzfQ.WZV1YvwzokEgDL1urWYoUPpfWSsq3TisO3f6zutmjf4","role":""}}
+```
 
 # 二、 代码结构
 
@@ -37,9 +49,14 @@ Project Makefile Commands:
 
 > goframe 框架结构
 
-| 目录/文件名称 |	说明 | 	描述 |
-|--|--|--|--|
-| api |	对外接口 |	对外提供服务的输入/输出数据结构定义。考虑到版本管理需要，往往以api/v1...存在。 |
+| fff |  fff |
+| --- | --- |
+| ffff| dddd |
+
+
+| 目录\文件名称 | 说明 | 描述 |
+| --- | --- | --- |
+| api | 对外接口 | 对外提供服务的输入/输出数据结构定义。考虑到版本管理需要，往往以api/v1...存在。 |
 | hack	| 工具脚本	| 存放项目开发工具、脚本等内容。例如，CLI工具的配置，各种shell/bat脚本等文件。| 
 | internal	| 内部逻辑	| 业务逻辑存放目录。通过Golang internal特性对外部隐藏可见性。| 
 |   - cmd	| 入口指令	| 命令行管理目录。可以管理维护多个命令行。| 
@@ -67,8 +84,7 @@ Project Makefile Commands:
 - internal/controller/login.go: 提供登录
 - internal/controller/user.go: 提供 token 续签
 
-
-# FAQ
+# 三、 FAQ
 ## 1. 初始化项目失败
 
 错误信息
@@ -83,7 +99,6 @@ go run main.go
 原因：gdb 版本太老，无法识别 Extra 字段。您可以尝试升级到最新版本的 gdb 包，或者尝试使用其他合适的配置来连接 SQLite 数据库，以解决此问题。
 
 解决方案，在 go.sum 中将 github.com/gogf/gf/contrib/drivers/sqlite/v2 升级到 v2.4.0，重新 `go mod tidy`
-
 
 ## 2. 生成 dao 失败
 
@@ -119,6 +134,7 @@ env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o login.exe main.go
 zip login.zip login.exe manifest/config/config.yaml manifest/db/user.db
 ```
 
+
 ## 5. dao 根据传入的查询条件动态增加对应的查询项
 
 通过动态增加 where 并重新赋值的方式。
@@ -135,3 +151,13 @@ count, err = model.Count()
 ```
 
 ## 6. gf 如何进行查询翻页
+
+# 四、 附录: GoFrame 
+
+Project Makefile Commands: 
+- `make cli`: Install or Update to the latest GoFrame CLI tool.
+- `make dao`: Generate go files for `Entity/DAO/DO` according to the configuration file from `hack` folder.
+- `make service`: Parse `logic` folder to generate interface go files into `service` folder.
+- `make image TAG=xxx`: Run `docker build` to build image according `manifest/docker`.
+- `make image.push TAG=xxx`: Run `docker build` and `docker push` to build and push image according `manifest/docker`.
+- `make deploy TAG=xxx`: Run `kustomize build` to build and deploy deployment to kubernetes server group according `manifest/deploy`.
