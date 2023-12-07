@@ -4,7 +4,7 @@
 
 
 # 交流+V：lucy2188687859
-<img src="md_img/9aa3b6d6e9cbaac83b813dd602643ff.jpg" alt="My Image" width="800" height="350"/>
+<img src="md_img/9aa3b6d6e9cbaac83b813dd602643ff.jpg" alt="My Image" width="500" height="400"/>
 
   ------------------------------------------------------------------
 
