@@ -1,0 +1,41 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storePassword": "00000018D3EDBCC6C4FA60D10CD07D4B3175B31EA651E339DD0C99663F2992E9B05AE2F37AB5995B",
+          "certpath": "C:/Users/123/Downloads/tbs.cer",
+          "keyAlias": "tbs",
+          "keyPassword": "00000018F0202C702F07CA3DBD20ED7909F094DB1149752DFC31CA6F1CAAF571213B9E8B5468FC0F",
+          "profile": "C:/Users/123/Downloads/tbsRelease.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:/Users/123/Downloads/下载/1.p12"
+        }
+      }
+    ],
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -177,6 +177,7 @@ let showLocation = (station) => {
   const str = station.coordinate
   //获得经纬度
   const [lng, lat] = str.split(',').map(parseFloat)
+  console.log('lng',lng,'lat',lat);
   //查看位置
   uni.openLocation({
     latitude: lat, //纬度 - 目的地/坐标点

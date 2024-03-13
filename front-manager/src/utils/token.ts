@@ -45,3 +45,26 @@ export const SET_TENAME = (tenantName:string)=>{
 export const GET_TENAME = () => {
   return localStorage.getItem('TENANT_NAME')
 }
+
+
+
+[
+  {
+    address: "深圳市南山南头街道5区12号",
+    id: 3,
+    name: "南山南头充电站",
+    tenantName: "钢铁侠充电公司",
+  },
+  {
+    address: "深圳市宝安区新安街道17区3号",
+    id: 1,
+    name: "宝安新安充电站",
+    tenantName: "土拨鼠充电公司",
+  },
+  {
+    address: "深圳市宝安区西乡街道盐田村5号",
+    id: 2,
+    name: "宝安西乡充电站",
+    tenantName: "土拨鼠充电公司",
+  }
+]

@@ -1,1 +1,1 @@
-<view><login wx:if="{{a}}" u-i="fdaa7e14-0" bind:__l="__l"></login><info wx:else u-i="fdaa7e14-1" bind:__l="__l"></info><tabbar u-i="fdaa7e14-2" bind:__l="__l"></tabbar></view>
+<view><login wx:if="{{a}}" u-i="5471597d-0" bind:__l="__l"></login><info wx:else u-i="5471597d-1" bind:__l="__l"></info><tabbar u-i="5471597d-2" bind:__l="__l"></tabbar></view>
