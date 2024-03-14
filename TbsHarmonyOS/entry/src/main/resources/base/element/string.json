@@ -1,0 +1,120 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "user_privacy_title",
+      "value": "Welcom To Use Heima Healthy"
+    },
+    {
+      "name": "user_privacy_content",
+      "value": "Thank you for trusting and using Heima Health! We will use the 《User Agreement》 and the 《Heima Health Privacy Policy》 to help you understand our collection, use, storage and sharing of personal information, in particular the relationship between the types of personal information we collect and the purposes for which we use it. In addition, you will learn about your rights and how to achieve them. If you agree, please click the button below to start receiving our services"
+    },
+    {
+      "name": "agree_label",
+      "value": "agree"
+    },
+    {
+      "name": "refuse_label",
+      "value": "refuse"
+    },
+    {
+      "name": "tab_record",
+      "value": "record"
+    },
+    {
+      "name": "tab_discover",
+      "value": "discover"
+    },
+    {
+      "name": "tab_user",
+      "value": "mine"
+    },
+    {
+      "name": "breakfast",
+      "value": "breakfast"
+    },
+    {
+      "name": "lunch",
+      "value": "lunch"
+    },
+    {
+      "name": "dinner",
+      "value": "dinner"
+    },
+    {
+      "name": "extra_meal",
+      "value": "Extra Meal"
+    },
+    {
+      "name": "workout",
+      "value": "workout"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "staple",
+      "value": "staple"
+    },
+    {
+      "name": "fruit",
+      "value": "fruit"
+    },
+    {
+      "name": "meat",
+      "value": "meat"
+    },
+    {
+      "name": "nut",
+      "value": "nut"
+    },
+    {
+      "name": "other_type",
+      "value": "other"
+    },
+    {
+      "name": "walking_type",
+      "value": "walking"
+    },
+    {
+      "name": "running",
+      "value": "running"
+    },
+    {
+      "name": "riding",
+      "value": "riding"
+    },
+    {
+      "name": "aerobics",
+      "value": "aerobics"
+    },
+    {
+      "name": "swimming",
+      "value": "swimming"
+    },
+    {
+      "name": "ballgame",
+      "value": "ballgame"
+    },
+    {
+      "name": "strength",
+      "value": "strength"
+    }
+  ]
+}
