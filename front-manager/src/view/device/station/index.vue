@@ -310,13 +310,13 @@ const beforeAvatarUpload: UploadProps['beforeUpload'] = async (rawFile: any) => 
   //将接口的地址赋值给表单并呈现
   chargeForm.imageUrl = res.data.url
   //上传图片格式和大小要求  png|jpg  4M
-  // if (rawFile.type !== 'image/png' || rawFile.type == 'image/jpg') {
-  //   ElMessage.error('上传文件格式务必PNG|JPG')
-  //   return false
-  // } else if (rawFile.size / 1024 / 1024 > 4) {
-  //   ElMessage.error('上传文件大小小于4M')
-  //   return false
-  // }
+  if (rawFile.type !== 'image/png' || rawFile.type == 'image/jpg') {
+    ElMessage.error('上传文件格式务必PNG|JPG')
+    return false
+  } else if (rawFile.size / 1024 / 1024 > 4) {
+    ElMessage.error('上传文件大小小于4M')
+    return false
+  }
   // 取消默认的上传请求
   return false
 }

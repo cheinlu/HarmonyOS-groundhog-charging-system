@@ -292,5 +292,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     r: $data.current ? 1 : ""
   });
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/123/Desktop/code/lucy-demo/土拨鼠充电系统/groundhog-charging-system/front-mini-programe/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system/front-mini-programe/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue"]]);
 wx.createComponent(Component);
