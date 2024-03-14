@@ -55,8 +55,8 @@ backup: 后端
 3.个人中心页：个人头像+昵称，充电余额，充电订单，功能区，退出登录等
 4.扫码：（此功能暂未实现）
 ### 项目截图：
-<img src="md_img/app1.png" alt="My Image" width="300" height="400"/>
-<img src="md_img/app2.png" alt="My Image" width="350" height="450"/>
+<img src="md_img/app1.png" alt="My Image" width="300" height="500"/>
+<img src="md_img/app2.png" alt="My Image" width="350" height="650"/>
 <img src="md_img/app3.png" alt="My Image" width="400" height="350"/>
 <img src="md_img/app4.png" alt="My Image" width="400" height="350"/>
 
@@ -100,8 +100,8 @@ backup: 后端
 2.系统设置：用户管理【用户展示+余额充值】、角色管理【权限分配】，租户管理、充值管理
 3.运营管理：订单管理【用户充电订单】、价格规则【不同时段价格】
 ### 项目截图：
-<img src="md_img/image-2.png" alt="My Image" width="500" height="500"/>
-<img src="md_img/image-8.png" alt="My Image" width="400" height="400"/>
+<img src="md_img/image-2.png" alt="My Image" width="400" height="400"/>
+<img src="md_img/image-8.png" alt="My Image" width="500" height="400"/>
 <img src="md_img/image-9.png" alt="My Image" width="600" height="400"/>
 
 ## 四、后台
