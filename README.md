@@ -55,8 +55,8 @@ backup: 后端
 3.个人中心页：个人头像+昵称，充电余额，充电订单，功能区，退出登录等
 4.扫码：（此功能暂未实现）
 ### 项目截图：
-<img src="md_img/app1.png" alt="My Image" width="400" height="350"/>
-<img src="md_img/app2.png" alt="My Image" width="400" height="350"/>
+<img src="md_img/app1.png" alt="My Image" width="300" height="400"/>
+<img src="md_img/app2.png" alt="My Image" width="350" height="450"/>
 <img src="md_img/app3.png" alt="My Image" width="400" height="350"/>
 <img src="md_img/app4.png" alt="My Image" width="400" height="350"/>
 
@@ -100,6 +100,13 @@ backup: 后端
 2.系统设置：用户管理【用户展示+余额充值】、角色管理【权限分配】，租户管理、充值管理
 3.运营管理：订单管理【用户充电订单】、价格规则【不同时段价格】
 ### 项目截图：
-<img src="md_img/image-2.png" alt="My Image" width="600" height="400"/>
-<img src="md_img/image-8.png" alt="My Image" width="600" height="400"/>
+<img src="md_img/image-2.png" alt="My Image" width="500" height="500"/>
+<img src="md_img/image-8.png" alt="My Image" width="400" height="400"/>
 <img src="md_img/image-9.png" alt="My Image" width="600" height="400"/>
+
+## 四、后台
+### 项目文件夹：backup
+### 软件架构：
+后台使用 Go 语言开发，使用 goframe2 框架和 sqlite 文件数据库。
+### 说明：
+backup文件夹内的README文件包含项目介绍/项目启动/代码结构等
