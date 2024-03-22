@@ -27,6 +27,7 @@
 ## 演示地址
 
 管理台：https://7483f88q46.goho.co
+(备注：暂时无法使用)
 
 小程序：
 
@@ -35,6 +36,7 @@
 ## 源码目录
 
 ```
+TbsHarmonyOS：鸿蒙App
 front-manager: 前端管理台
 front-mini-programe: 前端小程序
 backup: 后端
