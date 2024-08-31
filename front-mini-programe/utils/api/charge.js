@@ -26,3 +26,7 @@ export const requestStopCharge = (orderId) => http.post(`/wx-api/charge/stop?ord
 
 //展示不同区间价格  /api/charge/price/list?pageNo=1&pageSize=2   get
 export const requestChargePrice = (pageNo, pageSize) => http.get(`/wx-api/price/list?pageNo=${pageNo}&pageSize=${pageSize}`)
+
+
+//充电 mqtt_command
+export const requestCommand = (device_id,command) => http.post(`/mqtt_command?device_id=${device_id}&command=${command}`)

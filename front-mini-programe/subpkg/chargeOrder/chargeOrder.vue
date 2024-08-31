@@ -24,7 +24,8 @@
               <view class="item-bottom">开始时间：{{ formatDate(item.startAt) }}</view>
               <view class="item-bottom" v-if="item.stopAt !== undefined && item.stopAt !== null && item.state !== 0">结束时间：{{ item.state === 0 ? '' : formatDate(item.stopAt) }} </view>
               <button class="mini-btn" type="warn" size="mini" @click="stopCharge(item)" v-if="item.state === 0">停止充电</button>
-              <view></view>
+              <button class="mini-btn" type="primary" size="mini" style="margin-left: 15rpx;" @click="jumpH5()" v-if="item.state === 0">跳转H5页面</button>
+			  <view></view>
             </view>
           </view>
         </view>
@@ -34,7 +35,7 @@
 </template>
 
 <script setup>
-import { requestChargeOrders, requestStopCharge } from '@/utils/api/charge.js'
+import { requestChargeOrders, requestStopCharge,requestCommand } from '@/utils/api/charge.js'
 import { ref, onMounted } from 'vue'
 import { formatDate } from '@/utils/time.js'
 let pageSize = ref(10)
@@ -64,7 +65,21 @@ let stopCharge = async (item) => {
   } else {
     uni.$showMsg(res.message)
   }
+  
+    // TODO 调取第二个接口
+    let { data: resp } = await requestCommand('DEMO01','cl')
+      console.log('resp', resp);
 }
+
+// TODO 跳转H5页面
+let jumpH5 = () => {
+  //需要跳转的外部路径
+  let url = 'https://blog.csdn.net/luo4105?type=blog'
+	uni.navigateTo({
+		url:'/pages/webView/webView?url='+url
+	})
+}
+
 //上拉加载更多
 let loadMore = () => {
   // 利用Math.ceil算出新的分页

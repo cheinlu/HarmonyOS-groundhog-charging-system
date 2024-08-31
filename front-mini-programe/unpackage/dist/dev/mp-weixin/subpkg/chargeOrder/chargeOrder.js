@@ -34,6 +34,14 @@ const _sfc_main = {
       } else {
         common_vendor.index.$showMsg(res.message);
       }
+      let { data: resp } = await utils_api_charge.requestCommand("DEMO01", "cl");
+      console.log("resp", resp);
+    };
+    let jumpH5 = () => {
+      let url = "https://blog.csdn.net/luo4105?type=blog";
+      common_vendor.index.navigateTo({
+        url: "/pages/webView/webView?url=" + url
+      });
     };
     let loadMore = () => {
       let totalPage = Math.ceil(total.value / pageSize.value);
@@ -69,7 +77,11 @@ const _sfc_main = {
           }, item.state === 0 ? {
             k: common_vendor.o(($event) => common_vendor.unref(stopCharge)(item), item.id)
           } : {}, {
-            l: item.id
+            l: item.state === 0
+          }, item.state === 0 ? {
+            m: common_vendor.o(($event) => common_vendor.unref(jumpH5)(), item.id)
+          } : {}, {
+            n: item.id
           });
         }),
         d: common_vendor.o((...args) => common_vendor.unref(loadMore) && common_vendor.unref(loadMore)(...args))
@@ -77,5 +89,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-22568b06"], ["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system/front-mini-programe/subpkg/chargeOrder/chargeOrder.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-22568b06"], ["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system-github/HarmonyOS-groundhog-charging-system/front-mini-programe/subpkg/chargeOrder/chargeOrder.vue"]]);
 wx.createPage(MiniProgramPage);

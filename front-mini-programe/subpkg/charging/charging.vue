@@ -44,7 +44,7 @@
 
 <script setup>
 import { onLoad } from '@dcloudio/uni-app'
-import { requestStartCharge, requestChargePrice } from '@/utils/api/charge.js'
+import { requestStartCharge, requestChargePrice,requestCommand } from '@/utils/api/charge.js'
 import { ref, reactive } from 'vue'
 import { defineProps, onMounted } from 'vue'
 const props = defineProps(['id', 'code', 'pricePerHour','stationName'])
@@ -105,6 +105,10 @@ let goChargeOrder = async () => {
       url: '/pages/charge/charge'
     })
   }
+  
+	// TODO 调取第一个接口
+	let { data: resp } = await requestCommand('DEMO01','op')
+	  console.log('resp', resp);
 }
 </script>
 

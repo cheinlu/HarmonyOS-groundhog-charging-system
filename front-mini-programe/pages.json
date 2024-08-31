@@ -30,6 +30,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/webView/webView",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
   "subPackages":[
     {

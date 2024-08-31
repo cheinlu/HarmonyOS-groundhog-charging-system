@@ -1,1 +1,1 @@
-<view class="uni-table-tr"><view wx:if="{{a}}" class="{{['checkbox', d && 'tr-table--border']}}"><table-checkbox wx:if="{{c}}" bindcheckboxSelected="{{b}}" u-i="725e8de3-0" bind:__l="__l" u-p="{{c}}"></table-checkbox></view><slot></slot></view>
+<view class="uni-table-tr"><view wx:if="{{a}}" class="{{['checkbox', d && 'tr-table--border']}}"><table-checkbox wx:if="{{c}}" bindcheckboxSelected="{{b}}" u-i="3fbd1c64-0" bind:__l="__l" u-p="{{c}}"></table-checkbox></view><slot></slot></view>

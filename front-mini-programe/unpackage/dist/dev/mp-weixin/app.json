@@ -2,7 +2,8 @@
   "pages": [
     "pages/charge/charge",
     "pages/my/my",
-    "pages/scan/scan"
+    "pages/scan/scan",
+    "pages/webView/webView"
   ],
   "subPackages": [
     {

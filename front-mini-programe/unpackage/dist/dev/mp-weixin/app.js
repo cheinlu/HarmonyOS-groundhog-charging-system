@@ -121,6 +121,7 @@ if (!Math) {
   "./pages/charge/charge.js";
   "./pages/my/my.js";
   "./pages/scan/scan.js";
+  "./pages/webView/webView.js";
   "./subpkg/charging/charging.js";
   "./subpkg/chargeOrder/chargeOrder.js";
 }
@@ -135,7 +136,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system/front-mini-programe/App.vue"]]);
+const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system-github/HarmonyOS-groundhog-charging-system/front-mini-programe/App.vue"]]);
 common_vendor.index.$showMsg = function(title = "数据请求失败！", duration = 1500) {
   common_vendor.index.showToast({
     title,

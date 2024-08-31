@@ -7918,6 +7918,13 @@ const pages = [
       navigationBarTitleText: "",
       enablePullDownRefresh: false
     }
+  },
+  {
+    path: "pages/webView/webView",
+    style: {
+      navigationBarTitleText: "",
+      enablePullDownRefresh: false
+    }
   }
 ];
 const subPackages = [

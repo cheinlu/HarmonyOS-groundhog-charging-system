@@ -105,5 +105,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     d: $data.border ? 1 : ""
   } : {});
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system/front-mini-programe/uni_modules/uni-table/components/uni-tr/uni-tr.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system-github/HarmonyOS-groundhog-charging-system/front-mini-programe/uni_modules/uni-table/components/uni-tr/uni-tr.vue"]]);
 wx.createComponent(Component);
