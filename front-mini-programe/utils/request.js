@@ -1,14 +1,15 @@
-import BASE_URL from '@/env.js'
+
 import useUserStore from '@/store/user.js'
 export const setRequestConfig = () => {
   uni.$u.http.setConfig((config) => {
     /* config 为默认全局配置*/
-    config.baseURL = BASE_URL /* 本地根域名 */
+    config.baseURL = 'http://101.132.109.52/' /* 本地根域名 */
     return config
   })
   // 请求拦截
   uni.$u.http.interceptors.request.use(
     (config) => {
+		config.header['bypass-tunnel-reminder'] = '1234'  // 添加自定义头部
       let token = useUserStore().token
       if (token) {
         config.header.Authorization = `Bearer ${token}`

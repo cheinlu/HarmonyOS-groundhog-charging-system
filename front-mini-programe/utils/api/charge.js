@@ -29,4 +29,4 @@ export const requestChargePrice = (pageNo, pageSize) => http.get(`/wx-api/price/
 
 
 //充电 mqtt_command
-export const requestCommand = (device_id,command) => http.post(`/mqtt_command?device_id=${device_id}&command=${command}`)
+export const requestCommand = (params) => http.post('/mqtt_command',params)

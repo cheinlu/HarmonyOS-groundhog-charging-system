@@ -67,14 +67,18 @@ let stopCharge = async (item) => {
   }
   
     // TODO 调取第二个接口
-    let { data: resp } = await requestCommand('DEMO01','cl')
-      console.log('resp', resp);
+	let params = {
+		device_id:'DEMO01',
+		command:'cl'
+	}
+	let { data: resp } = await requestCommand(params)
+	  console.log('resp', resp);
 }
 
 // TODO 跳转H5页面
 let jumpH5 = () => {
   //需要跳转的外部路径
-  let url = 'https://blog.csdn.net/luo4105?type=blog'
+  let url = 'https://www.csdn.net/'
 	uni.navigateTo({
 		url:'/pages/webView/webView?url='+url
 	})

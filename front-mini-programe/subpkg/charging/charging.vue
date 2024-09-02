@@ -107,7 +107,11 @@ let goChargeOrder = async () => {
   }
   
 	// TODO 调取第一个接口
-	let { data: resp } = await requestCommand('DEMO01','op')
+	let params = {
+		device_id:'DEMO01',
+		command:'op'
+	}
+	let { data: resp } = await requestCommand(params)
 	  console.log('resp', resp);
 }
 </script>

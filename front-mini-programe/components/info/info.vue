@@ -47,7 +47,6 @@
 </template>
 
 <script setup>
-import BASE_URL from '@/env.js'
 import { onMounted, ref } from 'vue'
 import { requestUserInfo, requestNickname } from '@/utils/api/user.js'
 import useUserStore from '@/store/user.js'
@@ -118,7 +117,7 @@ const onChooseAvatar = async e => {
       avatarUrl.value = tempFilePath
       //将更改的图片上传到服务器
       uni.uploadFile({
-        url: BASE_URL + '/wx-api/upload/avatar',
+        url: 'http://101.132.109.52/' + '/wx-api/upload/avatar',
         filePath: avatarUrl.value,
         name: 'file',
         header: {

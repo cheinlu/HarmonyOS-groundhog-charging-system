@@ -5,7 +5,6 @@ const utils_api_user = require("../../utils/api/user.js");
 const utils_token = require("../../utils/token.js");
 const store_user = require("../../store/user.js");
 require("../../utils/request.js");
-require("../../env.js");
 const _sfc_main = {
   __name: "login",
   setup(__props) {

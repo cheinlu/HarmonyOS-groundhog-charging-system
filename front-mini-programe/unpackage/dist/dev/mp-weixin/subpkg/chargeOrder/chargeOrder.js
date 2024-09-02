@@ -4,7 +4,6 @@ const common_assets = require("../../common/assets.js");
 const utils_api_charge = require("../../utils/api/charge.js");
 const utils_time = require("../../utils/time.js");
 require("../../utils/request.js");
-require("../../env.js");
 require("../../store/user.js");
 require("../../utils/token.js");
 const _sfc_main = {
@@ -34,11 +33,15 @@ const _sfc_main = {
       } else {
         common_vendor.index.$showMsg(res.message);
       }
-      let { data: resp } = await utils_api_charge.requestCommand("DEMO01", "cl");
+      let params = {
+        device_id: "DEMO01",
+        command: "cl"
+      };
+      let { data: resp } = await utils_api_charge.requestCommand(params);
       console.log("resp", resp);
     };
     let jumpH5 = () => {
-      let url = "https://blog.csdn.net/luo4105?type=blog";
+      let url = "https://www.csdn.net/";
       common_vendor.index.navigateTo({
         url: "/pages/webView/webView?url=" + url
       });
