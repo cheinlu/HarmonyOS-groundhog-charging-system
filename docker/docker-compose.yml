@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.27.1
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend
+      - frontend
+
+  backend:
+    image: lusson/charging-backup:v1.0
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: lusson/charging-frontend:v1.0
+    ports:
+      - "3000:80"
+
+# nginx.conf 文件内容
+# 请将以下内容保存为 nginx.conf 文件，并放置在 docker-compose.yml 同级目录下

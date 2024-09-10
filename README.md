@@ -33,6 +33,13 @@
 
 <img src="md_img/wechat-mp.png" alt="My Image" width="300" height="300">
 
+## 一键启动
+
+本服务已经完成镜像打包，可以通过docker一键部署，需要在 linux 系统上。
+```
+docker-compose up -d
+```
+
 ## 源码目录
 
 ```

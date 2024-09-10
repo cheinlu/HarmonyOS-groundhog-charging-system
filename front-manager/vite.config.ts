@@ -8,7 +8,7 @@ import path from 'path'
 export default defineConfig(({command})=>{
   const isProduction = command === 'build';
   return {
-    base: isProduction ? 'https://static.tuboshulucy.top/' : '/',
+    base: isProduction ? '/' : '/',
     plugins: [vue(),
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
