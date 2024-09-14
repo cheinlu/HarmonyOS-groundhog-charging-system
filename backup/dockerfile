@@ -1,0 +1,35 @@
+# 构建阶段
+FROM golang:1.19 AS builder
+
+# 设置工作目录
+WORKDIR /build
+
+# 复制源代码到工作目录
+COPY . .
+
+# 下载依赖并构建可执行文件
+
+RUN go mod tidy
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo  -o main main.go
+
+FROM golang:alpine3.20
+
+###############################################################################
+#                                INSTALLATION
+###############################################################################
+
+ENV WORKDIR                 /app
+ADD resource                $WORKDIR/
+ADD manifest                $WORKDIR/manifest
+# ADD /build/main $WORKDIR/main
+
+
+# 从构建阶段复制构建好的可执行文件
+COPY --from=builder /build/main $WORKDIR/main
+RUN chmod +x $WORKDIR/main
+
+###############################################################################
+#                                   START
+###############################################################################
+WORKDIR $WORKDIR
+CMD ./main
