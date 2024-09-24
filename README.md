@@ -74,7 +74,7 @@ backup: 后端
 3.个人中心页：个人头像+昵称，充电余额，充电订单，功能区，退出登录等
 4.扫码：（此功能暂未实现）
 ### 项目截图：
-<img src="md_img/app1.png" alt="My Image" width="240" height="500"/><img src="md_img/app2.png" alt="My Image" width="240" height="500"/><img src="md_img/app3.png" alt="My Image" width="240" height="500"/><img src="md_img/app4.png" alt="My Image" width="240" height="500"/>
+<img src="md_img/app2.png" alt="My Image" width="260" height="500"/>  <img src="md_img/app1.png" alt="My Image" width="260" height="500"/>  <img src="md_img/app3.png" alt="My Image" width="260" height="500"/>  <img src="md_img/app4.png" alt="My Image" width="240" height="500"/>
 
 ## 二、微信小程序-土拨鼠充电小程序
 ### 项目文件夹：front-mini-programe
