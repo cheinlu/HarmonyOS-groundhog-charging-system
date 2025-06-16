@@ -1,9 +1,0 @@
-{
-  "src": [
-    "pages/Index",
-    "pages/Login",
-    "pages/Charging",
-    "pages/ChargeOrder",
-    "pages/Register"
-  ]
-}

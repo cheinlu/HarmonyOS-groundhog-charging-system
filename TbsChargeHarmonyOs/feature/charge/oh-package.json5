@@ -1,0 +1,11 @@
+{
+  "name": "@tbs/charge",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@tbs/common": "file:../../common"
+  }
+}
