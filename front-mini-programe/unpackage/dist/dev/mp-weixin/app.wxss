@@ -26,13 +26,6 @@
 /* 文章场景相关 */
 /* 需要给style标签加入lang="scss"属性 */
 .u-line-1 {
-
-
-
-
-
-
-
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,13 +34,6 @@
   -webkit-box-orient: vertical !important;
 }
 .u-line-2 {
-
-
-
-
-
-
-
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -56,13 +42,6 @@
   -webkit-box-orient: vertical !important;
 }
 .u-line-3 {
-
-
-
-
-
-
-
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -71,13 +50,6 @@
   -webkit-box-orient: vertical !important;
 }
 .u-line-4 {
-
-
-
-
-
-
-
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -86,13 +58,6 @@
   -webkit-box-orient: vertical !important;
 }
 .u-line-5 {
-
-
-
-
-
-
-
   display: -webkit-box !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -135,7 +100,6 @@
 .u-reset-button {
   padding: 0;
   background-color: transparent;
-
   font-size: inherit;
   line-height: inherit;
   color: inherit;

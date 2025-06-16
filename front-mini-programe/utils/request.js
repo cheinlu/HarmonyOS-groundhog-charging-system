@@ -1,9 +1,8 @@
-import BASE_URL from '@/env.js'
 import useUserStore from '@/store/user.js'
 export const setRequestConfig = () => {
   uni.$u.http.setConfig((config) => {
     /* config 为默认全局配置*/
-    config.baseURL = BASE_URL /* 本地根域名 */
+    config.baseURL = 'https://charging.lusson.xyz' /* 本地根域名 */
     return config
   })
   // 请求拦截

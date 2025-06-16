@@ -9,3 +9,5 @@ export * from './src/main/ets/manager'
 export * from './src/main/ets/utils'
 
 export { CommonDataSource } from './src/main/ets/model/CommonDataSource'
+
+export * from './src/main/ets/location'

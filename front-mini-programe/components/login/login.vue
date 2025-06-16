@@ -24,6 +24,7 @@ const getLogin = () => {
     success(res) {
       const code = { code: res.code }
       requestLogin(code).then((lres) => {
+		  console.log('lucy== lres',JSON.stringify(lres));
         if (lres.data.code == 0) {
           useStore.token = lres.data.data.token
           SET_TOKEN(lres.data.data.token)
@@ -42,7 +43,9 @@ const getLogin = () => {
             }
           })
         }
-      })
+      }).catch(error=>{
+		    console.log('lucy== err',JSON.stringify(error));
+	  })
     }
   })
 }

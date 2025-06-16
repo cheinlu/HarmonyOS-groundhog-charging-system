@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/hy-harmonyos/.ohos/config/default_TbsChargeHarmonyOs__ufzCLcvdd2BeOQN_cfx1Mk-FbpSy8fSUNeYHFguig0=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B53461D81B19F9BD47E7C31EC1EA070D49B3C91F1571B87AFCA7EE60594763AFE406575969AE725",
+          "profile": "/Users/hy-harmonyos/.ohos/config/default_TbsChargeHarmonyOs__ufzCLcvdd2BeOQN_cfx1Mk-FbpSy8fSUNeYHFguig0=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/hy-harmonyos/.ohos/config/default_TbsChargeHarmonyOs__ufzCLcvdd2BeOQN_cfx1Mk-FbpSy8fSUNeYHFguig0=.p12",
+          "storePassword": "0000001BE758B9DBF482A01A49926F86B3A5B0895ED3D3B13FDA169A48C1E30D0F507FF05FED46C1682643"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

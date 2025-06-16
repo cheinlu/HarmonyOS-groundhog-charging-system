@@ -5,7 +5,6 @@ const utils_api_user = require("../../utils/api/user.js");
 const utils_token = require("../../utils/token.js");
 const store_user = require("../../store/user.js");
 require("../../utils/request.js");
-require("../../env.js");
 const _sfc_main = {
   __name: "login",
   setup(__props) {
@@ -16,6 +15,7 @@ const _sfc_main = {
         success(res) {
           const code = { code: res.code };
           utils_api_user.requestLogin(code).then((lres) => {
+            console.log("lucy== lres", JSON.stringify(lres));
             if (lres.data.code == 0) {
               useStore.token = lres.data.data.token;
               utils_token.SET_TOKEN(lres.data.data.token);
@@ -34,6 +34,8 @@ const _sfc_main = {
                 }
               });
             }
+          }).catch((error) => {
+            console.log("lucy== err", JSON.stringify(error));
           });
         }
       });
@@ -78,5 +80,5 @@ const _sfc_main = {
     };
   }
 };
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system/front-mini-programe/components/login/login.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/hy-harmonyos/Desktop/Lucy-folder/code/HarmonyOS-groundhog-charging-system/front-mini-programe/components/login/login.vue"]]);
 wx.createComponent(Component);

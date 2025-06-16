@@ -4,7 +4,6 @@ const common_assets = require("../../common/assets.js");
 const utils_api_charge = require("../../utils/api/charge.js");
 const utils_time = require("../../utils/time.js");
 require("../../utils/request.js");
-require("../../env.js");
 require("../../store/user.js");
 require("../../utils/token.js");
 const _sfc_main = {
@@ -77,5 +76,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-22568b06"], ["__file", "C:/Users/123/Desktop/code/lucy-demo/01土拨鼠充电系统/groundhog-charging-system/front-mini-programe/subpkg/chargeOrder/chargeOrder.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-22568b06"], ["__file", "/Users/hy-harmonyos/Desktop/Lucy-folder/code/HarmonyOS-groundhog-charging-system/front-mini-programe/subpkg/chargeOrder/chargeOrder.vue"]]);
 wx.createPage(MiniProgramPage);
