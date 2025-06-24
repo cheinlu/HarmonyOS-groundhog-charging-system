@@ -14,7 +14,6 @@ bin/
 cbuild
 **/.DS_Store
 .test/
-main
 output/
 manifest/output/
 temp/

@@ -1,0 +1,376 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "土拨鼠充电"
+    },
+    {
+      "name": "charge",
+      "value": "充电"
+    },
+    {
+      "name": "scan",
+      "value": "扫码"
+    },
+    {
+      "name": "mine",
+      "value": "我的"
+    },
+    {
+      "name": "welcome_login_groundhog",
+      "value": "欢迎登录土拨鼠充电平台"
+    },
+    {
+      "name": "please_select_the_tenant",
+      "value": "请选择租户"
+    },
+    {
+      "name": "please_enter_the_username",
+      "value": "请输入用户名"
+    },
+    {
+      "name": "please_enter_the_password",
+      "value": "请输入密码"
+    },
+    {
+      "name": "please_enter_the_verification_code",
+      "value": "请输入验证码"
+    },
+    {
+      "name": "please_enter_the_company_name",
+      "value": "请输入公司名称"
+    },
+    {
+      "name": "please_enter_the_company_website",
+      "value": "请输入公司网站"
+    },
+    {
+      "name": "login",
+      "value": "登录"
+    },
+    {
+      "name": "no_account",
+      "value": "没有账户？"
+    },
+    {
+      "name": "register",
+      "value": "去注册"
+    },
+    {
+      "name": "login_in",
+      "value": "去登录"
+    },
+    {
+      "name": "existing_account",
+      "value": "已有账户？"
+    },
+    {
+      "name": "register_immediately",
+      "value": "立即注册"
+    },
+    {
+      "name": "company_website",
+      "value": "公司网站,如www.example.com"
+    },
+    {
+      "name": "company_name",
+      "value": "公司名称"
+    },
+    {
+      "name": "password_length",
+      "value": "密码:长度至少5位"
+    },
+    {
+      "name": "get_code",
+      "value": "获取验证码"
+    },
+    {
+      "name": "verification_code",
+      "value": "验证码:666666"
+    },
+    {
+      "name": "welcome_register_groundhog",
+      "value": "欢迎注册土拨鼠充电平台"
+    },
+    {
+      "name": "search_content",
+      "value": "请输入搜索内容"
+    },
+    {
+      "name": "search",
+      "value": "搜索"
+    },
+    {
+      "name": "no_data",
+      "value": "暂无数据"
+    },
+    {
+      "name": "selection_of_charging_pile",
+      "value": "充电桩选择"
+    },
+    {
+      "name": "fast_charge",
+      "value": "快充"
+    },
+    {
+      "name": "180KW",
+      "value": "180KW"
+    },
+    {
+      "name": "0V",
+      "value": "0V"
+    },
+    {
+      "name": "national_standard",
+      "value": "国标"
+    },
+    {
+      "name": "idle",
+      "value": "空闲"
+    },
+    {
+      "name": "faults",
+      "value": "故障"
+    },
+    {
+      "name": "charging_in_progress",
+      "value": "充电中"
+    },
+    {
+      "name": "pile_number",
+      "value": "桩编号："
+    },
+    {
+      "name": "station_name",
+      "value": "站名称："
+    },
+    {
+      "name": "agreement",
+      "value": "用户协议"
+    },
+    {
+      "name": "certification",
+      "value": "平台资质"
+    },
+    {
+      "name": "feat",
+      "value": "我要合作"
+    },
+    {
+      "name": "message",
+      "value": "消息通知"
+    },
+    {
+      "name": "person",
+      "value": "个人信息"
+    },
+    {
+      "name": "rule",
+      "value": "规则中心"
+    },
+    {
+      "name": "setting",
+      "value": "隐私设置"
+    },
+    {
+      "name": "order",
+      "value": "充电订单"
+    },
+    {
+      "name": "service",
+      "value": "客服中心"
+    },
+    {
+      "name": "there_is_no_more_data",
+      "value": "没有更多数据了"
+    },
+    {
+      "name": "loading",
+      "value": "加载中..."
+    },
+    {
+      "name": "completed",
+      "value": "已完成"
+    },
+    {
+      "name": "pile_code",
+      "value": "充电桩编号:"
+    },
+    {
+      "name": "charge_name",
+      "value": "充电站名:"
+    },
+    {
+      "name": "price",
+      "value": "价格:"
+    },
+    {
+      "name": "order_status",
+      "value": "订单状态:"
+    },
+    {
+      "name": "start_time",
+      "value": "开始时间:"
+    },
+    {
+      "name": "end_time",
+      "value": "结束时间:"
+    },
+    {
+      "name": "stop_charge",
+      "value": "停止充电"
+    },
+    {
+      "name": "permission_approximately_location",
+      "value": "需要获取您的位置信息以提供附近服务"
+    },
+    {
+      "name": "location_permission_reason",
+      "value": "需要获取您的位置信息以提供附近服务"
+    },
+    {
+      "name": "base_camera_permission_des",
+      "value": "用于扫码功能"
+    },
+    {
+      "name": "base_consent_permission_des",
+      "value": "用于跨应用关联功能"
+    },
+    {
+      "name": "visit_store_install_maps_first",
+      "value": "请安装高德地图、花瓣地图或百度地图"
+    },
+    {
+      "name": "visit_store_map",
+      "value": "高德地图"
+    },
+    {
+      "name": "visit_store_baidu_map",
+      "value": "百度地图"
+    },
+    {
+      "name": "visit_store_petal_map",
+      "value": "花瓣地图"
+    },
+    {
+      "name": "friendly_reminder",
+      "value": "温馨提示"
+    },
+    {
+      "name": "logout_tip_detail",
+      "value": "确定要退出登录吗?"
+    },
+    {
+      "name": "button_cancel",
+      "value": "取消"
+    },
+    {
+      "name": "button_sure",
+      "value": "确定"
+    },
+    {
+      "name": "charging_period",
+      "value": "充电时段"
+    },
+    {
+      "name": "price_yuan",
+      "value": "价格（元/度)"
+    },
+    {
+      "name": "pile_number_1",
+      "value": "桩编号"
+    },
+    {
+      "name": "privacy_settings_address",
+      "value": "开启访问位置信息权限"
+    },
+    {
+      "name": "privacy_settings_address_description",
+      "value": "根据您位置提供适合您需求的页面展示"
+    },
+    {
+      "name": "privacy_settings_camera_description",
+      "value": "扫一扫、用于定位充电桩充电使用"
+    },
+    {
+      "name": "privacy_settings_camera",
+      "value": "开启访问相机权限"
+    },
+    {
+      "name": "enabled",
+      "value": "已开启"
+    },
+    {
+      "name": "setup",
+      "value": "去设置"
+    },
+    {
+      "name": "stop_charge_success",
+      "value": "停止充电成功"
+    },
+    {
+      "name": "stop_charge_fail",
+      "value": "停止充电失败"
+    },
+    {
+      "name": "load_order_error",
+      "value": "加载订单失败"
+    },
+    {
+      "name": "please_search_content",
+      "value": "请输入搜索内容"
+    },
+    {
+      "name": "rates",
+      "value": "收费标准"
+    },
+    {
+      "name": "charge_success",
+      "value": "充电成功"
+    },
+    {
+      "name": "charge_rule",
+      "value": "收费规则 >>"
+    },
+    {
+      "name": "charge_time",
+      "value": "充电时长"
+    },
+    {
+      "name": "fill_and_stop",
+      "value": "充满即止 >>"
+    },
+    {
+      "name": "charge_in",
+      "value": "充电 ing"
+    },
+    {
+      "name": "log_out",
+      "value": "退出登录"
+    },
+    {
+      "name": "charge_balance",
+      "value": "充电余额"
+    },
+    {
+      "name": "registered_successfully",
+      "value": "注册成功"
+    },
+    {
+      "name": "scan_success",
+      "value": "扫码成功"
+    },
+    {
+      "name": "scan_barQR_code",
+      "value": "请扫描条码/二维码"
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "土拨鼠充电"
+    },
+    {
+      "name": "charge",
+      "value": "charge"
+    },
+    {
+      "name": "scan",
+      "value": "scan"
+    },
+    {
+      "name": "mine",
+      "value": "mine"
+    },
+    {
+      "name": "welcome_login_groundhog",
+      "value": "Welcome to log in to the Groundhog charging platform"
+    },
+    {
+      "name": "please_select_the_tenant",
+      "value": "Please select the tenant"
+    },
+    {
+      "name": "please_enter_the_username",
+      "value": "Please enter the username"
+    },
+    {
+      "name": "please_enter_the_password",
+      "value": "Please enter your password"
+    },
+    {
+      "name": "please_enter_the_verification_code",
+      "value": "Please enter the verification code"
+    },
+    {
+      "name": "please_enter_the_company_name",
+      "value": "Please enter the company name"
+    },
+    {
+      "name": "please_enter_the_company_website",
+      "value": "Please enter the company website"
+    },
+    {
+      "name": "login",
+      "value": "Login"
+    },
+    {
+      "name": "no_account",
+      "value": "No account?"
+    },
+    {
+      "name": "register",
+      "value": "Register"
+    },
+    {
+      "name": "login_in",
+      "value": "login in"
+    },
+    {
+      "name": "existing_account",
+      "value": "existing account?"
+    },
+    {
+      "name": "register_immediately",
+      "value": "register immediately"
+    },
+    {
+      "name": "company_website",
+      "value": "The company 's website, such as www.example.com"
+    },
+    {
+      "name": "company_name",
+      "value": "company name"
+    },
+    {
+      "name": "password_length",
+      "value": "Password: At least 5 characters in length"
+    },
+    {
+      "name": "get_code",
+      "value": "get code"
+    },
+    {
+      "name": "verification_code",
+      "value": "Verification code :666666"
+    },
+    {
+      "name": "welcome_register_groundhog",
+      "value": "Welcome to register on the Groundhog charging platform"
+    },
+    {
+      "name": "search_content",
+      "value": "Please enter the search content"
+    },
+    {
+      "name": "search",
+      "value": "search"
+    },
+    {
+      "name": "no_data",
+      "value": "no data"
+    },
+    {
+      "name": "selection_of_charging_pile",
+      "value": "Selection of charging pile"
+    },
+    {
+      "name": "fast_charge",
+      "value": "fast charge"
+    },
+    {
+      "name": "180KW",
+      "value": "180KW"
+    },
+    {
+      "name": "0V",
+      "value": "0V"
+    },
+    {
+      "name": "national_standard",
+      "value": "national standard"
+    },
+    {
+      "name": "idle",
+      "value": "Idle"
+    },
+    {
+      "name": "faults",
+      "value": "Faults"
+    },
+    {
+      "name": "charging_in_progress",
+      "value": "Charging in progress"
+    },
+    {
+      "name": "pile_number",
+      "value": "Pile_number:"
+    },
+    {
+      "name": "station_name",
+      "value": "Station name:"
+    },
+    {
+      "name": "agreement",
+      "value": "agreement"
+    },
+    {
+      "name": "certification",
+      "value": "certification"
+    },
+    {
+      "name": "feat",
+      "value": "feat"
+    },
+    {
+      "name": "message",
+      "value": "message"
+    },
+    {
+      "name": "person",
+      "value": "person"
+    },
+    {
+      "name": "rule",
+      "value": "rule"
+    },
+    {
+      "name": "setting",
+      "value": "privacy setting"
+    },
+    {
+      "name": "order",
+      "value": "order"
+    },
+    {
+      "name": "service",
+      "value": "service"
+    },
+    {
+      "name": "there_is_no_more_data",
+      "value": "There is no more data"
+    },
+    {
+      "name": "loading",
+      "value": "loading..."
+    },
+    {
+      "name": "completed",
+      "value": "Completed"
+    },
+    {
+      "name": "pile_code",
+      "value": "Pile code:"
+    },
+    {
+      "name": "charge_name",
+      "value": "Charge name:"
+    },
+    {
+      "name": "price",
+      "value": "Price:"
+    },
+    {
+      "name": "order_status",
+      "value": "Order status:"
+    },
+    {
+      "name": "start_time",
+      "value": "Start time:"
+    },
+    {
+      "name": "end_time",
+      "value": "End time:"
+    },
+    {
+      "name": "stop_charge",
+      "value": "Stop charging"
+    },
+    {
+      "name": "permission_approximately_location",
+      "value": "需要获取您的位置信息以提供附近服务"
+    },
+    {
+      "name": "location_permission_reason",
+      "value": "需要获取您的位置信息以提供附近服务"
+    },
+    {
+      "name": "base_camera_permission_des",
+      "value": "用于扫码功能"
+    },
+    {
+      "name": "base_consent_permission_des",
+      "value": "用于跨应用关联功能"
+    },
+    {
+      "name": "visit_store_install_maps_first",
+      "value": "请安装高德地图、花瓣地图或百度地图"
+    },
+    {
+      "name": "visit_store_map",
+      "value": "高德地图"
+    },
+    {
+      "name": "visit_store_baidu_map",
+      "value": "百度地图"
+    },
+    {
+      "name": "visit_store_petal_map",
+      "value": "花瓣地图"
+    },
+    {
+      "name": "friendly_reminder",
+      "value": "Kindly Reminder"
+    },
+    {
+      "name": "logout_tip_detail",
+      "value": "Are you sure to log out?"
+    },
+    {
+      "name": "button_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "button_sure",
+      "value": "OK"
+    },
+    {
+      "name": "charging_period",
+      "value": "Charging period"
+    },
+    {
+      "name": "price_yuan",
+      "value": "Price(yuan/degree)"
+    },
+    {
+      "name": "pile_number_1",
+      "value": "pile number"
+    },
+    {
+      "name": "privacy_settings_address",
+      "value": "开启访问位置信息权限"
+    },
+    {
+      "name": "privacy_settings_address_description",
+      "value": "根据您位置提供适合您需求的页面展示"
+    },
+    {
+      "name": "privacy_settings_camera_description",
+      "value": "扫一扫、用于定位充电桩充电使用"
+    },
+    {
+      "name": "privacy_settings_camera",
+      "value": "开启访问相机权限"
+    },
+    {
+      "name": "enabled",
+      "value": "Enabled"
+    },
+    {
+      "name": "setup",
+      "value": "Set Up"
+    },
+    {
+      "name": "stop_charge_success",
+      "value": "Stop charging successfully"
+    },
+    {
+      "name": "stop_charge_fail",
+      "value": "Failed to stop charging"
+    },
+    {
+      "name": "load_order_error",
+      "value": "Failed to load the order"
+    },
+    {
+      "name": "please_search_content",
+      "value": "Please enter the search content"
+    },
+    {
+      "name": "rates",
+      "value": "rates"
+    },
+    {
+      "name": "charge_success",
+      "value": "Charging successful"
+    },
+    {
+      "name": "charge_rule",
+      "value": "Charging rules >>"
+    },
+    {
+      "name": "charge_time",
+      "value": "Charge time"
+    },
+    {
+      "name": "fill_and_stop",
+      "value": "Fill and stop >>"
+    },
+    {
+      "name": "charge_in",
+      "value": "Charging"
+    },
+    {
+      "name": "log_out",
+      "value": "log out"
+    },
+    {
+      "name": "charge_balance",
+      "value": "Charging balance"
+    },
+    {
+      "name": "registered_successfully",
+      "value": "registered successfully"
+    },
+    {
+      "name": "scan_success",
+      "value": "The scanning code was successful"
+    },
+    {
+      "name": "scan_barQR_code",
+      "value": "Please scan barcode/QR code"
+    }
+  ]
+}

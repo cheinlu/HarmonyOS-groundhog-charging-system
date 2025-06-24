@@ -1,0 +1,9 @@
+{
+  "src": [
+    "home/HomePage",
+    "login/LoginPage",
+    "register/RegisterPage",
+    "scan/ScanPage",
+    "webview/WebViewPage"
+  ]
+}

@@ -1,1 +1,0 @@
-export { ScanPage } from './src/main/ets/page/ScanPage'

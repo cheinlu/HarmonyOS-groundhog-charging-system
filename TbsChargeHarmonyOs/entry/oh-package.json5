@@ -9,7 +9,6 @@
     "@tbs/common": "file:../common",
     "@tbs/charge": "file:../feature/charge",
     "@tbs/mine": "file:../feature/mine",
-    "@tbs/scan": "file:../feature/scan"
   }
 }
 

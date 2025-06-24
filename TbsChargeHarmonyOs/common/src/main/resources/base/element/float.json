@@ -1,0 +1,1605 @@
+{
+  "float": [
+    {
+      "name": "size_1",
+      "value": "1vp"
+    },
+    {
+      "name": "size_2",
+      "value": "2vp"
+    },
+    {
+      "name": "size_3",
+      "value": "3vp"
+    },
+    {
+      "name": "size_4",
+      "value": "4vp"
+    },
+    {
+      "name": "size_5",
+      "value": "5vp"
+    },
+    {
+      "name": "size_6",
+      "value": "6vp"
+    },
+    {
+      "name": "size_7",
+      "value": "7vp"
+    },
+    {
+      "name": "size_8",
+      "value": "8vp"
+    },
+    {
+      "name": "size_9",
+      "value": "9vp"
+    },
+    {
+      "name": "size_10",
+      "value": "10vp"
+    },
+    {
+      "name": "size_11",
+      "value": "11vp"
+    },
+    {
+      "name": "size_12",
+      "value": "12vp"
+    },
+    {
+      "name": "size_13",
+      "value": "13vp"
+    },
+    {
+      "name": "size_14",
+      "value": "14vp"
+    },
+    {
+      "name": "size_15",
+      "value": "15vp"
+    },
+    {
+      "name": "size_16",
+      "value": "16vp"
+    },
+    {
+      "name": "size_17",
+      "value": "17vp"
+    },
+    {
+      "name": "size_18",
+      "value": "18vp"
+    },
+    {
+      "name": "size_19",
+      "value": "19vp"
+    },
+    {
+      "name": "size_20",
+      "value": "20vp"
+    },
+    {
+      "name": "size_21",
+      "value": "21vp"
+    },
+    {
+      "name": "size_22",
+      "value": "22vp"
+    },
+    {
+      "name": "size_23",
+      "value": "23vp"
+    },
+    {
+      "name": "size_24",
+      "value": "24vp"
+    },
+    {
+      "name": "size_25",
+      "value": "25vp"
+    },
+    {
+      "name": "size_26",
+      "value": "26vp"
+    },
+    {
+      "name": "size_27",
+      "value": "27vp"
+    },
+    {
+      "name": "size_28",
+      "value": "28vp"
+    },
+    {
+      "name": "size_29",
+      "value": "29vp"
+    },
+    {
+      "name": "size_30",
+      "value": "30vp"
+    },
+    {
+      "name": "size_31",
+      "value": "31vp"
+    },
+    {
+      "name": "size_32",
+      "value": "32vp"
+    },
+    {
+      "name": "size_33",
+      "value": "33vp"
+    },
+    {
+      "name": "size_34",
+      "value": "34vp"
+    },
+    {
+      "name": "size_35",
+      "value": "35vp"
+    },
+    {
+      "name": "size_36",
+      "value": "36vp"
+    },
+    {
+      "name": "size_37",
+      "value": "37vp"
+    },
+    {
+      "name": "size_38",
+      "value": "38vp"
+    },
+    {
+      "name": "size_39",
+      "value": "39vp"
+    },
+    {
+      "name": "size_40",
+      "value": "40vp"
+    },
+    {
+      "name": "size_41",
+      "value": "41vp"
+    },
+    {
+      "name": "size_42",
+      "value": "42vp"
+    },
+    {
+      "name": "size_43",
+      "value": "43vp"
+    },
+    {
+      "name": "size_44",
+      "value": "44vp"
+    },
+    {
+      "name": "size_45",
+      "value": "45vp"
+    },
+    {
+      "name": "size_46",
+      "value": "46vp"
+    },
+    {
+      "name": "size_47",
+      "value": "47vp"
+    },
+    {
+      "name": "size_48",
+      "value": "48vp"
+    },
+    {
+      "name": "size_49",
+      "value": "49vp"
+    },
+    {
+      "name": "size_50",
+      "value": "50vp"
+    },
+    {
+      "name": "size_51",
+      "value": "51vp"
+    },
+    {
+      "name": "size_52",
+      "value": "52vp"
+    },
+    {
+      "name": "size_53",
+      "value": "53vp"
+    },
+    {
+      "name": "size_54",
+      "value": "54vp"
+    },
+    {
+      "name": "size_55",
+      "value": "55vp"
+    },
+    {
+      "name": "size_56",
+      "value": "56vp"
+    },
+    {
+      "name": "size_57",
+      "value": "57vp"
+    },
+    {
+      "name": "size_58",
+      "value": "58vp"
+    },
+    {
+      "name": "size_59",
+      "value": "59vp"
+    },
+    {
+      "name": "size_60",
+      "value": "60vp"
+    },
+    {
+      "name": "size_61",
+      "value": "61vp"
+    },
+    {
+      "name": "size_62",
+      "value": "62vp"
+    },
+    {
+      "name": "size_63",
+      "value": "63vp"
+    },
+    {
+      "name": "size_64",
+      "value": "64vp"
+    },
+    {
+      "name": "size_65",
+      "value": "65vp"
+    },
+    {
+      "name": "size_66",
+      "value": "66vp"
+    },
+    {
+      "name": "size_67",
+      "value": "67vp"
+    },
+    {
+      "name": "size_68",
+      "value": "68vp"
+    },
+    {
+      "name": "size_69",
+      "value": "69vp"
+    },
+    {
+      "name": "size_70",
+      "value": "70vp"
+    },
+    {
+      "name": "size_71",
+      "value": "71vp"
+    },
+    {
+      "name": "size_72",
+      "value": "72vp"
+    },
+    {
+      "name": "size_73",
+      "value": "73vp"
+    },
+    {
+      "name": "size_74",
+      "value": "74vp"
+    },
+    {
+      "name": "size_75",
+      "value": "75vp"
+    },
+    {
+      "name": "size_76",
+      "value": "76vp"
+    },
+    {
+      "name": "size_77",
+      "value": "77vp"
+    },
+    {
+      "name": "size_78",
+      "value": "78vp"
+    },
+    {
+      "name": "size_79",
+      "value": "79vp"
+    },
+    {
+      "name": "size_80",
+      "value": "80vp"
+    },
+    {
+      "name": "size_81",
+      "value": "81vp"
+    },
+    {
+      "name": "size_82",
+      "value": "82vp"
+    },
+    {
+      "name": "size_83",
+      "value": "83vp"
+    },
+    {
+      "name": "size_84",
+      "value": "84vp"
+    },
+    {
+      "name": "size_85",
+      "value": "85vp"
+    },
+    {
+      "name": "size_86",
+      "value": "86vp"
+    },
+    {
+      "name": "size_87",
+      "value": "87vp"
+    },
+    {
+      "name": "size_88",
+      "value": "88vp"
+    },
+    {
+      "name": "size_89",
+      "value": "89vp"
+    },
+    {
+      "name": "size_90",
+      "value": "90vp"
+    },
+    {
+      "name": "size_91",
+      "value": "91vp"
+    },
+    {
+      "name": "size_92",
+      "value": "92vp"
+    },
+    {
+      "name": "size_93",
+      "value": "93vp"
+    },
+    {
+      "name": "size_94",
+      "value": "94vp"
+    },
+    {
+      "name": "size_95",
+      "value": "95vp"
+    },
+    {
+      "name": "size_96",
+      "value": "96vp"
+    },
+    {
+      "name": "size_97",
+      "value": "97vp"
+    },
+    {
+      "name": "size_98",
+      "value": "98vp"
+    },
+    {
+      "name": "size_99",
+      "value": "99vp"
+    },
+    {
+      "name": "size_100",
+      "value": "100vp"
+    },
+    {
+      "name": "size_101",
+      "value": "101vp"
+    },
+    {
+      "name": "size_102",
+      "value": "102vp"
+    },
+    {
+      "name": "size_103",
+      "value": "103vp"
+    },
+    {
+      "name": "size_104",
+      "value": "104vp"
+    },
+    {
+      "name": "size_105",
+      "value": "105vp"
+    },
+    {
+      "name": "size_106",
+      "value": "106vp"
+    },
+    {
+      "name": "size_107",
+      "value": "107vp"
+    },
+    {
+      "name": "size_108",
+      "value": "108vp"
+    },
+    {
+      "name": "size_109",
+      "value": "109vp"
+    },
+    {
+      "name": "size_110",
+      "value": "110vp"
+    },
+    {
+      "name": "size_111",
+      "value": "111vp"
+    },
+    {
+      "name": "size_112",
+      "value": "112vp"
+    },
+    {
+      "name": "size_113",
+      "value": "113vp"
+    },
+    {
+      "name": "size_114",
+      "value": "114vp"
+    },
+    {
+      "name": "size_115",
+      "value": "115vp"
+    },
+    {
+      "name": "size_116",
+      "value": "116vp"
+    },
+    {
+      "name": "size_117",
+      "value": "117vp"
+    },
+    {
+      "name": "size_118",
+      "value": "118vp"
+    },
+    {
+      "name": "size_119",
+      "value": "119vp"
+    },
+    {
+      "name": "size_120",
+      "value": "120vp"
+    },
+    {
+      "name": "size_121",
+      "value": "121vp"
+    },
+    {
+      "name": "size_122",
+      "value": "122vp"
+    },
+    {
+      "name": "size_123",
+      "value": "123vp"
+    },
+    {
+      "name": "size_124",
+      "value": "124vp"
+    },
+    {
+      "name": "size_125",
+      "value": "125vp"
+    },
+    {
+      "name": "size_126",
+      "value": "126vp"
+    },
+    {
+      "name": "size_127",
+      "value": "127vp"
+    },
+    {
+      "name": "size_128",
+      "value": "128vp"
+    },
+    {
+      "name": "size_129",
+      "value": "129vp"
+    },
+    {
+      "name": "size_130",
+      "value": "130vp"
+    },
+    {
+      "name": "size_131",
+      "value": "131vp"
+    },
+    {
+      "name": "size_132",
+      "value": "132vp"
+    },
+    {
+      "name": "size_133",
+      "value": "133vp"
+    },
+    {
+      "name": "size_134",
+      "value": "134vp"
+    },
+    {
+      "name": "size_135",
+      "value": "135vp"
+    },
+    {
+      "name": "size_136",
+      "value": "136vp"
+    },
+    {
+      "name": "size_137",
+      "value": "137vp"
+    },
+    {
+      "name": "size_138",
+      "value": "138vp"
+    },
+    {
+      "name": "size_139",
+      "value": "139vp"
+    },
+    {
+      "name": "size_140",
+      "value": "140vp"
+    },
+    {
+      "name": "size_141",
+      "value": "141vp"
+    },
+    {
+      "name": "size_142",
+      "value": "142vp"
+    },
+    {
+      "name": "size_143",
+      "value": "143vp"
+    },
+    {
+      "name": "size_144",
+      "value": "144vp"
+    },
+    {
+      "name": "size_145",
+      "value": "145vp"
+    },
+    {
+      "name": "size_146",
+      "value": "146vp"
+    },
+    {
+      "name": "size_147",
+      "value": "147vp"
+    },
+    {
+      "name": "size_148",
+      "value": "148vp"
+    },
+    {
+      "name": "size_149",
+      "value": "149vp"
+    },
+    {
+      "name": "size_150",
+      "value": "150vp"
+    },
+    {
+      "name": "size_151",
+      "value": "151vp"
+    },
+    {
+      "name": "size_152",
+      "value": "152vp"
+    },
+    {
+      "name": "size_153",
+      "value": "153vp"
+    },
+    {
+      "name": "size_154",
+      "value": "154vp"
+    },
+    {
+      "name": "size_155",
+      "value": "155vp"
+    },
+    {
+      "name": "size_156",
+      "value": "156vp"
+    },
+    {
+      "name": "size_157",
+      "value": "157vp"
+    },
+    {
+      "name": "size_158",
+      "value": "158vp"
+    },
+    {
+      "name": "size_159",
+      "value": "159vp"
+    },
+    {
+      "name": "size_160",
+      "value": "160vp"
+    },
+    {
+      "name": "size_161",
+      "value": "161vp"
+    },
+    {
+      "name": "size_162",
+      "value": "162vp"
+    },
+    {
+      "name": "size_163",
+      "value": "163vp"
+    },
+    {
+      "name": "size_164",
+      "value": "164vp"
+    },
+    {
+      "name": "size_165",
+      "value": "165vp"
+    },
+    {
+      "name": "size_166",
+      "value": "166vp"
+    },
+    {
+      "name": "size_167",
+      "value": "167vp"
+    },
+    {
+      "name": "size_168",
+      "value": "168vp"
+    },
+    {
+      "name": "size_169",
+      "value": "169vp"
+    },
+    {
+      "name": "size_170",
+      "value": "170vp"
+    },
+    {
+      "name": "size_171",
+      "value": "171vp"
+    },
+    {
+      "name": "size_172",
+      "value": "172vp"
+    },
+    {
+      "name": "size_173",
+      "value": "173vp"
+    },
+    {
+      "name": "size_174",
+      "value": "174vp"
+    },
+    {
+      "name": "size_175",
+      "value": "175vp"
+    },
+    {
+      "name": "size_176",
+      "value": "176vp"
+    },
+    {
+      "name": "size_177",
+      "value": "177vp"
+    },
+    {
+      "name": "size_178",
+      "value": "178vp"
+    },
+    {
+      "name": "size_179",
+      "value": "179vp"
+    },
+    {
+      "name": "size_180",
+      "value": "180vp"
+    },
+    {
+      "name": "size_181",
+      "value": "181vp"
+    },
+    {
+      "name": "size_182",
+      "value": "182vp"
+    },
+    {
+      "name": "size_183",
+      "value": "183vp"
+    },
+    {
+      "name": "size_184",
+      "value": "184vp"
+    },
+    {
+      "name": "size_185",
+      "value": "185vp"
+    },
+    {
+      "name": "size_186",
+      "value": "186vp"
+    },
+    {
+      "name": "size_187",
+      "value": "187vp"
+    },
+    {
+      "name": "size_188",
+      "value": "188vp"
+    },
+    {
+      "name": "size_189",
+      "value": "189vp"
+    },
+    {
+      "name": "size_190",
+      "value": "190vp"
+    },
+    {
+      "name": "size_191",
+      "value": "191vp"
+    },
+    {
+      "name": "size_192",
+      "value": "192vp"
+    },
+    {
+      "name": "size_193",
+      "value": "193vp"
+    },
+    {
+      "name": "size_194",
+      "value": "194vp"
+    },
+    {
+      "name": "size_195",
+      "value": "195vp"
+    },
+    {
+      "name": "size_196",
+      "value": "196vp"
+    },
+    {
+      "name": "size_197",
+      "value": "197vp"
+    },
+    {
+      "name": "size_198",
+      "value": "198vp"
+    },
+    {
+      "name": "size_199",
+      "value": "199vp"
+    },
+    {
+      "name": "size_200",
+      "value": "200vp"
+    },
+    {
+      "name": "size_201",
+      "value": "201vp"
+    },
+    {
+      "name": "size_202",
+      "value": "202vp"
+    },
+    {
+      "name": "size_203",
+      "value": "203vp"
+    },
+    {
+      "name": "size_204",
+      "value": "204vp"
+    },
+    {
+      "name": "size_205",
+      "value": "205vp"
+    },
+    {
+      "name": "size_206",
+      "value": "206vp"
+    },
+    {
+      "name": "size_207",
+      "value": "207vp"
+    },
+    {
+      "name": "size_208",
+      "value": "208vp"
+    },
+    {
+      "name": "size_209",
+      "value": "209vp"
+    },
+    {
+      "name": "size_210",
+      "value": "210vp"
+    },
+    {
+      "name": "size_211",
+      "value": "211vp"
+    },
+    {
+      "name": "size_212",
+      "value": "212vp"
+    },
+    {
+      "name": "size_213",
+      "value": "213vp"
+    },
+    {
+      "name": "size_214",
+      "value": "214vp"
+    },
+    {
+      "name": "size_215",
+      "value": "215vp"
+    },
+    {
+      "name": "size_216",
+      "value": "216vp"
+    },
+    {
+      "name": "size_217",
+      "value": "217vp"
+    },
+    {
+      "name": "size_218",
+      "value": "218vp"
+    },
+    {
+      "name": "size_219",
+      "value": "219vp"
+    },
+    {
+      "name": "size_220",
+      "value": "220vp"
+    },
+    {
+      "name": "size_221",
+      "value": "221vp"
+    },
+    {
+      "name": "size_222",
+      "value": "222vp"
+    },
+    {
+      "name": "size_223",
+      "value": "223vp"
+    },
+    {
+      "name": "size_224",
+      "value": "224vp"
+    },
+    {
+      "name": "size_225",
+      "value": "225vp"
+    },
+    {
+      "name": "size_226",
+      "value": "226vp"
+    },
+    {
+      "name": "size_227",
+      "value": "227vp"
+    },
+    {
+      "name": "size_228",
+      "value": "228vp"
+    },
+    {
+      "name": "size_229",
+      "value": "229vp"
+    },
+    {
+      "name": "size_230",
+      "value": "230vp"
+    },
+    {
+      "name": "size_231",
+      "value": "231vp"
+    },
+    {
+      "name": "size_232",
+      "value": "232vp"
+    },
+    {
+      "name": "size_233",
+      "value": "233vp"
+    },
+    {
+      "name": "size_234",
+      "value": "234vp"
+    },
+    {
+      "name": "size_235",
+      "value": "235vp"
+    },
+    {
+      "name": "size_236",
+      "value": "236vp"
+    },
+    {
+      "name": "size_237",
+      "value": "237vp"
+    },
+    {
+      "name": "size_238",
+      "value": "238vp"
+    },
+    {
+      "name": "size_239",
+      "value": "239vp"
+    },
+    {
+      "name": "size_240",
+      "value": "240vp"
+    },
+    {
+      "name": "size_241",
+      "value": "241vp"
+    },
+    {
+      "name": "size_242",
+      "value": "242vp"
+    },
+    {
+      "name": "size_243",
+      "value": "243vp"
+    },
+    {
+      "name": "size_244",
+      "value": "244vp"
+    },
+    {
+      "name": "size_245",
+      "value": "245vp"
+    },
+    {
+      "name": "size_246",
+      "value": "246vp"
+    },
+    {
+      "name": "size_247",
+      "value": "247vp"
+    },
+    {
+      "name": "size_248",
+      "value": "248vp"
+    },
+    {
+      "name": "size_249",
+      "value": "249vp"
+    },
+    {
+      "name": "size_250",
+      "value": "250vp"
+    },
+    {
+      "name": "size_251",
+      "value": "251vp"
+    },
+    {
+      "name": "size_252",
+      "value": "252vp"
+    },
+    {
+      "name": "size_253",
+      "value": "253vp"
+    },
+    {
+      "name": "size_254",
+      "value": "254vp"
+    },
+    {
+      "name": "size_255",
+      "value": "255vp"
+    },
+    {
+      "name": "size_256",
+      "value": "256vp"
+    },
+    {
+      "name": "size_257",
+      "value": "257vp"
+    },
+    {
+      "name": "size_258",
+      "value": "258vp"
+    },
+    {
+      "name": "size_259",
+      "value": "259vp"
+    },
+    {
+      "name": "size_260",
+      "value": "260vp"
+    },
+    {
+      "name": "size_261",
+      "value": "261vp"
+    },
+    {
+      "name": "size_262",
+      "value": "262vp"
+    },
+    {
+      "name": "size_263",
+      "value": "263vp"
+    },
+    {
+      "name": "size_264",
+      "value": "264vp"
+    },
+    {
+      "name": "size_265",
+      "value": "265vp"
+    },
+    {
+      "name": "size_266",
+      "value": "266vp"
+    },
+    {
+      "name": "size_267",
+      "value": "267vp"
+    },
+    {
+      "name": "size_268",
+      "value": "268vp"
+    },
+    {
+      "name": "size_269",
+      "value": "269vp"
+    },
+    {
+      "name": "size_270",
+      "value": "270vp"
+    },
+    {
+      "name": "size_271",
+      "value": "271vp"
+    },
+    {
+      "name": "size_272",
+      "value": "272vp"
+    },
+    {
+      "name": "size_273",
+      "value": "273vp"
+    },
+    {
+      "name": "size_274",
+      "value": "274vp"
+    },
+    {
+      "name": "size_275",
+      "value": "275vp"
+    },
+    {
+      "name": "size_276",
+      "value": "276vp"
+    },
+    {
+      "name": "size_277",
+      "value": "277vp"
+    },
+    {
+      "name": "size_278",
+      "value": "278vp"
+    },
+    {
+      "name": "size_279",
+      "value": "279vp"
+    },
+    {
+      "name": "size_280",
+      "value": "280vp"
+    },
+    {
+      "name": "size_281",
+      "value": "281vp"
+    },
+    {
+      "name": "size_282",
+      "value": "282vp"
+    },
+    {
+      "name": "size_283",
+      "value": "283vp"
+    },
+    {
+      "name": "size_284",
+      "value": "284vp"
+    },
+    {
+      "name": "size_285",
+      "value": "285vp"
+    },
+    {
+      "name": "size_286",
+      "value": "286vp"
+    },
+    {
+      "name": "size_287",
+      "value": "287vp"
+    },
+    {
+      "name": "size_288",
+      "value": "288vp"
+    },
+    {
+      "name": "size_289",
+      "value": "289vp"
+    },
+    {
+      "name": "size_290",
+      "value": "290vp"
+    },
+    {
+      "name": "size_291",
+      "value": "291vp"
+    },
+    {
+      "name": "size_292",
+      "value": "292vp"
+    },
+    {
+      "name": "size_293",
+      "value": "293vp"
+    },
+    {
+      "name": "size_294",
+      "value": "294vp"
+    },
+    {
+      "name": "size_295",
+      "value": "295vp"
+    },
+    {
+      "name": "size_296",
+      "value": "296vp"
+    },
+    {
+      "name": "size_297",
+      "value": "297vp"
+    },
+    {
+      "name": "size_298",
+      "value": "298vp"
+    },
+    {
+      "name": "size_299",
+      "value": "299vp"
+    },
+    {
+      "name": "size_300",
+      "value": "300vp"
+    },
+    {
+      "name": "size_text_1",
+      "value": "1fp"
+    },
+    {
+      "name": "size_text_2",
+      "value": "2fp"
+    },
+    {
+      "name": "size_text_3",
+      "value": "3fp"
+    },
+    {
+      "name": "size_text_4",
+      "value": "4fp"
+    },
+    {
+      "name": "size_text_5",
+      "value": "5fp"
+    },
+    {
+      "name": "size_text_6",
+      "value": "6fp"
+    },
+    {
+      "name": "size_text_7",
+      "value": "7fp"
+    },
+    {
+      "name": "size_text_8",
+      "value": "8fp"
+    },
+    {
+      "name": "size_text_9",
+      "value": "9fp"
+    },
+    {
+      "name": "size_text_10",
+      "value": "10fp"
+    },
+    {
+      "name": "size_text_11",
+      "value": "11fp"
+    },
+    {
+      "name": "size_text_12",
+      "value": "12fp"
+    },
+    {
+      "name": "size_text_13",
+      "value": "13fp"
+    },
+    {
+      "name": "size_text_14",
+      "value": "14fp"
+    },
+    {
+      "name": "size_text_15",
+      "value": "15fp"
+    },
+    {
+      "name": "size_text_16",
+      "value": "16fp"
+    },
+    {
+      "name": "size_text_17",
+      "value": "17fp"
+    },
+    {
+      "name": "size_text_18",
+      "value": "18fp"
+    },
+    {
+      "name": "size_text_19",
+      "value": "19fp"
+    },
+    {
+      "name": "size_text_20",
+      "value": "20fp"
+    },
+    {
+      "name": "size_text_21",
+      "value": "21fp"
+    },
+    {
+      "name": "size_text_22",
+      "value": "22fp"
+    },
+    {
+      "name": "size_text_23",
+      "value": "23fp"
+    },
+    {
+      "name": "size_text_24",
+      "value": "24fp"
+    },
+    {
+      "name": "size_text_25",
+      "value": "25fp"
+    },
+    {
+      "name": "size_text_26",
+      "value": "26fp"
+    },
+    {
+      "name": "size_text_27",
+      "value": "27fp"
+    },
+    {
+      "name": "size_text_28",
+      "value": "28fp"
+    },
+    {
+      "name": "size_text_29",
+      "value": "29fp"
+    },
+    {
+      "name": "size_text_30",
+      "value": "30fp"
+    },
+    {
+      "name": "size_text_31",
+      "value": "31fp"
+    },
+    {
+      "name": "size_text_32",
+      "value": "32fp"
+    },
+    {
+      "name": "size_text_33",
+      "value": "33fp"
+    },
+    {
+      "name": "size_text_34",
+      "value": "34fp"
+    },
+    {
+      "name": "size_text_35",
+      "value": "35fp"
+    },
+    {
+      "name": "size_text_36",
+      "value": "36fp"
+    },
+    {
+      "name": "size_text_37",
+      "value": "37fp"
+    },
+    {
+      "name": "size_text_38",
+      "value": "38fp"
+    },
+    {
+      "name": "size_text_39",
+      "value": "39fp"
+    },
+    {
+      "name": "size_text_40",
+      "value": "40fp"
+    },
+    {
+      "name": "size_text_41",
+      "value": "41fp"
+    },
+    {
+      "name": "size_text_42",
+      "value": "42fp"
+    },
+    {
+      "name": "size_text_43",
+      "value": "43fp"
+    },
+    {
+      "name": "size_text_44",
+      "value": "44fp"
+    },
+    {
+      "name": "size_text_45",
+      "value": "45fp"
+    },
+    {
+      "name": "size_text_46",
+      "value": "46fp"
+    },
+    {
+      "name": "size_text_47",
+      "value": "47fp"
+    },
+    {
+      "name": "size_text_48",
+      "value": "48fp"
+    },
+    {
+      "name": "size_text_49",
+      "value": "49fp"
+    },
+    {
+      "name": "size_text_50",
+      "value": "50fp"
+    },
+    {
+      "name": "size_text_51",
+      "value": "51fp"
+    },
+    {
+      "name": "size_text_52",
+      "value": "52fp"
+    },
+    {
+      "name": "size_text_53",
+      "value": "53fp"
+    },
+    {
+      "name": "size_text_54",
+      "value": "54fp"
+    },
+    {
+      "name": "size_text_55",
+      "value": "55fp"
+    },
+    {
+      "name": "size_text_56",
+      "value": "56fp"
+    },
+    {
+      "name": "size_text_57",
+      "value": "57fp"
+    },
+    {
+      "name": "size_text_58",
+      "value": "58fp"
+    },
+    {
+      "name": "size_text_59",
+      "value": "59fp"
+    },
+    {
+      "name": "size_text_60",
+      "value": "60fp"
+    },
+    {
+      "name": "size_text_61",
+      "value": "61fp"
+    },
+    {
+      "name": "size_text_62",
+      "value": "62fp"
+    },
+    {
+      "name": "size_text_63",
+      "value": "63fp"
+    },
+    {
+      "name": "size_text_64",
+      "value": "64fp"
+    },
+    {
+      "name": "size_text_65",
+      "value": "65fp"
+    },
+    {
+      "name": "size_text_66",
+      "value": "66fp"
+    },
+    {
+      "name": "size_text_67",
+      "value": "67fp"
+    },
+    {
+      "name": "size_text_68",
+      "value": "68fp"
+    },
+    {
+      "name": "size_text_69",
+      "value": "69fp"
+    },
+    {
+      "name": "size_text_70",
+      "value": "70fp"
+    },
+    {
+      "name": "size_text_71",
+      "value": "71fp"
+    },
+    {
+      "name": "size_text_72",
+      "value": "72fp"
+    },
+    {
+      "name": "size_text_73",
+      "value": "73fp"
+    },
+    {
+      "name": "size_text_74",
+      "value": "74fp"
+    },
+    {
+      "name": "size_text_75",
+      "value": "75fp"
+    },
+    {
+      "name": "size_text_76",
+      "value": "76fp"
+    },
+    {
+      "name": "size_text_77",
+      "value": "77fp"
+    },
+    {
+      "name": "size_text_78",
+      "value": "78fp"
+    },
+    {
+      "name": "size_text_79",
+      "value": "79fp"
+    },
+    {
+      "name": "size_text_80",
+      "value": "80fp"
+    },
+    {
+      "name": "size_text_81",
+      "value": "81fp"
+    },
+    {
+      "name": "size_text_82",
+      "value": "82fp"
+    },
+    {
+      "name": "size_text_83",
+      "value": "83fp"
+    },
+    {
+      "name": "size_text_84",
+      "value": "84fp"
+    },
+    {
+      "name": "size_text_85",
+      "value": "85fp"
+    },
+    {
+      "name": "size_text_86",
+      "value": "86fp"
+    },
+    {
+      "name": "size_text_87",
+      "value": "87fp"
+    },
+    {
+      "name": "size_text_88",
+      "value": "88fp"
+    },
+    {
+      "name": "size_text_89",
+      "value": "89fp"
+    },
+    {
+      "name": "size_text_90",
+      "value": "90fp"
+    },
+    {
+      "name": "size_text_91",
+      "value": "91fp"
+    },
+    {
+      "name": "size_text_92",
+      "value": "92fp"
+    },
+    {
+      "name": "size_text_93",
+      "value": "93fp"
+    },
+    {
+      "name": "size_text_94",
+      "value": "94fp"
+    },
+    {
+      "name": "size_text_95",
+      "value": "95fp"
+    },
+    {
+      "name": "size_text_96",
+      "value": "96fp"
+    },
+    {
+      "name": "size_text_97",
+      "value": "97fp"
+    },
+    {
+      "name": "size_text_98",
+      "value": "98fp"
+    },
+    {
+      "name": "size_text_99",
+      "value": "99fp"
+    },
+    {
+      "name": "size_text_100",
+      "value": "100fp"
+    }
+  ]
+}
+
