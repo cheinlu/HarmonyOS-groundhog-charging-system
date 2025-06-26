@@ -74,7 +74,9 @@ backup: 后端
 3.个人中心页：个人头像+昵称，充电余额，充电订单，功能区，退出登录等
 4.扫码：（此功能暂未实现）
 ### 项目截图：
-<img src="md_img/app2.png" alt="My Image" width="240" height="500"/>  <img src="md_img/app1.png" alt="My Image" width="240" height="500"/>  <img src="md_img/app3.png" alt="My Image" width="240" height="500"/>  <img src="md_img/app4.png" alt="My Image" width="240" height="500"/>
+<img src="md_img/app2.png" alt="My Image" width="240" height="500"/>  <img src="md_img/app1.png" alt="My Image" width="240" height="500"/>  <img src="md_img/app3.png" alt="My Image" width="240" height="500"/>  
+<img src="md_img/app5.jpg" alt="My Image" width="240" height="500"/>  
+<img src="md_img/app6.jpg" alt="My Image" width="240" height="500"/> <img src="md_img/app4.png" alt="My Image" width="240" height="500"/>
 
 ## 二、微信小程序-土拨鼠充电小程序
 ### 项目文件夹：front-mini-programe
@@ -89,7 +91,8 @@ backup: 后端
 2.扫码：根据桩上的设备二维码，可以扫码连接充电
 3.我的：登录、个人信息页面【头像+昵称、充电余额、充电订单、功能区、退出登录】
 ### 项目截图：
-<img src="md_img/xcx1.png" alt="My Image" width="240" height="500"/>  <img src="md_img/xcx4.png" alt="My Image" width="240" height="500"/>  <img src="md_img/xcx2.png" alt="My Image" width="240" height="500"/>  <img src="md_img/xcx3.png" alt="My Image" width="240" height="500"/>
+<img src="md_img/xcx1.png" alt="My Image" width="240" height="500"/>  <img src="md_img/xcx4.png" alt="My Image" width="240" height="500"/>  <img src="md_img/xcx2.png" alt="My Image" width="240" height="500"/>  
+<img src="md_img/xcx3.png" alt="My Image" width="240" height="500"/>
 
 
 ## 三、土拨鼠充电云平台
