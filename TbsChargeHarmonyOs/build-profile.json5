@@ -5,13 +5,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "/Users/hy-harmonyos/.ohos/config/default_TbsChargeHarmonyOs__ufzCLcvdd2BeOQN_cfx1Mk-FbpSy8fSUNeYHFguig0=.cer",
-          "keyAlias": "debugKey",
-          "keyPassword": "0000001B53461D81B19F9BD47E7C31EC1EA070D49B3C91F1571B87AFCA7EE60594763AFE406575969AE725",
-          "profile": "/Users/hy-harmonyos/.ohos/config/default_TbsChargeHarmonyOs__ufzCLcvdd2BeOQN_cfx1Mk-FbpSy8fSUNeYHFguig0=.p7b",
+          "storeFile": "/Users/hy-harmonyos/Desktop/Lucy-folder/code/证书/应用商店资料/土拨鼠充电/tbscd.p12",
+          "storePassword": "0000001902A1496F0B1DDD73618B324DEC1FF29C72657B97A11A9075BD143186CF42AB3FE36C79C571",
+          "keyAlias": "tbscd",
+          "keyPassword": "000000191607140ED4B7DAC5490D79BE8517AC82D718DADF68AC97C210F742CFA7F0A19F85E4F2A713",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "/Users/hy-harmonyos/.ohos/config/default_TbsChargeHarmonyOs__ufzCLcvdd2BeOQN_cfx1Mk-FbpSy8fSUNeYHFguig0=.p12",
-          "storePassword": "0000001BE758B9DBF482A01A49926F86B3A5B0895ED3D3B13FDA169A48C1E30D0F507FF05FED46C1682643"
+          "profile": "/Users/hy-harmonyos/Desktop/Lucy-folder/code/证书/应用商店资料/土拨鼠充电/tbscdRelease.p7b",
+          "certpath": "/Users/hy-harmonyos/Desktop/Lucy-folder/code/证书/应用商店资料/土拨鼠充电/tbscd.cer"
         }
       }
     ],
