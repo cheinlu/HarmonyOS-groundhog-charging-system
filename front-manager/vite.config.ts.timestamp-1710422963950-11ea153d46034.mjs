@@ -36,7 +36,8 @@ var vite_config_default = defineConfig(({ command }) => {
     server: {
       proxy: {
         "/saas-api": {
-          target: "http://127.0.0.1:8000/",
+          // target: 'http://127.0.0.1:8000/',
+          target:'http://charging.lusson.xyz',
           changeOrigin: true
         }
       }
